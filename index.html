@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FX Seasonality</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <section id="authScreen" class="auth-screen" hidden>
+      <form id="passwordForm" class="auth-card">
+        <p class="eyebrow">Private dashboard</p>
+        <h1>FX Seasonality</h1>
+        <p class="auth-copy">Enter the access password to open the dashboard.</p>
+        <label>
+          Password
+          <input id="passwordInput" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="primary-button" type="submit">Unlock dashboard</button>
+        <p id="authMessage" class="auth-message"></p>
+        <div id="codeAccess" class="code-access" hidden>
+          <hr />
+          <p class="auth-copy">New device? Request a temporary code from the owner.</p>
+          <label>
+            Your name
+            <input id="requesterInput" type="text" autocomplete="name" />
+          </label>
+          <button id="requestCodeBtn" class="secondary-button" type="button">Request code</button>
+          <label id="codeLabel" hidden>
+            Access code
+            <input id="codeInput" type="text" inputmode="numeric" autocomplete="one-time-code" />
+          </label>
+          <button id="verifyCodeBtn" class="secondary-button" type="button" hidden>Verify code</button>
+        </div>
+      </form>
+    </section>
+    <main class="app-shell">
+      <section class="topbar">
+        <div>
+          <p class="eyebrow">EODHD daily FX seasonality</p>
+          <h1>FX Seasonality Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <button id="logoutBtn" class="secondary-button" type="button">Lock</button>
+          <button id="refreshBtn" class="primary-button" type="button">Refresh data</button>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Dashboard controls">
+        <label>
+          History
+          <select id="historyYears">
+            <option value="5">5 years</option>
+            <option value="10" selected>10 years</option>
+            <option value="20">20 years</option>
+            <option value="30">30 years</option>
+          </select>
+        </label>
+        <label>
+          Seasonality
+          <select id="method">
+            <option value="dayOfYear">Day of year</option>
+            <option value="weekOfYear">Week of year</option>
+            <option value="monthOfYear">Month of year</option>
+            <option value="dayOfMonth">Day of month</option>
+            <option value="dayOfWeek">Day of week</option>
+          </select>
+        </label>
+        <label>
+          Forward window
+          <select id="windowDays">
+            <option value="1">1 trading day</option>
+            <option value="3">3 trading days</option>
+            <option value="5" selected>5 trading days</option>
+            <option value="10">10 trading days</option>
+            <option value="20">20 trading days</option>
+            <option value="30">30 trading days</option>
+          </select>
+        </label>
+        <label>
+          Minimum win rate
+          <select id="minWinRate">
+            <option value="0.6" selected>60%</option>
+            <option value="0.65">65%</option>
+            <option value="0.7">70%</option>
+            <option value="0.75">75%</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="status-row">
+        <div id="statusText">Loading FX data...</div>
+        <div id="coverageText"></div>
+      </section>
+
+      <section class="summary-grid">
+        <article>
+          <span>Pairs loaded</span>
+          <strong id="pairCount">-</strong>
+        </article>
+        <article>
+          <span>Bullish signals</span>
+          <strong id="bullCount">-</strong>
+        </article>
+        <article>
+          <span>Bearish signals</span>
+          <strong id="bearCount">-</strong>
+        </article>
+        <article>
+          <span>Best currency</span>
+          <strong id="bestCurrency">-</strong>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>Top bullish pairs</h2>
+            <span id="bullishSub"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Win</th>
+                  <th>Avg</th>
+                  <th>Samples</th>
+                  <th>Best/Worst</th>
+                </tr>
+              </thead>
+              <tbody id="bullishTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <h2>Top bearish pairs</h2>
+            <span id="bearishSub"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Win</th>
+                  <th>Avg</th>
+                  <th>Samples</th>
+                  <th>Best/Worst</th>
+                </tr>
+              </thead>
+              <tbody id="bearishTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-heading">
+            <h2>Currency strength / weakness</h2>
+            <span>Aggregated from qualifying pair signals</span>
+          </div>
+          <div id="currencyBars" class="bars"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-heading">
+            <h2>Seasonal heatmap</h2>
+            <span>Average forward return by month and pair</span>
+          </div>
+          <div id="heatmap" class="heatmap"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-heading">
+            <h2>Selected pair seasonal path</h2>
+            <select id="chartPair"></select>
+          </div>
+          <canvas id="pathChart" width="1200" height="360"></canvas>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-heading">
+            <h2>Pair universe</h2>
+            <span>Toggle pairs to include</span>
+          </div>
+          <div id="pairPicker" class="pair-picker"></div>
+        </article>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
