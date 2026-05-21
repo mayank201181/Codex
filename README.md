@@ -1,6 +1,6 @@
-# FX Seasonality Dashboard
+# Vocab
 
-A local dashboard for EODHD daily FX data. It ranks bullish and bearish seasonal tendencies by pair, then aggregates those pair signals into currency strength and weakness.
+A small vocabulary dashboard for a Year 10 IGCSE student. It focuses on advanced but usable vocabulary for English essays, literature analysis, SAT-style reading, and everyday precision.
 
 ## Run
 
@@ -8,43 +8,19 @@ A local dashboard for EODHD daily FX data. It ranks bullish and bearish seasonal
 npm start
 ```
 
-Open `http://localhost:5177`.
-
-The local password is loaded from `.env`:
-
-```text
-AUTH_PASSWORD=FxSeason2026!
-```
+Open `http://127.0.0.1:5177`.
 
 ## What it includes
 
-- History choices: 5, 10, 20, and 30 years.
-- Seasonality modes: day of year, week of year, month of year, day of month, and day of week.
-- Forward windows: 1, 3, 5, 10, 20, and 30 trading days.
-- Bullish and bearish leaderboards filtered by minimum win rate.
-- Currency strength / weakness aggregation from pair signals.
-- Monthly heatmap and seasonal path chart.
-- Local EODHD response cache under `data/cache`.
-- Private password login.
-- Optional owner-approved email access codes when deployed with Resend email settings.
+- Daily word set with due-review words mixed with fresh vocabulary.
+- Multiple-choice quizzes that update the review schedule.
+- Spaced review levels from daily review through longer intervals.
+- Writing prompts that ask the student to use target words in context.
+- A searchable word bank grouped by focus area.
+- Saved writing responses.
+- Local progress storage in the browser.
+- Export and import for backing up progress.
 
-The EODHD API key is loaded from `.env`.
+## Notes
 
-## Public Deployment
-
-For Render or a similar Node hosting service:
-
-- Build command: `npm install`
-- Start command: `npm start`
-- Environment variables:
-  - `EODHD_API_KEY`
-  - `AUTH_PASSWORD`
-  - `SESSION_SECRET`
-  - optional `HOST=0.0.0.0`
-
-For emailed access codes, create a Resend account and add:
-
-- `EMAIL_CODE_ENABLED=true`
-- `OWNER_EMAIL=you@example.com`
-- `RESEND_API_KEY`
-- `EMAIL_FROM=FX Dashboard <onboarding@resend.dev>` or a verified sender address
+Progress is stored in `localStorage` in the browser. Use the export button periodically if the student will switch browsers or devices.
