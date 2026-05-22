@@ -1,466 +1,352 @@
-const WORDS = [
-  { word: "astute", category: "Analysis", level: "Core", definition: "able to notice and understand things quickly and accurately", example: "Her astute reading of the narrator reveals how little he understands himself.", synonyms: "perceptive, shrewd, discerning", nuance: "Often positive, especially for judgement or insight." },
-  { word: "ambivalent", category: "Character", level: "Core", definition: "having mixed or conflicting feelings about something", example: "The speaker remains ambivalent about ambition, admiring its force while fearing its cost.", synonyms: "conflicted, uncertain, torn", nuance: "More precise than simply unsure." },
-  { word: "anomaly", category: "SAT", level: "Core", definition: "something that does not fit the expected pattern", example: "The character's kindness is an anomaly in a society shaped by suspicion.", synonyms: "exception, irregularity, outlier", nuance: "Useful in argument when one example disrupts a trend." },
-  { word: "articulate", category: "Argument", level: "Core", definition: "to express an idea clearly and effectively", example: "The essay articulates a clear objection to casual prejudice.", synonyms: "express, formulate, voice", nuance: "As a verb, it suggests controlled clarity." },
-  { word: "candid", category: "Tone", level: "Core", definition: "honest and direct, especially about something difficult", example: "The candid tone makes the memoir feel intimate rather than performative.", synonyms: "frank, open, sincere", nuance: "Direct without necessarily being rude." },
-  { word: "coherent", category: "Argument", level: "Core", definition: "logical, consistent, and easy to follow", example: "Her argument is coherent because each paragraph develops the same central claim.", synonyms: "logical, orderly, consistent", nuance: "A key word for evaluating essays." },
-  { word: "compelling", category: "Argument", level: "Core", definition: "strong enough to persuade or hold attention", example: "The final image is compelling because it turns private grief into public accusation.", synonyms: "persuasive, convincing, powerful", nuance: "Can describe evidence, stories, or interpretations." },
-  { word: "concede", category: "Argument", level: "Core", definition: "to admit that something is true, often before making a stronger point", example: "Although the writer concedes that tradition can comfort people, she questions its authority.", synonyms: "admit, acknowledge, grant", nuance: "Very useful for balanced essays." },
-  { word: "connotation", category: "Analysis", level: "Core", definition: "the associations or feelings a word suggests beyond its literal meaning", example: "The word 'confined' has connotations of imprisonment and lost freedom.", synonyms: "association, implication, overtone", nuance: "Central for close language analysis." },
-  { word: "contradictory", category: "Argument", level: "Core", definition: "containing ideas that cannot both be true in the same way", example: "The protagonist's contradictory behaviour makes him more convincing as a flawed human being.", synonyms: "inconsistent, conflicting, incompatible", nuance: "Stronger than different." },
-  { word: "conviction", category: "Character", level: "Core", definition: "a firmly held belief or a confident sense of certainty", example: "Her moral conviction gives the speech its urgency.", synonyms: "belief, certainty, principle", nuance: "Can imply strength but also inflexibility." },
-  { word: "cultivate", category: "SAT", level: "Core", definition: "to develop something carefully over time", example: "The writer cultivates sympathy for a character who first appears selfish.", synonyms: "develop, nurture, foster", nuance: "Suggests deliberate, gradual effort." },
-  { word: "detrimental", category: "SAT", level: "Core", definition: "harmful or damaging", example: "The policy is detrimental because it rewards obedience instead of curiosity.", synonyms: "harmful, damaging, adverse", nuance: "Formal alternative to bad for." },
-  { word: "discern", category: "Analysis", level: "Core", definition: "to notice or understand something that is not immediately obvious", example: "Readers can discern a quiet resentment beneath the polite dialogue.", synonyms: "detect, perceive, distinguish", nuance: "Excellent for subtle interpretation." },
-  { word: "emulate", category: "SAT", level: "Core", definition: "to try to equal or imitate someone admired", example: "The younger poet emulates the confidence of earlier political writers.", synonyms: "imitate, mirror, follow", nuance: "Usually implies admiration." },
-  { word: "evoke", category: "Analysis", level: "Core", definition: "to bring a feeling, memory, or image into the reader's mind", example: "The description of fog evokes uncertainty and moral confusion.", synonyms: "suggest, summon, conjure", nuance: "Useful for effects in literature." },
-  { word: "formidable", category: "SAT", level: "Core", definition: "impressive, powerful, or difficult to deal with", example: "Her silence becomes a formidable form of resistance.", synonyms: "impressive, daunting, powerful", nuance: "Can be admiring or intimidating." },
-  { word: "impartial", category: "Argument", level: "Core", definition: "fair and not favouring one side", example: "The article adopts an impartial tone before revealing its criticism.", synonyms: "neutral, unbiased, objective", nuance: "More formal than fair." },
-  { word: "implicit", category: "Analysis", level: "Core", definition: "suggested without being directly stated", example: "The implicit criticism of class is sharper because it is never announced.", synonyms: "implied, indirect, unstated", nuance: "Opposite of explicit." },
-  { word: "inadvertent", category: "SAT", level: "Core", definition: "not intentional", example: "His inadvertent insult exposes the assumptions he normally hides.", synonyms: "accidental, unplanned, unintended", nuance: "Formal word for by mistake." },
-  { word: "inevitable", category: "Argument", level: "Core", definition: "certain to happen and impossible to avoid", example: "The ending feels inevitable because each choice narrows the character's freedom.", synonyms: "unavoidable, certain, inescapable", nuance: "Can describe plot, consequences, or social change." },
-  { word: "integral", category: "Argument", level: "Core", definition: "essential to the whole", example: "The setting is integral to the story's critique of isolation.", synonyms: "essential, central, necessary", nuance: "Stronger than important." },
-  { word: "juxtapose", category: "Analysis", level: "Core", definition: "to place two things side by side to highlight contrast", example: "The poem juxtaposes wealth and hunger to expose social hypocrisy.", synonyms: "contrast, compare, place beside", nuance: "A high-value literary analysis verb." },
-  { word: "lucid", category: "Tone", level: "Core", definition: "clear and easy to understand", example: "The writer's lucid prose makes a complex moral issue accessible.", synonyms: "clear, intelligible, plain", nuance: "Positive word for clarity." },
-  { word: "meticulous", category: "Character", level: "Core", definition: "showing great care and attention to detail", example: "The detective's meticulous habits contrast with the chaos around her.", synonyms: "careful, precise, thorough", nuance: "Usually positive, but can imply obsessiveness." },
-  { word: "nuance", category: "Analysis", level: "Core", definition: "a subtle difference in meaning, feeling, or expression", example: "The essay gains nuance when it recognises both courage and vanity in the hero.", synonyms: "subtlety, distinction, shade", nuance: "Essential for mature analysis." },
-  { word: "ominous", category: "Tone", level: "Core", definition: "suggesting that something bad may happen", example: "The ominous silence before the announcement creates suspense.", synonyms: "threatening, foreboding, sinister", nuance: "Often used for atmosphere." },
-  { word: "plausible", category: "Argument", level: "Core", definition: "reasonable or believable", example: "This interpretation is plausible because it accounts for the final image.", synonyms: "credible, believable, reasonable", nuance: "Does not mean definitely true." },
-  { word: "poignant", category: "Tone", level: "Core", definition: "deeply moving, often because of sadness or tenderness", example: "The final letter is poignant because it arrives too late.", synonyms: "moving, affecting, touching", nuance: "More restrained than heartbreaking." },
-  { word: "pragmatic", category: "Argument", level: "Core", definition: "focused on what is practical and realistic", example: "The speaker's pragmatic solution lacks beauty but solves the immediate problem.", synonyms: "practical, realistic, sensible", nuance: "Can be positive or slightly cold." },
-  { word: "precarious", category: "SAT", level: "Core", definition: "dangerously unstable or uncertain", example: "The family's precarious finances intensify every small conflict.", synonyms: "unstable, insecure, risky", nuance: "Useful for social or emotional situations." },
-  { word: "profound", category: "Analysis", level: "Core", definition: "deep, serious, or far-reaching", example: "The play presents a profound conflict between loyalty and conscience.", synonyms: "deep, significant, far-reaching", nuance: "Avoid overusing it for merely good ideas." },
-  { word: "resilient", category: "Character", level: "Core", definition: "able to recover after difficulty", example: "Her resilient humour prevents the novel from becoming bleak.", synonyms: "tough, adaptable, enduring", nuance: "Often describes people, communities, or voices." },
-  { word: "scrutinise", category: "Analysis", level: "Core", definition: "to examine very carefully", example: "The narrator invites us to scrutinise the gap between appearance and truth.", synonyms: "inspect, examine, analyse", nuance: "British spelling; US spelling is scrutinize." },
-  { word: "subtle", category: "Analysis", level: "Core", definition: "delicate, indirect, or not immediately obvious", example: "The writer's subtle irony makes the praise sound suspicious.", synonyms: "delicate, understated, indirect", nuance: "Not the same as weak." },
-  { word: "tenacious", category: "Character", level: "Core", definition: "determined and unwilling to give up", example: "His tenacious search for justice gives the novel its momentum.", synonyms: "persistent, determined, resolute", nuance: "Can admire persistence or suggest stubbornness." },
-  { word: "undermine", category: "Analysis", level: "Core", definition: "to weaken something gradually or indirectly", example: "The comic ending undermines the seriousness of the speech.", synonyms: "weaken, erode, subvert", nuance: "Excellent for analysing shifts in tone or authority." },
-  { word: "viable", category: "Argument", level: "Core", definition: "capable of working successfully", example: "The proposal is only viable if the school protects time for reading.", synonyms: "workable, feasible, practical", nuance: "Often used for plans or solutions." },
-  { word: "acerbic", category: "Tone", level: "Stretch", definition: "sharp, biting, or severe in tone", example: "The critic's acerbic humour turns politeness into attack.", synonyms: "biting, caustic, cutting", nuance: "More precise than mean or sarcastic." },
-  { word: "assiduous", category: "SAT", level: "Stretch", definition: "showing steady care and effort", example: "Her assiduous preparation makes the final debate feel earned.", synonyms: "diligent, persistent, attentive", nuance: "Formal word for hardworking in a careful way." },
-  { word: "capricious", category: "Character", level: "Stretch", definition: "changing suddenly and unpredictably", example: "The ruler's capricious decisions make everyone fearful.", synonyms: "fickle, unpredictable, erratic", nuance: "Often describes people with power." },
-  { word: "didactic", category: "Analysis", level: "Stretch", definition: "intended to teach, sometimes too obviously", example: "The ending becomes didactic when the narrator explains the moral directly.", synonyms: "instructive, moralising, educational", nuance: "Can be neutral or critical." },
-  { word: "equivocal", category: "Argument", level: "Stretch", definition: "ambiguous or open to more than one interpretation", example: "The character's equivocal apology leaves readers unsure of his sincerity.", synonyms: "ambiguous, unclear, uncertain", nuance: "Useful when evidence points in two directions." },
-  { word: "fastidious", category: "Character", level: "Stretch", definition: "very attentive to detail, especially cleanliness or standards", example: "His fastidious manners disguise a deep insecurity.", synonyms: "meticulous, exacting, fussy", nuance: "Can sound admiring or critical." },
-  { word: "incongruous", category: "Analysis", level: "Stretch", definition: "strangely out of place or not fitting the context", example: "The cheerful music feels incongruous after the scene of loss.", synonyms: "out of place, jarring, unsuitable", nuance: "Great for tonal mismatch." },
-  { word: "laconic", category: "Tone", level: "Stretch", definition: "using very few words", example: "The father's laconic replies suggest emotional distance.", synonyms: "brief, terse, concise", nuance: "Not necessarily rude; can be controlled." },
-  { word: "mellifluous", category: "Tone", level: "Stretch", definition: "smooth and pleasant to hear", example: "The mellifluous rhythm softens the poem's darker ideas.", synonyms: "smooth, musical, flowing", nuance: "Usually describes sound or style." },
-  { word: "perfunctory", category: "Character", level: "Stretch", definition: "done with little care because it is only a duty", example: "His perfunctory apology reveals that he has learned nothing.", synonyms: "half-hearted, cursory, mechanical", nuance: "A precise word for empty politeness." },
-  { word: "sardonic", category: "Tone", level: "Stretch", definition: "mocking in a dark, bitter, or cynical way", example: "The narrator's sardonic comments make heroism seem ridiculous.", synonyms: "mocking, cynical, scornful", nuance: "Sharper and darker than sarcastic." },
-  { word: "trenchant", category: "Argument", level: "Stretch", definition: "sharp, clear, and forceful", example: "The essay offers a trenchant critique of performative kindness.", synonyms: "incisive, sharp, forceful", nuance: "Often positive for criticism." },
-  { word: "vacillate", category: "Character", level: "Stretch", definition: "to keep changing between choices or opinions", example: "He vacillates between loyalty to his family and loyalty to the truth.", synonyms: "waver, hesitate, fluctuate", nuance: "More active than being unsure." },
-  { word: "zeitgeist", category: "SAT", level: "Stretch", definition: "the defining mood or spirit of a particular time", example: "The novel captures the zeitgeist of a generation anxious about status.", synonyms: "spirit of the age, cultural mood", nuance: "Useful for context, but use sparingly." },
+const TOPICS = [
+  topic("Introduction to Science", "IS", "#176b55",
+    "How scientists ask questions, plan fair tests, measure accurately, record evidence, and write conclusions.",
+    ["variables", "risk", "accuracy", "graph skills", "conclusions"],
+    ["Independent variable: the thing you change.", "Dependent variable: the thing you measure.", "Control variables: things kept the same.", "A fair test changes only one independent variable.", "Use SI units, repeat readings, and calculate a mean when readings vary.", "A conclusion should use data and answer the investigation question."],
+    "CORMM helps experiments: Change one thing, Observe/measure one thing, Repeat, Measure carefully, keep other things the same.",
+    ["Forgetting units in tables or graphs.", "Saying 'it went up' without quoting data.", "Confusing accuracy with precision.", "Changing more than one variable in a fair test."],
+    ["Name the independent, dependent, and control variables in an investigation.", "Explain why repeated readings make results more reliable.", "Describe how to draw a line graph from results.", "Write a conclusion using data.", "Explain one safety risk and one control measure."],
+    scienceDiagram("fairtest")),
+  topic("Electricity and Energy", "EE", "#255f9f",
+    "Simple circuits, energy stores and transfers, current, voltage, resistance, and how energy is conserved.",
+    ["series circuits", "parallel circuits", "current", "voltage", "energy stores"],
+    ["Current is the flow of charge and is measured in amperes.", "Voltage is the energy transferred per unit charge and is measured in volts.", "Resistance makes it harder for current to flow.", "In a series circuit, current is the same everywhere.", "In a parallel circuit, current splits between branches.", "Energy is transferred between stores but is not created or destroyed."],
+    "VIP: Voltage pushes, current Is flow, resistance Prevents flow.",
+    ["Drawing a voltmeter in series instead of parallel.", "Writing that energy is 'used up' instead of transferred.", "Forgetting that current is the same in all parts of a series circuit.", "Mixing up cells and batteries."],
+    ["Compare current in series and parallel circuits.", "Explain what a battery does in a circuit.", "Describe how adding bulbs in series affects brightness.", "Explain energy conservation.", "State the units for current and voltage."],
+    scienceDiagram("circuit")),
+  topic("Reproduction and Variation", "RV", "#b04747",
+    "Human reproduction, fertilisation, puberty, inheritance, environmental variation, and why offspring differ.",
+    ["puberty", "fertilisation", "gametes", "inheritance", "variation"],
+    ["Gametes are sex cells: sperm and egg cells.", "Fertilisation happens when the nuclei of sperm and egg join.", "The fertilised egg develops into an embryo.", "Inherited variation comes from genes passed from parents.", "Environmental variation is caused by surroundings and experiences.", "Puberty is when the body changes so it can reproduce."],
+    "GO FRED: Gametes, Ovary/testes, Fertilisation, Reproduction, Embryo, Development.",
+    ["Saying fertilisation happens in the uterus rather than the oviduct.", "Confusing inherited and environmental variation.", "Using vague words like 'baby seed' instead of sperm, egg, embryo.", "Forgetting that variation exists within a species."],
+    ["Describe fertilisation.", "Compare inherited and environmental variation.", "Name the male and female gametes.", "Explain why siblings are similar but not identical.", "Describe the role of puberty in reproduction."],
+    scienceDiagram("reproduction")),
+  topic("Cells to Systems", "CS", "#7157a6",
+    "Plant and animal cells, specialised cells, tissues, organs, organ systems, and how structure links to function.",
+    ["cells", "tissues", "organs", "systems", "microscopes"],
+    ["Cells are the basic units of living things.", "Animal cells have a nucleus, cytoplasm, cell membrane, and mitochondria.", "Plant cells also have a cell wall, chloroplasts, and a permanent vacuole.", "Specialised cells have adaptations for their job.", "Tissues are groups of similar cells.", "Organs are made of tissues and organ systems are made of organs."],
+    "Cells -> Tissues -> Organs -> Organ systems -> Organism: C T O O O.",
+    ["Drawing plant cells without a cell wall.", "Saying the nucleus is the 'brain' without explaining that it controls activities.", "Mixing up tissue and organ.", "Forgetting magnification units or scale."],
+    ["Compare plant and animal cells.", "Explain how a sperm or root hair cell is adapted.", "Put cell, tissue, organ, system, organism in order.", "Describe the job of mitochondria.", "Explain why microscopes are useful."],
+    scienceDiagram("cell")),
+  topic("Ecological Interactions", "EI", "#3f7f3d",
+    "Habitats, adaptations, food chains, food webs, competition, predators, prey, and how ecosystems change.",
+    ["habitats", "adaptation", "food chains", "competition", "predators"],
+    ["A habitat is where an organism lives.", "A population is all organisms of one species in an area.", "A community is all the populations in a habitat.", "Food chains show feeding relationships and energy transfer.", "Arrows show the direction of energy transfer.", "Organisms compete for resources such as food, space, light, water, and mates."],
+    "HPC: Habitat has Populations; populations make Communities.",
+    ["Drawing food-chain arrows the wrong way.", "Saying predators are always stronger rather than better adapted for catching prey.", "Forgetting plants compete for light and minerals.", "Confusing habitat with ecosystem."],
+    ["Explain what arrows mean in a food chain.", "Describe one adaptation of a predator or prey.", "Define habitat, population, and community.", "Explain competition between plants.", "Predict what happens if one organism is removed from a food web."],
+    scienceDiagram("foodweb")),
+  topic("Waves and Sound", "WS", "#8a6b16",
+    "Sound as vibrations, wave features, pitch, loudness, echoes, speed of sound, and how waves transfer energy.",
+    ["vibration", "frequency", "amplitude", "pitch", "loudness"],
+    ["Sound is made by vibrations.", "Sound travels through a medium such as air, water, or solids.", "Frequency is the number of vibrations per second and affects pitch.", "Amplitude is the size of vibration and affects loudness.", "Sound cannot travel through a vacuum.", "Echoes happen when sound reflects from a surface."],
+    "FLAP: Frequency = pitch, Large Amplitude = louder.",
+    ["Saying sound travels fastest in air.", "Confusing pitch and loudness.", "Forgetting that sound needs particles to travel.", "Writing that waves carry matter instead of energy."],
+    ["Explain how sound is produced.", "Compare frequency and amplitude.", "Explain why sound cannot travel in space.", "Describe an echo.", "Describe how the ear detects sound."],
+    scienceDiagram("wave")),
+  topic("Matter and Separation", "MS", "#2b7a78",
+    "Mixtures, solutions, dissolving, filtration, evaporation, chromatography, distillation, and choosing separation methods.",
+    ["mixtures", "solutions", "filtration", "evaporation", "chromatography"],
+    ["A mixture contains substances that are not chemically joined.", "A solute dissolves in a solvent to form a solution.", "Filtration separates an insoluble solid from a liquid.", "Evaporation separates a soluble solid from a solution.", "Chromatography separates dissolved substances such as inks.", "Distillation collects a solvent from a solution by evaporation then condensation."],
+    "FEC-D: Filter insoluble, Evaporate solute, Chromatography colours, Distil solvent.",
+    ["Using filtration for dissolved salt.", "Forgetting that clear solutions can still contain dissolved substances.", "Saying melting is the same as dissolving.", "Not naming the solute and solvent."],
+    ["Choose a method to separate sand and water.", "Explain how to get salt from salt water.", "Define solute, solvent, and solution.", "Describe chromatography.", "Explain why filtration cannot remove dissolved sugar."],
+    scienceDiagram("separation")),
+  topic("Particle Model", "PM", "#784f33",
+    "Solids, liquids, gases, particle arrangement and movement, changes of state, diffusion, density, and pressure.",
+    ["solids", "liquids", "gases", "diffusion", "density"],
+    ["Particles in solids are close together and vibrate in fixed positions.", "Particles in liquids are close together but can move past each other.", "Particles in gases are far apart and move quickly in all directions.", "Heating gives particles more energy.", "Diffusion is the spreading of particles from high to low concentration.", "Density depends on mass in a given volume."],
+    "SoLiG: Solid locked, Liquid glides, Gas goes everywhere.",
+    ["Drawing liquid particles far apart like gas particles.", "Saying particles expand when heated rather than move further apart.", "Forgetting that melting and freezing happen at the same temperature for a pure substance.", "Confusing boiling with evaporation."],
+    ["Compare particle arrangements in solids, liquids, and gases.", "Explain diffusion.", "Describe what happens during melting.", "Explain gas pressure.", "Explain density using particles."],
+    scienceDiagram("particles")),
+  topic("Atoms and Elements", "AE", "#4e6f8f",
+    "Atoms, elements, compounds, molecules, symbols, the periodic table, and chemical formulae.",
+    ["atoms", "elements", "compounds", "molecules", "symbols"],
+    ["An atom is the smallest part of an element that still has that element's properties.", "An element contains only one type of atom.", "A compound contains atoms of different elements chemically joined.", "A molecule is two or more atoms joined together.", "Chemical symbols have one capital letter and sometimes one lowercase letter.", "A formula shows the elements and numbers of atoms in a substance."],
+    "Capital then small: Co is cobalt, CO is carbon monoxide.",
+    ["Writing chemical symbols with the wrong capital letters.", "Calling mixtures compounds.", "Forgetting that compounds have a fixed ratio of atoms.", "Confusing atoms and cells."],
+    ["Define atom, element, compound, and molecule.", "Explain the difference between a mixture and compound.", "Interpret H2O and CO2.", "Explain why NaCl is a compound.", "Describe how the periodic table is organised."],
+    scienceDiagram("atoms"))
 ];
 
-const PROMPTS = [
-  "Argue whether ambition is more often a strength or a weakness. Use two words from today's set.",
-  "Describe a character entering a room where they do not feel welcome. Focus on tone and implication.",
-  "Write a short paragraph analysing how silence can reveal power in a scene.",
-  "Explain whether social media makes people more articulate or more performative.",
-  "Rewrite a simple idea into a more precise academic paragraph: 'The writer makes the character seem sad.'",
-  "Compare courage and recklessness in a single paragraph.",
-  "Describe a place that seems safe at first but becomes unsettling by the end.",
-  "Make a balanced argument about whether exams reward real intelligence."
-];
+const state = loadState();
+let activeTopic = TOPICS[0];
+let activeView = "guide";
+let cardIndex = 0;
+let cardShowingAnswer = false;
+let quizIndex = 0;
 
 const els = {
-  studiedCount: document.querySelector("#studiedCount"),
-  dueCount: document.querySelector("#dueCount"),
-  accuracy: document.querySelector("#accuracy"),
-  streak: document.querySelector("#streak"),
-  dailyDate: document.querySelector("#dailyDate"),
-  dailyWords: document.querySelector("#dailyWords"),
-  newDailyBtn: document.querySelector("#newDailyBtn"),
-  writingPrompt: document.querySelector("#writingPrompt"),
-  promptBtn: document.querySelector("#promptBtn"),
-  responseInput: document.querySelector("#responseInput"),
-  saveResponseBtn: document.querySelector("#saveResponseBtn"),
-  clearResponseBtn: document.querySelector("#clearResponseBtn"),
-  wordMeta: document.querySelector("#wordMeta"),
-  wordTitle: document.querySelector("#wordTitle"),
-  wordDefinition: document.querySelector("#wordDefinition"),
-  wordDetails: document.querySelector("#wordDetails"),
-  markKnownBtn: document.querySelector("#markKnownBtn"),
-  againBtn: document.querySelector("#againBtn"),
-  goodBtn: document.querySelector("#goodBtn"),
-  quizProgress: document.querySelector("#quizProgress"),
-  quizQuestion: document.querySelector("#quizQuestion"),
-  quizOptions: document.querySelector("#quizOptions"),
-  startQuizBtn: document.querySelector("#startQuizBtn"),
-  nextQuizBtn: document.querySelector("#nextQuizBtn"),
-  quizFeedback: document.querySelector("#quizFeedback"),
-  wordGrid: document.querySelector("#wordGrid"),
-  searchInput: document.querySelector("#searchInput"),
-  writingCount: document.querySelector("#writingCount"),
-  writingList: document.querySelector("#writingList"),
-  exportBtn: document.querySelector("#exportBtn"),
-  importInput: document.querySelector("#importInput"),
+  topicList: document.querySelector("#topicList"),
+  activeTopicMeta: document.querySelector("#activeTopicMeta"),
+  topicCount: document.querySelector("#topicCount"),
+  flashcardCount: document.querySelector("#flashcardCount"),
+  questionCount: document.querySelector("#questionCount"),
+  aiStatus: document.querySelector("#aiStatus"),
+  guideView: document.querySelector("#guideView"),
+  flashcardView: document.querySelector("#flashcardView"),
+  quizView: document.querySelector("#quizView"),
+  mistakesView: document.querySelector("#mistakesView")
 };
-
-const today = isoDate(new Date());
-const storageKey = "vocab-dashboard-state-v1";
-let state = loadState();
-let activeCategory = "All";
-let selectedWord = WORDS[0];
-let quiz = { queue: [], index: 0, current: null, answered: false };
 
 boot();
 
 function boot() {
-  ensureDailySet();
-  bindEvents();
-  selectWord(selectedWord.word);
-  renderPrompt();
+  document.querySelectorAll("[data-view]").forEach((button) => {
+    button.addEventListener("click", () => setView(button.dataset.view));
+  });
+  renderShell();
   renderAll();
 }
 
-function bindEvents() {
-  els.newDailyBtn.addEventListener("click", () => {
-    state.dailyDate = "";
-    ensureDailySet(true);
-    saveState();
-    renderAll();
-  });
+function topic(title, code, color, summary, tags, guide, mnemonic, mistakes, stems, diagram) {
+  const flashcards = makeFlashcards(title, guide, stems);
+  return { title, code, color, summary, tags, guide, mnemonic, mistakes, diagram, flashcards, questions: makeQuestions(title, guide, stems, mistakes) };
+}
 
-  document.querySelectorAll("[data-category]").forEach((button) => {
+function makeFlashcards(title, guide, stems) {
+  const cards = guide.map((answer) => ({ prompt: answer.split(":")[0].replace(/\.$/, ""), answer }));
+  stems.forEach((stem) => cards.push({ prompt: stem, answer: modelAnswer(title, stem) }));
+  return cards.slice(0, 12);
+}
+
+function makeQuestions(title, guide, stems, mistakes) {
+  const verbs = ["Describe", "Explain", "Compare", "State", "Use an example to explain", "Predict", "Define", "Suggest why", "Link structure to function for", "Write a full-mark answer about"];
+  const questions = [];
+  for (let i = 0; i < 50; i += 1) {
+    const stem = stems[i % stems.length];
+    const guidePoint = guide[i % guide.length];
+    const mistake = mistakes[i % mistakes.length];
+    questions.push({
+      id: `${slug(title)}-${i + 1}`,
+      question: `${verbs[i % verbs.length]}: ${stem}`,
+      hint: `Include the key idea: ${guidePoint}`,
+      modelAnswer: modelAnswer(title, stem, guidePoint),
+      markScheme: [
+        `Uses correct science vocabulary for ${title}.`,
+        `Includes this key idea: ${guidePoint}`,
+        "Explains the reason, not just the fact.",
+        `Avoids this common mistake: ${mistake}`
+      ],
+      marks: 4
+    });
+  }
+  return questions;
+}
+
+function modelAnswer(title, stem, guidePoint = "") {
+  return `${stem.replace(/\.$/, "")}: ${guidePoint || "Use clear scientific vocabulary, give the key fact, and explain why it happens."} A full-mark answer should be specific, use the correct unit or keyword where needed, and link cause to effect.`;
+}
+
+function renderShell() {
+  els.topicCount.textContent = TOPICS.length;
+  els.flashcardCount.textContent = TOPICS.reduce((sum, topicItem) => sum + topicItem.flashcards.length, 0);
+  els.questionCount.textContent = TOPICS.reduce((sum, topicItem) => sum + topicItem.questions.length, 0);
+  els.topicList.innerHTML = TOPICS.map((topicItem) => `
+    <button class="topic-button ${topicItem === activeTopic ? "active" : ""}" type="button" data-topic="${topicItem.code}">
+      <strong>${topicItem.title}</strong>
+      <span>${topicItem.questions.length} questions / ${topicItem.flashcards.length} cards</span>
+    </button>
+  `).join("");
+  els.topicList.querySelectorAll("[data-topic]").forEach((button) => {
     button.addEventListener("click", () => {
-      activeCategory = button.dataset.category;
-      document.querySelectorAll("[data-category]").forEach((item) => item.classList.toggle("active", item === button));
-      renderWordGrid();
+      activeTopic = TOPICS.find((topicItem) => topicItem.code === button.dataset.topic);
+      cardIndex = 0;
+      quizIndex = 0;
+      cardShowingAnswer = false;
+      renderShell();
+      renderAll();
     });
   });
-
-  els.searchInput.addEventListener("input", renderWordGrid);
-  els.promptBtn.addEventListener("click", () => {
-    state.promptIndex = (state.promptIndex + 1) % PROMPTS.length;
-    saveState();
-    renderPrompt();
-  });
-  els.saveResponseBtn.addEventListener("click", saveWriting);
-  els.clearResponseBtn.addEventListener("click", () => { els.responseInput.value = ""; });
-  els.markKnownBtn.addEventListener("click", () => completeWord(selectedWord.word, true));
-  els.againBtn.addEventListener("click", () => completeWord(selectedWord.word, false));
-  els.goodBtn.addEventListener("click", () => completeWord(selectedWord.word, true));
-  els.startQuizBtn.addEventListener("click", startQuiz);
-  els.nextQuizBtn.addEventListener("click", nextQuiz);
-  els.exportBtn.addEventListener("click", exportProgress);
-  els.importInput.addEventListener("change", importProgress);
 }
 
 function renderAll() {
-  renderSummary();
-  renderDailyWords();
-  renderWordGrid();
-  renderWriting();
+  els.activeTopicMeta.textContent = activeTopic.code;
+  renderGuide();
+  renderFlashcards();
+  renderQuiz();
+  renderMistakes();
 }
 
-function renderSummary() {
-  const studied = Object.values(state.progress).filter((item) => item.seen > 0).length;
-  const due = dueWords().length;
-  const attempts = state.quiz.correct + state.quiz.incorrect;
-  els.studiedCount.textContent = studied;
-  els.dueCount.textContent = due;
-  els.accuracy.textContent = attempts ? `${Math.round((state.quiz.correct / attempts) * 100)}%` : "-";
-  els.streak.textContent = `${state.streak.count} ${state.streak.count === 1 ? "day" : "days"}`;
-  els.dailyDate.textContent = readableDate(new Date(`${state.dailyDate}T00:00:00`));
+function setView(view) {
+  activeView = view;
+  document.querySelectorAll("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
+  const views = { guide: els.guideView, flashcards: els.flashcardView, quiz: els.quizView, mistakes: els.mistakesView };
+  for (const [key, element] of Object.entries(views)) {
+    element.classList.toggle("hidden", key !== view);
+  }
 }
 
-function renderDailyWords() {
-  els.dailyWords.innerHTML = state.dailyWords.map((word) => {
-    const item = getWord(word);
-    const progress = state.progress[word];
-    return `
-      <button class="daily-item" type="button" data-word="${item.word}">
-        <span>${item.word}</span>
-        <small>${item.category} / ${progress?.level || 0}/5</small>
-      </button>
-    `;
-  }).join("");
-  els.dailyWords.querySelectorAll("[data-word]").forEach((button) => {
-    button.addEventListener("click", () => selectWord(button.dataset.word));
-  });
-}
-
-function renderWordGrid() {
-  const query = els.searchInput.value.trim().toLowerCase();
-  const words = WORDS.filter((item) => {
-    const inCategory = activeCategory === "All" || item.category === activeCategory;
-    const haystack = `${item.word} ${item.definition} ${item.example} ${item.synonyms}`.toLowerCase();
-    return inCategory && (!query || haystack.includes(query));
-  });
-
-  els.wordGrid.innerHTML = words.map((item) => {
-    const progress = state.progress[item.word] || blankProgress();
-    const due = progress.nextReview <= today;
-    return `
-      <button class="word-tile ${selectedWord.word === item.word ? "selected" : ""}" type="button" data-word="${item.word}">
-        <span>${item.word}</span>
-        <small>${item.category} / ${item.level}${due && progress.seen ? " / due" : ""}</small>
-      </button>
-    `;
-  }).join("");
-
-  els.wordGrid.querySelectorAll("[data-word]").forEach((button) => {
-    button.addEventListener("click", () => selectWord(button.dataset.word));
-  });
-}
-
-function selectWord(word) {
-  selectedWord = getWord(word);
-  const progress = state.progress[word] || blankProgress();
-  els.wordMeta.textContent = `${selectedWord.category} / ${selectedWord.level} / level ${progress.level}/5`;
-  els.wordTitle.textContent = selectedWord.word;
-  els.wordDefinition.textContent = selectedWord.definition;
-  els.wordDetails.innerHTML = `
-    <div>
-      <span>Example</span>
-      <p>${selectedWord.example}</p>
-    </div>
-    <div>
-      <span>Synonyms</span>
-      <p>${selectedWord.synonyms}</p>
-    </div>
-    <div>
-      <span>Nuance</span>
-      <p>${selectedWord.nuance}</p>
-    </div>
-    <div>
-      <span>Next review</span>
-      <p>${progress.seen ? readableDate(new Date(`${progress.nextReview}T00:00:00`)) : "Not studied yet"}</p>
+function renderGuide() {
+  els.guideView.innerHTML = `
+    <article class="study-hero">
+      <div class="hero-band">
+        <div>
+          <p class="eyebrow">${activeTopic.code}</p>
+          <h1 style="color:${activeTopic.color}">${activeTopic.title}</h1>
+          <p>${activeTopic.summary}</p>
+          <div class="tag-row">${activeTopic.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+        </div>
+        <div class="diagram">${activeTopic.diagram}</div>
+      </div>
+    </article>
+    <div class="guide-grid">
+      <section class="guide-section">
+        <h2>Study Guide</h2>
+        <ul>${activeTopic.guide.map((item) => `<li>${item}</li>`).join("")}</ul>
+        <div class="mnemonic"><strong>Mnemonic:</strong> ${activeTopic.mnemonic}</div>
+      </section>
+      <section class="diagram-stack">
+        <article class="diagram-card"><h3>Core Diagram</h3><div class="diagram">${activeTopic.diagram}</div></article>
+        <article class="diagram-card"><h3>Common Exam Mistakes</h3><ul class="mistakes-list">${activeTopic.mistakes.map((item) => `<li><strong>Watch out:</strong> ${item}</li>`).join("")}</ul></article>
+      </section>
     </div>
   `;
-  renderWordGrid();
 }
 
-function renderPrompt() {
-  els.writingPrompt.textContent = PROMPTS[state.promptIndex % PROMPTS.length];
-}
-
-function renderWriting() {
-  els.writingCount.textContent = `${state.writing.length} ${state.writing.length === 1 ? "entry" : "entries"}`;
-  if (!state.writing.length) {
-    els.writingList.innerHTML = `<p class="empty">Saved paragraphs will appear here.</p>`;
-    return;
-  }
-  els.writingList.innerHTML = state.writing.slice(0, 8).map((entry) => `
-    <article class="writing-entry">
-      <div>
-        <strong>${readableDate(new Date(`${entry.date}T00:00:00`))}</strong>
-        <span>${entry.prompt}</span>
+function renderFlashcards() {
+  const card = activeTopic.flashcards[cardIndex];
+  els.flashcardView.innerHTML = `
+    <div class="flash-toolbar">
+      <h2>${activeTopic.title} Flashcards</h2>
+      <span>${cardIndex + 1} / ${activeTopic.flashcards.length}</span>
+    </div>
+    <article class="flashcard">
+      <span class="label">${cardShowingAnswer ? "Answer" : "Question"}</span>
+      <strong>${cardShowingAnswer ? card.answer : card.prompt}</strong>
+      ${cardShowingAnswer ? "<p>Say this aloud, then check whether your wording used the key science vocabulary.</p>" : "<p>Try to answer before flipping the card.</p>"}
+      <div class="card-actions">
+        <button id="flipCard" class="primary-button" type="button">${cardShowingAnswer ? "Show question" : "Show answer"}</button>
+        <button id="prevCard" class="secondary-button" type="button">Previous</button>
+        <button id="nextCard" class="secondary-button" type="button">Next</button>
       </div>
-      <p>${escapeHtml(entry.text)}</p>
     </article>
-  `).join("");
+  `;
+  document.querySelector("#flipCard").addEventListener("click", () => { cardShowingAnswer = !cardShowingAnswer; renderFlashcards(); });
+  document.querySelector("#prevCard").addEventListener("click", () => { cardIndex = (cardIndex + activeTopic.flashcards.length - 1) % activeTopic.flashcards.length; cardShowingAnswer = false; renderFlashcards(); });
+  document.querySelector("#nextCard").addEventListener("click", () => { cardIndex = (cardIndex + 1) % activeTopic.flashcards.length; cardShowingAnswer = false; renderFlashcards(); });
 }
 
-function saveWriting() {
-  const text = els.responseInput.value.trim();
-  if (!text) return;
-  state.writing.unshift({
-    date: today,
-    prompt: els.writingPrompt.textContent,
-    text,
-  });
-  markActivity();
-  saveState();
-  els.responseInput.value = "";
-  renderAll();
+function renderQuiz() {
+  const q = activeTopic.questions[quizIndex];
+  els.quizView.innerHTML = `
+    <div class="quiz-toolbar">
+      <h2>${activeTopic.title} Written Quiz</h2>
+      <span>${quizIndex + 1} / ${activeTopic.questions.length}</span>
+    </div>
+    <article class="quiz-card">
+      <div class="quiz-meta"><span>${q.marks} marks</span><span>AI-marked written answer</span></div>
+      <p class="quiz-question">${q.question}</p>
+      <details class="hint"><summary>Show hint</summary><p>${q.hint}</p></details>
+      <textarea id="studentAnswer" placeholder="Type your answer here. Use full sentences and science keywords."></textarea>
+      <div class="quiz-actions">
+        <button id="markAnswer" class="primary-button" type="button">Mark with AI</button>
+        <button id="showAnswer" class="secondary-button" type="button">Show model answer</button>
+        <button id="nextQuestion" class="secondary-button" type="button">Next question</button>
+      </div>
+      <div id="quizFeedback" class="feedback hidden"></div>
+    </article>
+  `;
+  document.querySelector("#markAnswer").addEventListener("click", markAnswer);
+  document.querySelector("#showAnswer").addEventListener("click", () => showFeedback({ status: "correct", marks_awarded: q.marks, marks_available: q.marks, what_was_good: "Use this to compare your wording.", missing_points: [], model_answer: q.modelAnswer, revision_tip: "Rewrite the answer once without looking." }));
+  document.querySelector("#nextQuestion").addEventListener("click", () => { quizIndex = (quizIndex + 1) % activeTopic.questions.length; renderQuiz(); });
 }
 
-function completeWord(word, success) {
-  const progress = state.progress[word] || blankProgress();
-  progress.seen += 1;
-  progress.correct += success ? 1 : 0;
-  progress.incorrect += success ? 0 : 1;
-  progress.level = success ? Math.min(5, progress.level + 1) : Math.max(0, progress.level - 1);
-  progress.nextReview = addDays(today, success ? reviewInterval(progress.level) : 1);
-  state.progress[word] = progress;
-  markActivity();
-  saveState();
-  renderAll();
-  selectWord(word);
-}
-
-function startQuiz() {
-  const source = unique([...dueWords(), ...state.dailyWords]);
-  quiz.queue = shuffle(source).slice(0, 10);
-  quiz.index = 0;
-  quiz.answered = false;
-  if (!quiz.queue.length) {
-    els.quizQuestion.textContent = "No quiz words yet. Refresh the daily set or choose a word to study.";
-    return;
+async function markAnswer() {
+  const answer = document.querySelector("#studentAnswer").value.trim();
+  const q = activeTopic.questions[quizIndex];
+  if (!answer) return showFeedback({ status: "incorrect", marks_awarded: 0, marks_available: q.marks, what_was_good: "No answer was entered yet.", missing_points: q.markScheme, model_answer: q.modelAnswer, revision_tip: "Try writing one clear sentence first, then add a because sentence." });
+  els.aiStatus.textContent = "Marking...";
+  try {
+    const res = await fetch("/api/grade", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ topic: activeTopic.title, question: q.question, studentAnswer: answer, modelAnswer: q.modelAnswer, markScheme: q.markScheme, marks: q.marks })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "AI marking failed");
+    showFeedback(data);
+    saveMistake(q, answer, data);
+    els.aiStatus.textContent = "Ready";
+  } catch (error) {
+    els.aiStatus.textContent = "Offline";
+    showFeedback({ status: "partially_correct", marks_awarded: 0, marks_available: q.marks, what_was_good: "AI marking is not connected yet.", missing_points: ["Check that OPENAI_API_KEY is set before deployment.", error.message], model_answer: q.modelAnswer, revision_tip: "You can still use the model answer and mark scheme for practice." });
   }
-  showQuizQuestion();
 }
 
-function showQuizQuestion() {
-  quiz.current = getWord(quiz.queue[quiz.index]);
-  quiz.answered = false;
-  const distractors = shuffle(WORDS.filter((item) => item.word !== quiz.current.word)).slice(0, 3);
-  const options = shuffle([quiz.current, ...distractors]);
-  els.quizProgress.textContent = `${quiz.index + 1} / ${quiz.queue.length}`;
-  els.quizQuestion.textContent = `Which word means: ${quiz.current.definition}?`;
-  els.quizOptions.innerHTML = options.map((item) => `
-    <button type="button" data-answer="${item.word}">${item.word}</button>
-  `).join("");
-  els.quizFeedback.textContent = "";
-  els.nextQuizBtn.disabled = true;
-  els.quizOptions.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => answerQuiz(button.dataset.answer));
-  });
+function showFeedback(data) {
+  const box = document.querySelector("#quizFeedback");
+  box.className = `feedback ${data.status}`;
+  box.innerHTML = `
+    <h3>${labelStatus(data.status)}: ${data.marks_awarded}/${data.marks_available}</h3>
+    <p><strong>Good:</strong> ${data.what_was_good}</p>
+    ${data.missing_points?.length ? `<ul>${data.missing_points.map((point) => `<li>${point}</li>`).join("")}</ul>` : ""}
+    <p><strong>Full-mark answer:</strong> ${data.model_answer}</p>
+    <p><strong>Revision tip:</strong> ${data.revision_tip}</p>
+  `;
 }
 
-function answerQuiz(answer) {
-  if (quiz.answered) return;
-  quiz.answered = true;
-  const correct = answer === quiz.current.word;
-  state.quiz.correct += correct ? 1 : 0;
-  state.quiz.incorrect += correct ? 0 : 1;
-  completeWord(quiz.current.word, correct);
-  els.quizOptions.querySelectorAll("button").forEach((button) => {
-    button.disabled = true;
-    button.classList.toggle("correct", button.dataset.answer === quiz.current.word);
-    button.classList.toggle("wrong", button.dataset.answer === answer && !correct);
-  });
-  els.quizFeedback.textContent = correct
-    ? `Correct. Try using "${quiz.current.word}" in today's paragraph.`
-    : `Not quite. "${quiz.current.word}" means ${quiz.current.definition}.`;
-  els.nextQuizBtn.disabled = false;
+function saveMistake(question, answer, feedback) {
+  if (feedback.status === "correct") return;
+  state.mistakes.unshift({ date: new Date().toISOString(), topic: activeTopic.title, question: question.question, answer, feedback });
+  state.mistakes = state.mistakes.slice(0, 40);
+  localStorage.setItem("science-dashboard-state-v1", JSON.stringify(state));
+  renderMistakes();
 }
 
-function nextQuiz() {
-  if (quiz.index >= quiz.queue.length - 1) {
-    els.quizQuestion.textContent = "Quiz complete. Your review schedule has been updated.";
-    els.quizOptions.innerHTML = "";
-    els.quizProgress.textContent = `${quiz.queue.length} / ${quiz.queue.length}`;
-    els.nextQuizBtn.disabled = true;
-    els.quizFeedback.textContent = "";
-    renderAll();
-    return;
-  }
-  quiz.index += 1;
-  showQuizQuestion();
+function renderMistakes() {
+  const mistakes = state.mistakes.filter((item) => item.topic === activeTopic.title);
+  els.mistakesView.innerHTML = `
+    <div class="flash-toolbar"><h2>${activeTopic.title} Mistake Tracker</h2><span>${mistakes.length} saved</span></div>
+    ${mistakes.length ? `<div class="mistake-grid">${mistakes.map((item) => `
+      <article class="mistake-card">
+        <h3>${item.question}</h3>
+        <p><strong>Your answer:</strong> ${escapeHtml(item.answer)}</p>
+        <p><strong>Fix:</strong> ${item.feedback.model_answer}</p>
+      </article>
+    `).join("")}</div>` : `<p class="empty">Partial or incorrect AI-marked answers will appear here.</p>`}
+  `;
 }
 
-function ensureDailySet(force = false) {
-  if (!force && state.dailyDate === today && state.dailyWords.length) return;
-  const due = dueWords();
-  const fresh = WORDS
-    .filter((item) => !due.includes(item.word))
-    .sort((a, b) => (state.progress[a.word]?.seen || 0) - (state.progress[b.word]?.seen || 0))
-    .map((item) => item.word);
-  state.dailyDate = today;
-  state.dailyWords = unique([...due.slice(0, 4), ...shuffle(fresh).slice(0, 6)]).slice(0, 8);
-}
-
-function dueWords() {
-  return Object.entries(state.progress)
-    .filter(([, progress]) => progress.seen > 0 && progress.nextReview <= today)
-    .map(([word]) => word);
-}
-
-function markActivity() {
-  if (state.streak.lastDate === today) return;
-  const yesterday = addDays(today, -1);
-  state.streak.count = state.streak.lastDate === yesterday ? state.streak.count + 1 : 1;
-  state.streak.lastDate = today;
+function labelStatus(status) {
+  return { correct: "Correct", partially_correct: "Partially correct", incorrect: "Needs work" }[status] || "Marked";
 }
 
 function loadState() {
-  const fallback = {
-    dailyDate: "",
-    dailyWords: [],
-    promptIndex: 0,
-    progress: {},
-    writing: [],
-    quiz: { correct: 0, incorrect: 0 },
-    streak: { count: 0, lastDate: "" },
-  };
-  try {
-    return { ...fallback, ...JSON.parse(localStorage.getItem(storageKey) || "{}") };
-  } catch {
-    return fallback;
-  }
-}
-
-function saveState() {
-  localStorage.setItem(storageKey, JSON.stringify(state));
-}
-
-function exportProgress() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = `vocab-progress-${today}.json`;
-  link.click();
-  URL.revokeObjectURL(link.href);
-}
-
-async function importProgress(event) {
-  const file = event.target.files?.[0];
-  if (!file) return;
-  try {
-    state = { ...state, ...JSON.parse(await file.text()) };
-    ensureDailySet();
-    saveState();
-    renderAll();
-    selectWord(selectedWord.word);
-  } catch {
-    alert("That progress file could not be imported.");
-  } finally {
-    event.target.value = "";
-  }
-}
-
-function getWord(word) {
-  return WORDS.find((item) => item.word === word) || WORDS[0];
-}
-
-function blankProgress() {
-  return { seen: 0, correct: 0, incorrect: 0, level: 0, nextReview: today };
-}
-
-function reviewInterval(level) {
-  return [1, 1, 3, 7, 14, 30][level] || 30;
-}
-
-function addDays(dateString, days) {
-  const date = new Date(`${dateString}T00:00:00`);
-  date.setDate(date.getDate() + days);
-  return isoDate(date);
-}
-
-function isoDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function readableDate(date) {
-  return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
-}
-
-function shuffle(items) {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-function unique(items) {
-  return [...new Set(items)];
+  try { return JSON.parse(localStorage.getItem("science-dashboard-state-v1")) || { mistakes: [] }; }
+  catch { return { mistakes: [] }; }
 }
 
 function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;",
-  }[char]));
+  return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
+}
+
+function slug(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+function scienceDiagram(kind) {
+  const common = `viewBox="0 0 360 210" role="img" aria-label="Science diagram"`;
+  const diagrams = {
+    fairtest: `<svg ${common}><rect x="25" y="50" width="90" height="70" rx="8" fill="#d9efe8" stroke="#176b55"/><rect x="135" y="50" width="90" height="70" rx="8" fill="#fff5cf" stroke="#8a6b16"/><rect x="245" y="50" width="90" height="70" rx="8" fill="#e8eef8" stroke="#255f9f"/><path d="M115 85h20M225 85h20" stroke="#16202a" stroke-width="3"/><text x="70" y="88" text-anchor="middle">Change</text><text x="180" y="88" text-anchor="middle">Measure</text><text x="290" y="88" text-anchor="middle">Keep same</text><path d="M70 145c70 34 145 34 220 0" fill="none" stroke="#176b55" stroke-width="5"/></svg>`,
+    circuit: `<svg ${common}><rect x="70" y="55" width="220" height="100" rx="10" fill="none" stroke="#16202a" stroke-width="4"/><line x1="110" y1="55" x2="110" y2="20" stroke="#16202a" stroke-width="4"/><line x1="125" y1="55" x2="125" y2="30" stroke="#16202a" stroke-width="4"/><circle cx="210" cy="155" r="25" fill="#fff5cf" stroke="#8a6b16" stroke-width="4"/><path d="M195 155h30M210 140v30" stroke="#8a6b16" stroke-width="3"/><text x="118" y="16" text-anchor="middle">cell</text><text x="210" y="198" text-anchor="middle">bulb</text></svg>`,
+    reproduction: `<svg ${common}><circle cx="105" cy="105" r="48" fill="#ffe1e1" stroke="#b04747" stroke-width="4"/><circle cx="235" cy="105" r="18" fill="#dce8ff" stroke="#255f9f" stroke-width="4"/><path d="M185 105h28" stroke="#255f9f" stroke-width="5"/><path d="M153 105h45" stroke="#16202a" stroke-width="3" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#16202a"/></marker></defs><text x="105" y="170" text-anchor="middle">egg cell</text><text x="235" y="170" text-anchor="middle">sperm cell</text><text x="180" y="42" text-anchor="middle">fertilisation</text></svg>`,
+    cell: `<svg ${common}><rect x="35" y="45" width="130" height="105" rx="22" fill="#edf5f7" stroke="#7157a6" stroke-width="4"/><circle cx="100" cy="98" r="22" fill="#d9ccef" stroke="#7157a6"/><rect x="205" y="38" width="120" height="120" rx="4" fill="#e7f4df" stroke="#176b55" stroke-width="6"/><circle cx="266" cy="98" r="18" fill="#d9ccef" stroke="#7157a6"/><circle cx="230" cy="68" r="9" fill="#58a45b"/><circle cx="304" cy="128" r="9" fill="#58a45b"/><text x="100" y="178" text-anchor="middle">animal</text><text x="266" y="178" text-anchor="middle">plant</text></svg>`,
+    foodweb: `<svg ${common}><text x="180" y="34" text-anchor="middle">fox</text><text x="85" y="110" text-anchor="middle">rabbit</text><text x="270" y="110" text-anchor="middle">bird</text><text x="180" y="184" text-anchor="middle">plants</text><path d="M180 166L92 122M180 166l84-44M98 96l70-48M265 96l-70-48" fill="none" stroke="#3f7f3d" stroke-width="4" marker-end="url(#b)"/><defs><marker id="b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#3f7f3d"/></marker></defs></svg>`,
+    wave: `<svg ${common}><path d="M25 105c30-70 60-70 90 0s60 70 90 0 60-70 90 0 30 70 55 0" fill="none" stroke="#8a6b16" stroke-width="6"/><line x1="35" y1="105" x2="335" y2="105" stroke="#d8ddd6" stroke-width="2"/><path d="M118 105v-62" stroke="#b04747" stroke-width="3"/><text x="145" y="60">amplitude</text><path d="M113 150h92" stroke="#255f9f" stroke-width="3"/><text x="160" y="178" text-anchor="middle">wavelength</text></svg>`,
+    separation: `<svg ${common}><path d="M90 45h95l-34 58v55h-27v-55z" fill="#e8eef8" stroke="#255f9f" stroke-width="4"/><rect x="110" y="158" width="58" height="25" fill="#fff5cf" stroke="#8a6b16"/><path d="M225 55h65v105h-65z" fill="#edf5f7" stroke="#176b55" stroke-width="4"/><path d="M225 88h65" stroke="#176b55" stroke-width="3"/><circle cx="248" cy="78" r="5" fill="#b04747"/><circle cx="270" cy="108" r="5" fill="#7157a6"/><text x="138" y="30" text-anchor="middle">filter</text><text x="258" y="190" text-anchor="middle">chromatography</text></svg>`,
+    particles: `<svg ${common}><rect x="32" y="55" width="86" height="90" fill="#edf5f7" stroke="#16202a"/><rect x="137" y="55" width="86" height="90" fill="#fff5cf" stroke="#16202a"/><rect x="242" y="55" width="86" height="90" fill="#ffe1e1" stroke="#16202a"/>${dots(48, 70, 3, 4, 18)}${dots(153, 78, 3, 4, 20)}${dots(260, 70, 3, 3, 32)}<text x="75" y="176" text-anchor="middle">solid</text><text x="180" y="176" text-anchor="middle">liquid</text><text x="285" y="176" text-anchor="middle">gas</text></svg>`,
+    atoms: `<svg ${common}><circle cx="95" cy="105" r="38" fill="#e8eef8" stroke="#255f9f" stroke-width="4"/><circle cx="95" cy="105" r="8" fill="#255f9f"/><circle cx="220" cy="90" r="24" fill="#fff5cf" stroke="#8a6b16" stroke-width="4"/><circle cx="260" cy="118" r="24" fill="#ffe1e1" stroke="#b04747" stroke-width="4"/><line x1="240" y1="103" x2="242" y2="105" stroke="#16202a" stroke-width="5"/><text x="95" y="170" text-anchor="middle">atom</text><text x="240" y="170" text-anchor="middle">compound</text></svg>`
+  };
+  return diagrams[kind];
+}
+
+function dots(x, y, rows, cols, gap) {
+  let out = "";
+  for (let r = 0; r < rows; r += 1) for (let c = 0; c < cols; c += 1) out += `<circle cx="${x + c * gap}" cy="${y + r * gap}" r="5" fill="#176b55"/>`;
+  return out;
 }

@@ -3,129 +3,72 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vocab</title>
+    <title>Year 7 Science Revision</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Year 10 English enrichment</p>
-          <h1>Vocab</h1>
+          <p class="eyebrow">Tanglin Trust School / Year 7 Science</p>
+          <h1>Science Exam Dashboard</h1>
+          <p class="subhead">Study guides, diagrams, flashcards, written-answer quizzes, hints, and AI marking.</p>
         </div>
-        <div class="topbar-actions">
-          <button id="exportBtn" class="ghost-button" type="button" title="Export progress">Export</button>
-          <label class="import-button" title="Import progress">
-            Import
-            <input id="importInput" type="file" accept="application/json" />
-          </label>
+        <div class="exam-box">
+          <span>Paper 1</span>
+          <strong>12 Jun</strong>
+          <span>Paper 2</span>
+          <strong>16 Jun</strong>
         </div>
       </header>
 
-      <section class="summary-grid" aria-label="Learning summary">
-        <article>
-          <span>Words studied</span>
-          <strong id="studiedCount">0</strong>
-        </article>
-        <article>
-          <span>Due today</span>
-          <strong id="dueCount">0</strong>
-        </article>
-        <article>
-          <span>Quiz accuracy</span>
-          <strong id="accuracy">-</strong>
-        </article>
-        <article>
-          <span>Current streak</span>
-          <strong id="streak">0 days</strong>
-        </article>
+      <section class="summary-grid" aria-label="Revision summary">
+        <article><span>Topics</span><strong id="topicCount">9</strong></article>
+        <article><span>Flashcards</span><strong id="flashcardCount">0</strong></article>
+        <article><span>Quiz Questions</span><strong id="questionCount">0</strong></article>
+        <article><span>AI Marking</span><strong id="aiStatus">Ready</strong></article>
       </section>
 
       <section class="workspace">
-        <aside class="sidebar" aria-label="Study controls">
-          <div class="panel">
+        <aside class="sidebar">
+          <section class="panel">
             <div class="panel-heading">
-              <h2>Daily Set</h2>
-              <span id="dailyDate"></span>
+              <h2>Topics</h2>
+              <span id="activeTopicMeta"></span>
             </div>
-            <div id="dailyWords" class="daily-list"></div>
-            <button id="newDailyBtn" class="primary-button" type="button">Refresh daily set</button>
-          </div>
+            <div id="topicList" class="topic-list"></div>
+          </section>
 
-          <div class="panel">
+          <section class="panel">
             <div class="panel-heading">
-              <h2>Focus</h2>
+              <h2>Revision Mode</h2>
             </div>
-            <div class="segmented" role="group" aria-label="Vocabulary category">
-              <button class="active" type="button" data-category="All">All</button>
-              <button type="button" data-category="Analysis">Analysis</button>
-              <button type="button" data-category="Tone">Tone</button>
-              <button type="button" data-category="Argument">Argument</button>
-              <button type="button" data-category="Character">Character</button>
-              <button type="button" data-category="SAT">SAT</button>
+            <div class="segmented">
+              <button class="active" type="button" data-view="guide">Guide</button>
+              <button type="button" data-view="flashcards">Cards</button>
+              <button type="button" data-view="quiz">Quiz</button>
+              <button type="button" data-view="mistakes">Mistakes</button>
             </div>
-          </div>
+          </section>
 
-          <div class="panel">
+          <section class="panel plan-panel">
             <div class="panel-heading">
-              <h2>Writing Prompt</h2>
-              <button id="promptBtn" class="icon-button" type="button" title="New prompt">New</button>
+              <h2>Today</h2>
             </div>
-            <p id="writingPrompt" class="prompt"></p>
-            <textarea id="responseInput" rows="7" placeholder="Write a short paragraph using at least two target words."></textarea>
-            <div class="inline-actions">
-              <button id="saveResponseBtn" class="primary-button" type="button">Save response</button>
-              <button id="clearResponseBtn" class="ghost-button" type="button">Clear</button>
-            </div>
-          </div>
+            <ul>
+              <li>Read one study guide.</li>
+              <li>Do 10 flashcards.</li>
+              <li>Answer 5 written questions.</li>
+              <li>Rewrite one partial answer using the model answer.</li>
+            </ul>
+          </section>
         </aside>
 
         <section class="main-column">
-          <article class="panel word-card">
-            <div class="word-card-top">
-              <div>
-                <p id="wordMeta" class="eyebrow">Word bank</p>
-                <h2 id="wordTitle">Select a word</h2>
-              </div>
-              <button id="markKnownBtn" class="ghost-button" type="button">Mark known</button>
-            </div>
-            <p id="wordDefinition" class="definition">Choose any word from the bank or start a quiz.</p>
-            <div id="wordDetails" class="word-details"></div>
-            <div class="study-actions">
-              <button id="againBtn" class="secondary-button" type="button">Review again</button>
-              <button id="goodBtn" class="primary-button" type="button">I can use this</button>
-            </div>
-          </article>
-
-          <article class="panel quiz-panel">
-            <div class="panel-heading">
-              <h2>Quiz</h2>
-              <span id="quizProgress">0 / 0</span>
-            </div>
-            <p id="quizQuestion" class="quiz-question">Press start to test today's words and due reviews.</p>
-            <div id="quizOptions" class="quiz-options"></div>
-            <div class="inline-actions">
-              <button id="startQuizBtn" class="primary-button" type="button">Start quiz</button>
-              <button id="nextQuizBtn" class="secondary-button" type="button" disabled>Next</button>
-            </div>
-            <p id="quizFeedback" class="feedback"></p>
-          </article>
-
-          <article class="panel">
-            <div class="panel-heading">
-              <h2>Word Bank</h2>
-              <input id="searchInput" class="search" type="search" placeholder="Search words, meanings, examples" />
-            </div>
-            <div id="wordGrid" class="word-grid"></div>
-          </article>
-
-          <article class="panel">
-            <div class="panel-heading">
-              <h2>Saved Writing</h2>
-              <span id="writingCount">0 entries</span>
-            </div>
-            <div id="writingList" class="writing-list"></div>
-          </article>
+          <section id="guideView" class="view"></section>
+          <section id="flashcardView" class="view hidden"></section>
+          <section id="quizView" class="view hidden"></section>
+          <section id="mistakesView" class="view hidden"></section>
         </section>
       </section>
     </main>
