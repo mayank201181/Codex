@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FX Month-End Seasonality</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Yahoo Finance research snapshot</p>
+        <h1>FX Month-End Seasonality</h1>
+      </div>
+      <div class="data-stamp" id="dataStamp">Loading data...</div>
+    </header>
+
+    <main class="app-shell">
+      <section class="control-band" aria-label="Dashboard controls">
+        <label>
+          One-year window
+          <select id="yearSelect"></select>
+        </label>
+        <label>
+          Scatter pair
+          <select id="pairSelect"></select>
+        </label>
+        <div class="mode-control" role="group" aria-label="Return direction">
+          <button id="rawMode" class="active" type="button">Raw pair</button>
+          <button id="usdMode" type="button">USD strength</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Market summary">
+        <article class="stat-block">
+          <span>Current S&P MTD</span>
+          <strong id="previewReturn">--</strong>
+          <small id="previewLabel">Waiting for snapshot</small>
+        </article>
+        <article class="stat-block">
+          <span>Strongest full-history link</span>
+          <strong id="topFullCorr">--</strong>
+          <small id="topFullCorrLabel">60 completed month-ends</small>
+        </article>
+        <article class="stat-block">
+          <span>Selected year leader</span>
+          <strong id="topYearCorr">--</strong>
+          <small id="topYearCorrLabel">Choose a year above</small>
+        </article>
+        <article class="stat-block">
+          <span>Latest completed month</span>
+          <strong id="latestMonth">--</strong>
+          <small id="latestMonthLabel">S&P close-to-close month return</small>
+        </article>
+      </section>
+
+      <section class="layout-grid">
+        <section class="panel correlation-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Pearson correlation</p>
+              <h2>S&P monthly return vs FX month-end move</h2>
+            </div>
+            <span id="modeLabel" class="tag">Raw pair return</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pair</th>
+                  <th>Full 5y r</th>
+                  <th id="yearCorrHeader">Year r</th>
+                  <th>Beta</th>
+                  <th>Avg if S&P up</th>
+                  <th>Read</th>
+                </tr>
+              </thead>
+              <tbody id="correlationBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel scatter-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Selected pair</p>
+              <h2 id="scatterTitle">Scatter</h2>
+            </div>
+            <span id="sampleCount" class="tag">n=60</span>
+          </div>
+          <div id="scatterChart" class="chart"></div>
+        </section>
+
+        <section class="panel heatmap-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Month-end observations</p>
+              <h2 id="matrixTitle">Last five years</h2>
+            </div>
+            <button id="downloadCsv" type="button">Download CSV</button>
+          </div>
+          <div class="table-wrap matrix-wrap">
+            <table>
+              <thead id="matrixHead"></thead>
+              <tbody id="matrixBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      Research tool only. Yahoo Finance data can revise or have holiday gaps. This does not make or recommend trades.
+    </footer>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
