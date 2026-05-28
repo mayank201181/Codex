@@ -1,0 +1,4301 @@
+{
+  "meta": {
+    "generatedAt": "2026-05-28T21:03:13+08:00",
+    "source": "Yahoo Finance via yfinance",
+    "spxTicker": "^GSPC",
+    "years": 5,
+    "observationCount": 60,
+    "completedThrough": "2026-04",
+    "latestSpxDate": "2026-05-27",
+    "latestSpxClose": 7520.3599,
+    "currentMonthExpectedFinalTradingDate": "2026-05-29",
+    "currentMonthIsPreview": true,
+    "methodology": [
+      "S&P monthly return is close-to-close from the previous S&P month-end to the current S&P month-end.",
+      "FX month-end move is the close-to-close percentage move on the S&P month-end date.",
+      "Correlations are Pearson correlations between S&P monthly return and the FX last-day move.",
+      "Raw pair returns preserve ticker direction. USD-normalized returns flip EURUSD, GBPUSD, AUDUSD, and NZDUSD so positive means USD strength."
+    ],
+    "pairs": [
+      {
+        "symbol": "EURUSD",
+        "ticker": "EURUSD=X",
+        "base": "EUR",
+        "quote": "USD",
+        "usdSign": -1,
+        "pipFactor": 10000
+      },
+      {
+        "symbol": "GBPUSD",
+        "ticker": "GBPUSD=X",
+        "base": "GBP",
+        "quote": "USD",
+        "usdSign": -1,
+        "pipFactor": 10000
+      },
+      {
+        "symbol": "AUDUSD",
+        "ticker": "AUDUSD=X",
+        "base": "AUD",
+        "quote": "USD",
+        "usdSign": -1,
+        "pipFactor": 10000
+      },
+      {
+        "symbol": "NZDUSD",
+        "ticker": "NZDUSD=X",
+        "base": "NZD",
+        "quote": "USD",
+        "usdSign": -1,
+        "pipFactor": 10000
+      },
+      {
+        "symbol": "USDJPY",
+        "ticker": "USDJPY=X",
+        "base": "USD",
+        "quote": "JPY",
+        "usdSign": 1,
+        "pipFactor": 100
+      },
+      {
+        "symbol": "USDCAD",
+        "ticker": "USDCAD=X",
+        "base": "USD",
+        "quote": "CAD",
+        "usdSign": 1,
+        "pipFactor": 10000
+      },
+      {
+        "symbol": "USDCHF",
+        "ticker": "USDCHF=X",
+        "base": "USD",
+        "quote": "CHF",
+        "usdSign": 1,
+        "pipFactor": 10000
+      }
+    ]
+  },
+  "rows": [
+    {
+      "month": "2021-05",
+      "monthEnd": "2021-05-28",
+      "spxClose": 4204.1099,
+      "spxMonthlyReturnPct": 0.548649,
+      "spxLastDayReturnPct": 0.076888,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-05-28",
+          "close": 1.219319,
+          "prevClose": 1.21926,
+          "returnPct": 0.004869,
+          "usdReturnPct": -0.004869,
+          "pips": 0.6
+        },
+        "GBPUSD": {
+          "date": "2021-05-28",
+          "close": 1.420374,
+          "prevClose": 1.411612,
+          "returnPct": 0.620709,
+          "usdReturnPct": -0.620709,
+          "pips": 87.6
+        },
+        "AUDUSD": {
+          "date": "2021-05-28",
+          "close": 0.77425,
+          "prevClose": 0.77399,
+          "returnPct": 0.033607,
+          "usdReturnPct": -0.033607,
+          "pips": 2.6
+        },
+        "NZDUSD": {
+          "date": "2021-05-28",
+          "close": 0.728428,
+          "prevClose": 0.727829,
+          "returnPct": 0.082311,
+          "usdReturnPct": -0.082311,
+          "pips": 6.0
+        },
+        "USDJPY": {
+          "date": "2021-05-28",
+          "close": 109.808998,
+          "prevClose": 109.169998,
+          "returnPct": 0.585326,
+          "usdReturnPct": 0.585326,
+          "pips": 63.9
+        },
+        "USDCAD": {
+          "date": "2021-05-28",
+          "close": 1.20702,
+          "prevClose": 1.21301,
+          "returnPct": -0.493805,
+          "usdReturnPct": -0.493805,
+          "pips": -59.9
+        },
+        "USDCHF": {
+          "date": "2021-05-28",
+          "close": 0.89705,
+          "prevClose": 0.89773,
+          "returnPct": -0.075743,
+          "usdReturnPct": -0.075743,
+          "pips": -6.8
+        }
+      }
+    },
+    {
+      "month": "2021-06",
+      "monthEnd": "2021-06-30",
+      "spxClose": 4297.5,
+      "spxMonthlyReturnPct": 2.221401,
+      "spxLastDayReturnPct": 0.132816,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-06-30",
+          "close": 1.190193,
+          "prevClose": 1.19289,
+          "returnPct": -0.226139,
+          "usdReturnPct": 0.226139,
+          "pips": -27.0
+        },
+        "GBPUSD": {
+          "date": "2021-06-30",
+          "close": 1.384275,
+          "prevClose": 1.387906,
+          "returnPct": -0.261634,
+          "usdReturnPct": 0.261634,
+          "pips": -36.3
+        },
+        "AUDUSD": {
+          "date": "2021-06-30",
+          "close": 0.75136,
+          "prevClose": 0.75684,
+          "returnPct": -0.724086,
+          "usdReturnPct": 0.724086,
+          "pips": -54.8
+        },
+        "NZDUSD": {
+          "date": "2021-06-30",
+          "close": 0.69898,
+          "prevClose": 0.70489,
+          "returnPct": -0.838484,
+          "usdReturnPct": 0.838484,
+          "pips": -59.1
+        },
+        "USDJPY": {
+          "date": "2021-06-30",
+          "close": 110.535004,
+          "prevClose": 110.602997,
+          "returnPct": -0.061475,
+          "usdReturnPct": -0.061475,
+          "pips": -6.8
+        },
+        "USDCAD": {
+          "date": "2021-06-30",
+          "close": 1.23962,
+          "prevClose": 1.2334,
+          "returnPct": 0.504296,
+          "usdReturnPct": 0.504296,
+          "pips": 62.2
+        },
+        "USDCHF": {
+          "date": "2021-06-30",
+          "close": 0.9209,
+          "prevClose": 0.91961,
+          "returnPct": 0.140273,
+          "usdReturnPct": 0.140273,
+          "pips": 12.9
+        }
+      }
+    },
+    {
+      "month": "2021-07",
+      "monthEnd": "2021-07-30",
+      "spxClose": 4395.2598,
+      "spxMonthlyReturnPct": 2.274805,
+      "spxLastDayReturnPct": -0.540605,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-07-30",
+          "close": 1.1893,
+          "prevClose": 1.184596,
+          "returnPct": 0.397107,
+          "usdReturnPct": -0.397107,
+          "pips": 47.0
+        },
+        "GBPUSD": {
+          "date": "2021-07-30",
+          "close": 1.396433,
+          "prevClose": 1.390685,
+          "returnPct": 0.413341,
+          "usdReturnPct": -0.413341,
+          "pips": 57.5
+        },
+        "AUDUSD": {
+          "date": "2021-07-30",
+          "close": 0.73961,
+          "prevClose": 0.73771,
+          "returnPct": 0.257532,
+          "usdReturnPct": -0.257532,
+          "pips": 19.0
+        },
+        "NZDUSD": {
+          "date": "2021-07-30",
+          "close": 0.70111,
+          "prevClose": 0.696059,
+          "returnPct": 0.725659,
+          "usdReturnPct": -0.725659,
+          "pips": 50.5
+        },
+        "USDJPY": {
+          "date": "2021-07-30",
+          "close": 109.408997,
+          "prevClose": 109.890999,
+          "returnPct": -0.438619,
+          "usdReturnPct": -0.438619,
+          "pips": -48.2
+        },
+        "USDCAD": {
+          "date": "2021-07-30",
+          "close": 1.24493,
+          "prevClose": 1.25197,
+          "returnPct": -0.562316,
+          "usdReturnPct": -0.562316,
+          "pips": -70.4
+        },
+        "USDCHF": {
+          "date": "2021-07-30",
+          "close": 0.90572,
+          "prevClose": 0.9095,
+          "returnPct": -0.415614,
+          "usdReturnPct": -0.415614,
+          "pips": -37.8
+        }
+      }
+    },
+    {
+      "month": "2021-08",
+      "monthEnd": "2021-08-31",
+      "spxClose": 4522.6802,
+      "spxMonthlyReturnPct": 2.899042,
+      "spxLastDayReturnPct": -0.134912,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-08-31",
+          "close": 1.17969,
+          "prevClose": 1.179901,
+          "returnPct": -0.017812,
+          "usdReturnPct": 0.017812,
+          "pips": -2.1
+        },
+        "GBPUSD": {
+          "date": "2021-08-31",
+          "close": 1.376046,
+          "prevClose": 1.3763,
+          "returnPct": -0.018441,
+          "usdReturnPct": 0.018441,
+          "pips": -2.5
+        },
+        "AUDUSD": {
+          "date": "2021-08-31",
+          "close": 0.729123,
+          "prevClose": 0.731598,
+          "returnPct": -0.338312,
+          "usdReturnPct": 0.338312,
+          "pips": -24.8
+        },
+        "NZDUSD": {
+          "date": "2021-08-31",
+          "close": 0.699819,
+          "prevClose": 0.701238,
+          "returnPct": -0.202256,
+          "usdReturnPct": 0.202256,
+          "pips": -14.2
+        },
+        "USDJPY": {
+          "date": "2021-08-31",
+          "close": 109.944,
+          "prevClose": 109.864998,
+          "returnPct": 0.071909,
+          "usdReturnPct": 0.071909,
+          "pips": 7.9
+        },
+        "USDCAD": {
+          "date": "2021-08-31",
+          "close": 1.26089,
+          "prevClose": 1.2611,
+          "returnPct": -0.016656,
+          "usdReturnPct": -0.016656,
+          "pips": -2.1
+        },
+        "USDCHF": {
+          "date": "2021-08-31",
+          "close": 0.91718,
+          "prevClose": 0.9112,
+          "returnPct": 0.656279,
+          "usdReturnPct": 0.656279,
+          "pips": 59.8
+        }
+      }
+    },
+    {
+      "month": "2021-09",
+      "monthEnd": "2021-09-30",
+      "spxClose": 4307.54,
+      "spxMonthlyReturnPct": -4.756917,
+      "spxLastDayReturnPct": -1.190971,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-09-30",
+          "close": 1.16016,
+          "prevClose": 1.168634,
+          "returnPct": -0.725089,
+          "usdReturnPct": 0.725089,
+          "pips": -84.7
+        },
+        "GBPUSD": {
+          "date": "2021-09-30",
+          "close": 1.342642,
+          "prevClose": 1.354224,
+          "returnPct": -0.855251,
+          "usdReturnPct": 0.855251,
+          "pips": -115.8
+        },
+        "AUDUSD": {
+          "date": "2021-09-30",
+          "close": 0.718,
+          "prevClose": 0.724428,
+          "returnPct": -0.887313,
+          "usdReturnPct": 0.887313,
+          "pips": -64.3
+        },
+        "NZDUSD": {
+          "date": "2021-09-30",
+          "close": 0.687238,
+          "prevClose": 0.696001,
+          "returnPct": -1.259027,
+          "usdReturnPct": 1.259027,
+          "pips": -87.6
+        },
+        "USDJPY": {
+          "date": "2021-09-30",
+          "close": 111.935997,
+          "prevClose": 111.528,
+          "returnPct": 0.365825,
+          "usdReturnPct": 0.365825,
+          "pips": 40.8
+        },
+        "USDCAD": {
+          "date": "2021-09-30",
+          "close": 1.27538,
+          "prevClose": 1.2677,
+          "returnPct": 0.605826,
+          "usdReturnPct": 0.605826,
+          "pips": 76.8
+        },
+        "USDCHF": {
+          "date": "2021-09-30",
+          "close": 0.93425,
+          "prevClose": 0.92916,
+          "returnPct": 0.547806,
+          "usdReturnPct": 0.547806,
+          "pips": 50.9
+        }
+      }
+    },
+    {
+      "month": "2021-10",
+      "monthEnd": "2021-10-29",
+      "spxClose": 4605.3799,
+      "spxMonthlyReturnPct": 6.914384,
+      "spxLastDayReturnPct": 0.194933,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-10-29",
+          "close": 1.168361,
+          "prevClose": 1.160012,
+          "returnPct": 0.719719,
+          "usdReturnPct": -0.719719,
+          "pips": 83.5
+        },
+        "GBPUSD": {
+          "date": "2021-10-29",
+          "close": 1.380072,
+          "prevClose": 1.373287,
+          "returnPct": 0.494064,
+          "usdReturnPct": -0.494064,
+          "pips": 67.8
+        },
+        "AUDUSD": {
+          "date": "2021-10-29",
+          "close": 0.75316,
+          "prevClose": 0.750075,
+          "returnPct": 0.411294,
+          "usdReturnPct": -0.411294,
+          "pips": 30.9
+        },
+        "NZDUSD": {
+          "date": "2021-10-29",
+          "close": 0.719512,
+          "prevClose": 0.716389,
+          "returnPct": 0.436026,
+          "usdReturnPct": -0.436026,
+          "pips": 31.2
+        },
+        "USDJPY": {
+          "date": "2021-10-29",
+          "close": 113.615997,
+          "prevClose": 113.776001,
+          "returnPct": -0.14063,
+          "usdReturnPct": -0.14063,
+          "pips": -16.0
+        },
+        "USDCAD": {
+          "date": "2021-10-29",
+          "close": 1.23461,
+          "prevClose": 1.23697,
+          "returnPct": -0.190788,
+          "usdReturnPct": -0.190788,
+          "pips": -23.6
+        },
+        "USDCHF": {
+          "date": "2021-10-29",
+          "close": 0.91154,
+          "prevClose": 0.918,
+          "returnPct": -0.703705,
+          "usdReturnPct": -0.703705,
+          "pips": -64.6
+        }
+      }
+    },
+    {
+      "month": "2021-11",
+      "monthEnd": "2021-11-30",
+      "spxClose": 4567.0,
+      "spxMonthlyReturnPct": -0.833371,
+      "spxLastDayReturnPct": -1.896131,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-11-30",
+          "close": 1.129344,
+          "prevClose": 1.129318,
+          "returnPct": 0.002259,
+          "usdReturnPct": -0.002259,
+          "pips": 0.3
+        },
+        "GBPUSD": {
+          "date": "2021-11-30",
+          "close": 1.331505,
+          "prevClose": 1.334098,
+          "returnPct": -0.194402,
+          "usdReturnPct": 0.194402,
+          "pips": -25.9
+        },
+        "AUDUSD": {
+          "date": "2021-11-30",
+          "close": 0.71458,
+          "prevClose": 0.714281,
+          "returnPct": 0.041949,
+          "usdReturnPct": -0.041949,
+          "pips": 3.0
+        },
+        "NZDUSD": {
+          "date": "2021-11-30",
+          "close": 0.683069,
+          "prevClose": 0.682631,
+          "returnPct": 0.064212,
+          "usdReturnPct": -0.064212,
+          "pips": 4.4
+        },
+        "USDJPY": {
+          "date": "2021-11-30",
+          "close": 113.804001,
+          "prevClose": 113.719002,
+          "returnPct": 0.074745,
+          "usdReturnPct": 0.074745,
+          "pips": 8.5
+        },
+        "USDCAD": {
+          "date": "2021-11-30",
+          "close": 1.2738,
+          "prevClose": 1.27248,
+          "returnPct": 0.103735,
+          "usdReturnPct": 0.103735,
+          "pips": 13.2
+        },
+        "USDCHF": {
+          "date": "2021-11-30",
+          "close": 0.92287,
+          "prevClose": 0.92432,
+          "returnPct": -0.156872,
+          "usdReturnPct": -0.156872,
+          "pips": -14.5
+        }
+      }
+    },
+    {
+      "month": "2021-12",
+      "monthEnd": "2021-12-31",
+      "spxClose": 4766.1802,
+      "spxMonthlyReturnPct": 4.361291,
+      "spxLastDayReturnPct": -0.262618,
+      "fx": {
+        "EURUSD": {
+          "date": "2021-12-31",
+          "close": 1.132503,
+          "prevClose": 1.136015,
+          "returnPct": -0.309174,
+          "usdReturnPct": 0.309174,
+          "pips": -35.1
+        },
+        "GBPUSD": {
+          "date": "2021-12-31",
+          "close": 1.349837,
+          "prevClose": 1.349879,
+          "returnPct": -0.003109,
+          "usdReturnPct": 0.003109,
+          "pips": -0.4
+        },
+        "AUDUSD": {
+          "date": "2021-12-31",
+          "close": 0.72498,
+          "prevClose": 0.725879,
+          "returnPct": -0.123828,
+          "usdReturnPct": 0.123828,
+          "pips": -9.0
+        },
+        "NZDUSD": {
+          "date": "2021-12-31",
+          "close": 0.683041,
+          "prevClose": 0.683971,
+          "returnPct": -0.135929,
+          "usdReturnPct": 0.135929,
+          "pips": -9.3
+        },
+        "USDJPY": {
+          "date": "2021-12-31",
+          "close": 115.063004,
+          "prevClose": 114.947998,
+          "returnPct": 0.10005,
+          "usdReturnPct": 0.10005,
+          "pips": 11.5
+        },
+        "USDCAD": {
+          "date": "2021-12-31",
+          "close": 1.27444,
+          "prevClose": 1.27826,
+          "returnPct": -0.298839,
+          "usdReturnPct": -0.298839,
+          "pips": -38.2
+        },
+        "USDCHF": {
+          "date": "2021-12-31",
+          "close": 0.9137,
+          "prevClose": 0.9136,
+          "returnPct": 0.010941,
+          "usdReturnPct": 0.010941,
+          "pips": 1.0
+        }
+      }
+    },
+    {
+      "month": "2022-01",
+      "monthEnd": "2022-01-31",
+      "spxClose": 4515.5498,
+      "spxMonthlyReturnPct": -5.258517,
+      "spxLastDayReturnPct": 1.888595,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-01-31",
+          "close": 1.115237,
+          "prevClose": 1.114703,
+          "returnPct": 0.047953,
+          "usdReturnPct": -0.047953,
+          "pips": 5.3
+        },
+        "GBPUSD": {
+          "date": "2022-01-31",
+          "close": 1.340339,
+          "prevClose": 1.338832,
+          "returnPct": 0.112582,
+          "usdReturnPct": -0.112582,
+          "pips": 15.1
+        },
+        "AUDUSD": {
+          "date": "2022-01-31",
+          "close": 0.6998,
+          "prevClose": 0.70355,
+          "returnPct": -0.53304,
+          "usdReturnPct": 0.53304,
+          "pips": -37.5
+        },
+        "NZDUSD": {
+          "date": "2022-01-31",
+          "close": 0.655192,
+          "prevClose": 0.658441,
+          "returnPct": -0.493356,
+          "usdReturnPct": 0.493356,
+          "pips": -32.5
+        },
+        "USDJPY": {
+          "date": "2022-01-31",
+          "close": 115.262001,
+          "prevClose": 115.351997,
+          "returnPct": -0.078019,
+          "usdReturnPct": -0.078019,
+          "pips": -9.0
+        },
+        "USDCAD": {
+          "date": "2022-01-31",
+          "close": 1.27591,
+          "prevClose": 1.27457,
+          "returnPct": 0.105136,
+          "usdReturnPct": 0.105136,
+          "pips": 13.4
+        },
+        "USDCHF": {
+          "date": "2022-01-31",
+          "close": 0.93113,
+          "prevClose": 0.93087,
+          "returnPct": 0.02793,
+          "usdReturnPct": 0.02793,
+          "pips": 2.6
+        }
+      }
+    },
+    {
+      "month": "2022-02",
+      "monthEnd": "2022-02-28",
+      "spxClose": 4373.9399,
+      "spxMonthlyReturnPct": -3.136049,
+      "spxLastDayReturnPct": -0.24426,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-02-28",
+          "close": 1.118105,
+          "prevClose": 1.119069,
+          "returnPct": -0.086104,
+          "usdReturnPct": 0.086104,
+          "pips": -9.6
+        },
+        "GBPUSD": {
+          "date": "2022-02-28",
+          "close": 1.337327,
+          "prevClose": 1.337327,
+          "returnPct": 0.0,
+          "usdReturnPct": -0.0,
+          "pips": 0.0
+        },
+        "AUDUSD": {
+          "date": "2022-02-28",
+          "close": 0.718649,
+          "prevClose": 0.71602,
+          "returnPct": 0.367158,
+          "usdReturnPct": -0.367158,
+          "pips": 26.3
+        },
+        "NZDUSD": {
+          "date": "2022-02-28",
+          "close": 0.669322,
+          "prevClose": 0.668789,
+          "returnPct": 0.079649,
+          "usdReturnPct": -0.079649,
+          "pips": 5.3
+        },
+        "USDJPY": {
+          "date": "2022-02-28",
+          "close": 115.584999,
+          "prevClose": 115.570999,
+          "returnPct": 0.012114,
+          "usdReturnPct": 0.012114,
+          "pips": 1.4
+        },
+        "USDCAD": {
+          "date": "2022-02-28",
+          "close": 1.27552,
+          "prevClose": 1.28095,
+          "returnPct": -0.423903,
+          "usdReturnPct": -0.423903,
+          "pips": -54.3
+        },
+        "USDCHF": {
+          "date": "2022-02-28",
+          "close": 0.926597,
+          "prevClose": 0.92584,
+          "returnPct": 0.081761,
+          "usdReturnPct": 0.081761,
+          "pips": 7.6
+        }
+      }
+    },
+    {
+      "month": "2022-03",
+      "monthEnd": "2022-03-31",
+      "spxClose": 4530.4102,
+      "spxMonthlyReturnPct": 3.577329,
+      "spxLastDayReturnPct": -1.565254,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-03-31",
+          "close": 1.116184,
+          "prevClose": 1.109152,
+          "returnPct": 0.633991,
+          "usdReturnPct": -0.633991,
+          "pips": 70.3
+        },
+        "GBPUSD": {
+          "date": "2022-03-31",
+          "close": 1.313888,
+          "prevClose": 1.30938,
+          "returnPct": 0.344241,
+          "usdReturnPct": -0.344241,
+          "pips": 45.1
+        },
+        "AUDUSD": {
+          "date": "2022-03-31",
+          "close": 0.7503,
+          "prevClose": 0.751467,
+          "returnPct": -0.15532,
+          "usdReturnPct": 0.15532,
+          "pips": -11.7
+        },
+        "NZDUSD": {
+          "date": "2022-03-31",
+          "close": 0.697068,
+          "prevClose": 0.694319,
+          "returnPct": 0.39594,
+          "usdReturnPct": -0.39594,
+          "pips": 27.5
+        },
+        "USDJPY": {
+          "date": "2022-03-31",
+          "close": 122.021004,
+          "prevClose": 123.125,
+          "returnPct": -0.896647,
+          "usdReturnPct": -0.896647,
+          "pips": -110.4
+        },
+        "USDCAD": {
+          "date": "2022-03-31",
+          "close": 1.24823,
+          "prevClose": 1.24979,
+          "returnPct": -0.124819,
+          "usdReturnPct": -0.124819,
+          "pips": -15.6
+        },
+        "USDCHF": {
+          "date": "2022-03-31",
+          "close": 0.92297,
+          "prevClose": 0.93115,
+          "returnPct": -0.878486,
+          "usdReturnPct": -0.878486,
+          "pips": -81.8
+        }
+      }
+    },
+    {
+      "month": "2022-04",
+      "monthEnd": "2022-04-29",
+      "spxClose": 4131.9302,
+      "spxMonthlyReturnPct": -8.795671,
+      "spxLastDayReturnPct": -3.628451,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-04-29",
+          "close": 1.05042,
+          "prevClose": 1.055509,
+          "returnPct": -0.482141,
+          "usdReturnPct": 0.482141,
+          "pips": -50.9
+        },
+        "GBPUSD": {
+          "date": "2022-04-29",
+          "close": 1.246385,
+          "prevClose": 1.254186,
+          "returnPct": -0.621945,
+          "usdReturnPct": 0.621945,
+          "pips": -78.0
+        },
+        "AUDUSD": {
+          "date": "2022-04-29",
+          "close": 0.710884,
+          "prevClose": 0.71257,
+          "returnPct": -0.236722,
+          "usdReturnPct": 0.236722,
+          "pips": -16.9
+        },
+        "NZDUSD": {
+          "date": "2022-04-29",
+          "close": 0.649309,
+          "prevClose": 0.654219,
+          "returnPct": -0.750594,
+          "usdReturnPct": 0.750594,
+          "pips": -49.1
+        },
+        "USDJPY": {
+          "date": "2022-04-29",
+          "close": 130.811005,
+          "prevClose": 128.393997,
+          "returnPct": 1.882493,
+          "usdReturnPct": 1.882493,
+          "pips": 241.7
+        },
+        "USDCAD": {
+          "date": "2022-04-29",
+          "close": 1.28046,
+          "prevClose": 1.2814,
+          "returnPct": -0.073355,
+          "usdReturnPct": -0.073355,
+          "pips": -9.4
+        },
+        "USDCHF": {
+          "date": "2022-04-29",
+          "close": 0.9717,
+          "prevClose": 0.96867,
+          "returnPct": 0.3128,
+          "usdReturnPct": 0.3128,
+          "pips": 30.3
+        }
+      }
+    },
+    {
+      "month": "2022-05",
+      "monthEnd": "2022-05-31",
+      "spxClose": 4132.1499,
+      "spxMonthlyReturnPct": 0.005318,
+      "spxLastDayReturnPct": -0.627437,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-05-31",
+          "close": 1.077354,
+          "prevClose": 1.073146,
+          "returnPct": 0.392149,
+          "usdReturnPct": -0.392149,
+          "pips": 42.1
+        },
+        "GBPUSD": {
+          "date": "2022-05-31",
+          "close": 1.264702,
+          "prevClose": 1.262834,
+          "returnPct": 0.14796,
+          "usdReturnPct": -0.14796,
+          "pips": 18.7
+        },
+        "AUDUSD": {
+          "date": "2022-05-31",
+          "close": 0.71952,
+          "prevClose": 0.716281,
+          "returnPct": 0.452218,
+          "usdReturnPct": -0.452218,
+          "pips": 32.4
+        },
+        "NZDUSD": {
+          "date": "2022-05-31",
+          "close": 0.655828,
+          "prevClose": 0.65341,
+          "returnPct": 0.370083,
+          "usdReturnPct": -0.370083,
+          "pips": 24.2
+        },
+        "USDJPY": {
+          "date": "2022-05-31",
+          "close": 127.783997,
+          "prevClose": 127.285004,
+          "returnPct": 0.392028,
+          "usdReturnPct": 0.392028,
+          "pips": 49.9
+        },
+        "USDCAD": {
+          "date": "2022-05-31",
+          "close": 1.26552,
+          "prevClose": 1.27237,
+          "returnPct": -0.538366,
+          "usdReturnPct": -0.538366,
+          "pips": -68.5
+        },
+        "USDCHF": {
+          "date": "2022-05-31",
+          "close": 0.95823,
+          "prevClose": 0.95785,
+          "returnPct": 0.039676,
+          "usdReturnPct": 0.039676,
+          "pips": 3.8
+        }
+      }
+    },
+    {
+      "month": "2022-06",
+      "monthEnd": "2022-06-30",
+      "spxClose": 3785.3799,
+      "spxMonthlyReturnPct": -8.392,
+      "spxLastDayReturnPct": -0.875928,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-06-30",
+          "close": 1.044659,
+          "prevClose": 1.052355,
+          "returnPct": -0.731259,
+          "usdReturnPct": 0.731259,
+          "pips": -77.0
+        },
+        "GBPUSD": {
+          "date": "2022-06-30",
+          "close": 1.21318,
+          "prevClose": 1.218977,
+          "returnPct": -0.475565,
+          "usdReturnPct": 0.475565,
+          "pips": -58.0
+        },
+        "AUDUSD": {
+          "date": "2022-06-30",
+          "close": 0.688047,
+          "prevClose": 0.69044,
+          "returnPct": -0.346635,
+          "usdReturnPct": 0.346635,
+          "pips": -23.9
+        },
+        "NZDUSD": {
+          "date": "2022-06-30",
+          "close": 0.62251,
+          "prevClose": 0.62371,
+          "returnPct": -0.192353,
+          "usdReturnPct": 0.192353,
+          "pips": -12.0
+        },
+        "USDJPY": {
+          "date": "2022-06-30",
+          "close": 136.589005,
+          "prevClose": 136.046997,
+          "returnPct": 0.398397,
+          "usdReturnPct": 0.398397,
+          "pips": 54.2
+        },
+        "USDCAD": {
+          "date": "2022-06-30",
+          "close": 1.28833,
+          "prevClose": 1.2873,
+          "returnPct": 0.08001,
+          "usdReturnPct": 0.08001,
+          "pips": 10.3
+        },
+        "USDCHF": {
+          "date": "2022-06-30",
+          "close": 0.95418,
+          "prevClose": 0.95669,
+          "returnPct": -0.262364,
+          "usdReturnPct": -0.262364,
+          "pips": -25.1
+        }
+      }
+    },
+    {
+      "month": "2022-07",
+      "monthEnd": "2022-07-29",
+      "spxClose": 4130.29,
+      "spxMonthlyReturnPct": 9.111639,
+      "spxLastDayReturnPct": 1.420776,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-07-29",
+          "close": 1.019233,
+          "prevClose": 1.020929,
+          "returnPct": -0.166146,
+          "usdReturnPct": 0.166146,
+          "pips": -17.0
+        },
+        "GBPUSD": {
+          "date": "2022-07-29",
+          "close": 1.217345,
+          "prevClose": 1.216308,
+          "returnPct": 0.085219,
+          "usdReturnPct": -0.085219,
+          "pips": 10.4
+        },
+        "AUDUSD": {
+          "date": "2022-07-29",
+          "close": 0.700084,
+          "prevClose": 0.69949,
+          "returnPct": 0.084913,
+          "usdReturnPct": -0.084913,
+          "pips": 5.9
+        },
+        "NZDUSD": {
+          "date": "2022-07-29",
+          "close": 0.629568,
+          "prevClose": 0.626029,
+          "returnPct": 0.565351,
+          "usdReturnPct": -0.565351,
+          "pips": 35.4
+        },
+        "USDJPY": {
+          "date": "2022-07-29",
+          "close": 134.397003,
+          "prevClose": 136.110992,
+          "returnPct": -1.259259,
+          "usdReturnPct": -1.259259,
+          "pips": -171.4
+        },
+        "USDCAD": {
+          "date": "2022-07-29",
+          "close": 1.2807,
+          "prevClose": 1.28171,
+          "returnPct": -0.078806,
+          "usdReturnPct": -0.078806,
+          "pips": -10.1
+        },
+        "USDCHF": {
+          "date": "2022-07-29",
+          "close": 0.95442,
+          "prevClose": 0.95819,
+          "returnPct": -0.393456,
+          "usdReturnPct": -0.393456,
+          "pips": -37.7
+        }
+      }
+    },
+    {
+      "month": "2022-08",
+      "monthEnd": "2022-08-31",
+      "spxClose": 3955.0,
+      "spxMonthlyReturnPct": -4.244013,
+      "spxLastDayReturnPct": -0.781703,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-08-31",
+          "close": 1.002506,
+          "prevClose": 1.001402,
+          "returnPct": 0.110281,
+          "usdReturnPct": -0.110281,
+          "pips": 11.0
+        },
+        "GBPUSD": {
+          "date": "2022-08-31",
+          "close": 1.165977,
+          "prevClose": 1.172251,
+          "returnPct": -0.535188,
+          "usdReturnPct": 0.535188,
+          "pips": -62.7
+        },
+        "AUDUSD": {
+          "date": "2022-08-31",
+          "close": 0.68574,
+          "prevClose": 0.690751,
+          "returnPct": -0.725446,
+          "usdReturnPct": 0.725446,
+          "pips": -50.1
+        },
+        "NZDUSD": {
+          "date": "2022-08-31",
+          "close": 0.613219,
+          "prevClose": 0.616071,
+          "returnPct": -0.462976,
+          "usdReturnPct": 0.462976,
+          "pips": -28.5
+        },
+        "USDJPY": {
+          "date": "2022-08-31",
+          "close": 138.733994,
+          "prevClose": 138.595993,
+          "returnPct": 0.09957,
+          "usdReturnPct": 0.09957,
+          "pips": 13.8
+        },
+        "USDCAD": {
+          "date": "2022-08-31",
+          "close": 1.30895,
+          "prevClose": 1.30013,
+          "returnPct": 0.678389,
+          "usdReturnPct": 0.678389,
+          "pips": 88.2
+        },
+        "USDCHF": {
+          "date": "2022-08-31",
+          "close": 0.97392,
+          "prevClose": 0.96712,
+          "returnPct": 0.703118,
+          "usdReturnPct": 0.703118,
+          "pips": 68.0
+        }
+      }
+    },
+    {
+      "month": "2022-09",
+      "monthEnd": "2022-09-30",
+      "spxClose": 3585.6201,
+      "spxMonthlyReturnPct": -9.339567,
+      "spxLastDayReturnPct": -1.50667,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-09-30",
+          "close": 0.982956,
+          "prevClose": 0.970817,
+          "returnPct": 1.250325,
+          "usdReturnPct": -1.250325,
+          "pips": 121.4
+        },
+        "GBPUSD": {
+          "date": "2022-09-30",
+          "close": 1.116944,
+          "prevClose": 1.0836,
+          "returnPct": 3.077187,
+          "usdReturnPct": -3.077187,
+          "pips": 333.4
+        },
+        "AUDUSD": {
+          "date": "2022-09-30",
+          "close": 0.6513,
+          "prevClose": 0.6505,
+          "returnPct": 0.12303,
+          "usdReturnPct": -0.12303,
+          "pips": 8.0
+        },
+        "NZDUSD": {
+          "date": "2022-09-30",
+          "close": 0.574231,
+          "prevClose": 0.57185,
+          "returnPct": 0.41632,
+          "usdReturnPct": -0.41632,
+          "pips": 23.8
+        },
+        "USDJPY": {
+          "date": "2022-09-30",
+          "close": 144.431,
+          "prevClose": 144.397995,
+          "returnPct": 0.022857,
+          "usdReturnPct": 0.022857,
+          "pips": 3.3
+        },
+        "USDCAD": {
+          "date": "2022-09-30",
+          "close": 1.36745,
+          "prevClose": 1.36279,
+          "returnPct": 0.341946,
+          "usdReturnPct": 0.341946,
+          "pips": 46.6
+        },
+        "USDCHF": {
+          "date": "2022-09-30",
+          "close": 0.97493,
+          "prevClose": 0.97762,
+          "returnPct": -0.27516,
+          "usdReturnPct": -0.27516,
+          "pips": -26.9
+        }
+      }
+    },
+    {
+      "month": "2022-10",
+      "monthEnd": "2022-10-31",
+      "spxClose": 3871.98,
+      "spxMonthlyReturnPct": 7.986341,
+      "spxLastDayReturnPct": -0.74544,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-10-31",
+          "close": 0.9955,
+          "prevClose": 0.99678,
+          "returnPct": -0.128426,
+          "usdReturnPct": 0.128426,
+          "pips": -12.8
+        },
+        "GBPUSD": {
+          "date": "2022-10-31",
+          "close": 1.159595,
+          "prevClose": 1.156604,
+          "returnPct": 0.258588,
+          "usdReturnPct": -0.258588,
+          "pips": 29.9
+        },
+        "AUDUSD": {
+          "date": "2022-10-31",
+          "close": 0.640131,
+          "prevClose": 0.645091,
+          "returnPct": -0.76881,
+          "usdReturnPct": 0.76881,
+          "pips": -49.6
+        },
+        "NZDUSD": {
+          "date": "2022-10-31",
+          "close": 0.580191,
+          "prevClose": 0.582802,
+          "returnPct": -0.447903,
+          "usdReturnPct": 0.447903,
+          "pips": -26.1
+        },
+        "USDJPY": {
+          "date": "2022-10-31",
+          "close": 147.811996,
+          "prevClose": 146.274002,
+          "returnPct": 1.051448,
+          "usdReturnPct": 1.051448,
+          "pips": 153.8
+        },
+        "USDCAD": {
+          "date": "2022-10-31",
+          "close": 1.36081,
+          "prevClose": 1.35645,
+          "returnPct": 0.321433,
+          "usdReturnPct": 0.321433,
+          "pips": 43.6
+        },
+        "USDCHF": {
+          "date": "2022-10-31",
+          "close": 0.99641,
+          "prevClose": 0.99044,
+          "returnPct": 0.602763,
+          "usdReturnPct": 0.602763,
+          "pips": 59.7
+        }
+      }
+    },
+    {
+      "month": "2022-11",
+      "monthEnd": "2022-11-30",
+      "spxClose": 4080.1101,
+      "spxMonthlyReturnPct": 5.375289,
+      "spxLastDayReturnPct": 3.094787,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-11-30",
+          "close": 1.03245,
+          "prevClose": 1.034554,
+          "returnPct": -0.203388,
+          "usdReturnPct": 0.203388,
+          "pips": -21.0
+        },
+        "GBPUSD": {
+          "date": "2022-11-30",
+          "close": 1.194686,
+          "prevClose": 1.196029,
+          "returnPct": -0.112299,
+          "usdReturnPct": 0.112299,
+          "pips": -13.4
+        },
+        "AUDUSD": {
+          "date": "2022-11-30",
+          "close": 0.668409,
+          "prevClose": 0.665199,
+          "returnPct": 0.482591,
+          "usdReturnPct": -0.482591,
+          "pips": 32.1
+        },
+        "NZDUSD": {
+          "date": "2022-11-30",
+          "close": 0.61969,
+          "prevClose": 0.616401,
+          "returnPct": 0.533549,
+          "usdReturnPct": -0.533549,
+          "pips": 32.9
+        },
+        "USDJPY": {
+          "date": "2022-11-30",
+          "close": 138.744995,
+          "prevClose": 138.718994,
+          "returnPct": 0.018744,
+          "usdReturnPct": 0.018744,
+          "pips": 2.6
+        },
+        "USDCAD": {
+          "date": "2022-11-30",
+          "close": 1.35836,
+          "prevClose": 1.34899,
+          "returnPct": 0.6946,
+          "usdReturnPct": 0.6946,
+          "pips": 93.7
+        },
+        "USDCHF": {
+          "date": "2022-11-30",
+          "close": 0.95431,
+          "prevClose": 0.94879,
+          "returnPct": 0.581792,
+          "usdReturnPct": 0.581792,
+          "pips": 55.2
+        }
+      }
+    },
+    {
+      "month": "2022-12",
+      "monthEnd": "2022-12-30",
+      "spxClose": 3839.5,
+      "spxMonthlyReturnPct": -5.897147,
+      "spxLastDayReturnPct": -0.254074,
+      "fx": {
+        "EURUSD": {
+          "date": "2022-12-30",
+          "close": 1.066075,
+          "prevClose": 1.062925,
+          "returnPct": 0.296373,
+          "usdReturnPct": -0.296373,
+          "pips": 31.5
+        },
+        "GBPUSD": {
+          "date": "2022-12-30",
+          "close": 1.205633,
+          "prevClose": 1.202848,
+          "returnPct": 0.231482,
+          "usdReturnPct": -0.231482,
+          "pips": 27.8
+        },
+        "AUDUSD": {
+          "date": "2022-12-30",
+          "close": 0.6766,
+          "prevClose": 0.67471,
+          "returnPct": 0.280112,
+          "usdReturnPct": -0.280112,
+          "pips": 18.9
+        },
+        "NZDUSD": {
+          "date": "2022-12-30",
+          "close": 0.63459,
+          "prevClose": 0.63184,
+          "returnPct": 0.435328,
+          "usdReturnPct": -0.435328,
+          "pips": 27.5
+        },
+        "USDJPY": {
+          "date": "2022-12-30",
+          "close": 132.916,
+          "prevClose": 134.033997,
+          "returnPct": -0.834114,
+          "usdReturnPct": -0.834114,
+          "pips": -111.8
+        },
+        "USDCAD": {
+          "date": "2022-12-30",
+          "close": 1.3552,
+          "prevClose": 1.35994,
+          "returnPct": -0.348545,
+          "usdReturnPct": -0.348545,
+          "pips": -47.4
+        },
+        "USDCHF": {
+          "date": "2022-12-30",
+          "close": 0.92285,
+          "prevClose": 0.92771,
+          "returnPct": -0.523869,
+          "usdReturnPct": -0.523869,
+          "pips": -48.6
+        }
+      }
+    },
+    {
+      "month": "2023-01",
+      "monthEnd": "2023-01-31",
+      "spxClose": 4076.6001,
+      "spxMonthlyReturnPct": 6.175286,
+      "spxLastDayReturnPct": 1.464247,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-01-31",
+          "close": 1.085069,
+          "prevClose": 1.087146,
+          "returnPct": -0.190972,
+          "usdReturnPct": 0.190972,
+          "pips": -20.8
+        },
+        "GBPUSD": {
+          "date": "2023-01-31",
+          "close": 1.235361,
+          "prevClose": 1.24003,
+          "returnPct": -0.376538,
+          "usdReturnPct": 0.376538,
+          "pips": -46.7
+        },
+        "AUDUSD": {
+          "date": "2023-01-31",
+          "close": 0.70581,
+          "prevClose": 0.710798,
+          "returnPct": -0.701715,
+          "usdReturnPct": 0.701715,
+          "pips": -49.9
+        },
+        "NZDUSD": {
+          "date": "2023-01-31",
+          "close": 0.646889,
+          "prevClose": 0.64922,
+          "returnPct": -0.359022,
+          "usdReturnPct": 0.359022,
+          "pips": -23.3
+        },
+        "USDJPY": {
+          "date": "2023-01-31",
+          "close": 130.479004,
+          "prevClose": 129.854004,
+          "returnPct": 0.48131,
+          "usdReturnPct": 0.48131,
+          "pips": 62.5
+        },
+        "USDCAD": {
+          "date": "2023-01-31",
+          "close": 1.33838,
+          "prevClose": 1.33032,
+          "returnPct": 0.605868,
+          "usdReturnPct": 0.605868,
+          "pips": 80.6
+        },
+        "USDCHF": {
+          "date": "2023-01-31",
+          "close": 0.92528,
+          "prevClose": 0.92086,
+          "returnPct": 0.479984,
+          "usdReturnPct": 0.479984,
+          "pips": 44.2
+        }
+      }
+    },
+    {
+      "month": "2023-02",
+      "monthEnd": "2023-02-28",
+      "spxClose": 3970.1499,
+      "spxMonthlyReturnPct": -2.611249,
+      "spxLastDayReturnPct": -0.3036,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-02-28",
+          "close": 1.061121,
+          "prevClose": 1.055476,
+          "returnPct": 0.534799,
+          "usdReturnPct": -0.534799,
+          "pips": 56.4
+        },
+        "GBPUSD": {
+          "date": "2023-02-28",
+          "close": 1.206156,
+          "prevClose": 1.195243,
+          "returnPct": 0.913067,
+          "usdReturnPct": -0.913067,
+          "pips": 109.1
+        },
+        "AUDUSD": {
+          "date": "2023-02-28",
+          "close": 0.6743,
+          "prevClose": 0.673568,
+          "returnPct": 0.108631,
+          "usdReturnPct": -0.108631,
+          "pips": 7.3
+        },
+        "NZDUSD": {
+          "date": "2023-02-28",
+          "close": 0.61642,
+          "prevClose": 0.616561,
+          "returnPct": -0.022805,
+          "usdReturnPct": 0.022805,
+          "pips": -1.4
+        },
+        "USDJPY": {
+          "date": "2023-02-28",
+          "close": 136.317001,
+          "prevClose": 136.395004,
+          "returnPct": -0.057189,
+          "usdReturnPct": -0.057189,
+          "pips": -7.8
+        },
+        "USDCAD": {
+          "date": "2023-02-28",
+          "close": 1.3574,
+          "prevClose": 1.35937,
+          "returnPct": -0.144924,
+          "usdReturnPct": -0.144924,
+          "pips": -19.7
+        },
+        "USDCHF": {
+          "date": "2023-02-28",
+          "close": 0.9356,
+          "prevClose": 0.94003,
+          "returnPct": -0.471261,
+          "usdReturnPct": -0.471261,
+          "pips": -44.3
+        }
+      }
+    },
+    {
+      "month": "2023-03",
+      "monthEnd": "2023-03-31",
+      "spxClose": 4109.3101,
+      "spxMonthlyReturnPct": 3.505161,
+      "spxLastDayReturnPct": 1.443654,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-03-31",
+          "close": 1.090465,
+          "prevClose": 1.084363,
+          "returnPct": 0.562679,
+          "usdReturnPct": -0.562679,
+          "pips": 61.0
+        },
+        "GBPUSD": {
+          "date": "2023-03-31",
+          "close": 1.238728,
+          "prevClose": 1.23136,
+          "returnPct": 0.598302,
+          "usdReturnPct": -0.598302,
+          "pips": 73.7
+        },
+        "AUDUSD": {
+          "date": "2023-03-31",
+          "close": 0.671682,
+          "prevClose": 0.668248,
+          "returnPct": 0.513828,
+          "usdReturnPct": -0.513828,
+          "pips": 34.3
+        },
+        "NZDUSD": {
+          "date": "2023-03-31",
+          "close": 0.626979,
+          "prevClose": 0.62213,
+          "returnPct": 0.779345,
+          "usdReturnPct": -0.779345,
+          "pips": 48.5
+        },
+        "USDJPY": {
+          "date": "2023-03-31",
+          "close": 133.201004,
+          "prevClose": 132.576004,
+          "returnPct": 0.471428,
+          "usdReturnPct": 0.471428,
+          "pips": 62.5
+        },
+        "USDCAD": {
+          "date": "2023-03-31",
+          "close": 1.35219,
+          "prevClose": 1.35631,
+          "returnPct": -0.303765,
+          "usdReturnPct": -0.303765,
+          "pips": -41.2
+        },
+        "USDCHF": {
+          "date": "2023-03-31",
+          "close": 0.91338,
+          "prevClose": 0.9181,
+          "returnPct": -0.514102,
+          "usdReturnPct": -0.514102,
+          "pips": -47.2
+        }
+      }
+    },
+    {
+      "month": "2023-04",
+      "monthEnd": "2023-04-28",
+      "spxClose": 4169.48,
+      "spxMonthlyReturnPct": 1.464234,
+      "spxLastDayReturnPct": 0.82532,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-04-28",
+          "close": 1.103205,
+          "prevClose": 1.104728,
+          "returnPct": -0.137896,
+          "usdReturnPct": 0.137896,
+          "pips": -15.2
+        },
+        "GBPUSD": {
+          "date": "2023-04-28",
+          "close": 1.24975,
+          "prevClose": 1.247147,
+          "returnPct": 0.208702,
+          "usdReturnPct": -0.208702,
+          "pips": 26.0
+        },
+        "AUDUSD": {
+          "date": "2023-04-28",
+          "close": 0.66304,
+          "prevClose": 0.660838,
+          "returnPct": 0.333173,
+          "usdReturnPct": -0.333173,
+          "pips": 22.0
+        },
+        "NZDUSD": {
+          "date": "2023-04-28",
+          "close": 0.614639,
+          "prevClose": 0.612089,
+          "returnPct": 0.416724,
+          "usdReturnPct": -0.416724,
+          "pips": 25.5
+        },
+        "USDJPY": {
+          "date": "2023-04-28",
+          "close": 133.802002,
+          "prevClose": 133.464996,
+          "returnPct": 0.252505,
+          "usdReturnPct": 0.252505,
+          "pips": 33.7
+        },
+        "USDCAD": {
+          "date": "2023-04-28",
+          "close": 1.35997,
+          "prevClose": 1.36307,
+          "returnPct": -0.227431,
+          "usdReturnPct": -0.227431,
+          "pips": -31.0
+        },
+        "USDCHF": {
+          "date": "2023-04-28",
+          "close": 0.89388,
+          "prevClose": 0.89081,
+          "returnPct": 0.34463,
+          "usdReturnPct": 0.34463,
+          "pips": 30.7
+        }
+      }
+    },
+    {
+      "month": "2023-05",
+      "monthEnd": "2023-05-31",
+      "spxClose": 4179.8301,
+      "spxMonthlyReturnPct": 0.248235,
+      "spxLastDayReturnPct": -0.610862,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-05-31",
+          "close": 1.073307,
+          "prevClose": 1.070767,
+          "returnPct": 0.237212,
+          "usdReturnPct": -0.237212,
+          "pips": 25.4
+        },
+        "GBPUSD": {
+          "date": "2023-05-31",
+          "close": 1.241188,
+          "prevClose": 1.234934,
+          "returnPct": 0.506401,
+          "usdReturnPct": -0.506401,
+          "pips": 62.5
+        },
+        "AUDUSD": {
+          "date": "2023-05-31",
+          "close": 0.65178,
+          "prevClose": 0.65285,
+          "returnPct": -0.163928,
+          "usdReturnPct": 0.163928,
+          "pips": -10.7
+        },
+        "NZDUSD": {
+          "date": "2023-05-31",
+          "close": 0.604679,
+          "prevClose": 0.604449,
+          "returnPct": 0.038093,
+          "usdReturnPct": -0.038093,
+          "pips": 2.3
+        },
+        "USDJPY": {
+          "date": "2023-05-31",
+          "close": 139.792007,
+          "prevClose": 140.440994,
+          "returnPct": -0.462106,
+          "usdReturnPct": -0.462106,
+          "pips": -64.9
+        },
+        "USDCAD": {
+          "date": "2023-05-31",
+          "close": 1.35997,
+          "prevClose": 1.3601,
+          "returnPct": -0.009562,
+          "usdReturnPct": -0.009562,
+          "pips": -1.3
+        },
+        "USDCHF": {
+          "date": "2023-05-31",
+          "close": 0.9058,
+          "prevClose": 0.90446,
+          "returnPct": 0.148152,
+          "usdReturnPct": 0.148152,
+          "pips": 13.4
+        }
+      }
+    },
+    {
+      "month": "2023-06",
+      "monthEnd": "2023-06-30",
+      "spxClose": 4450.3799,
+      "spxMonthlyReturnPct": 6.472746,
+      "spxLastDayReturnPct": 1.2269,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-06-30",
+          "close": 1.086803,
+          "prevClose": 1.091584,
+          "returnPct": -0.437977,
+          "usdReturnPct": 0.437977,
+          "pips": -47.8
+        },
+        "GBPUSD": {
+          "date": "2023-06-30",
+          "close": 1.261464,
+          "prevClose": 1.264254,
+          "returnPct": -0.220747,
+          "usdReturnPct": 0.220747,
+          "pips": -27.9
+        },
+        "AUDUSD": {
+          "date": "2023-06-30",
+          "close": 0.661971,
+          "prevClose": 0.660062,
+          "returnPct": 0.289281,
+          "usdReturnPct": -0.289281,
+          "pips": 19.1
+        },
+        "NZDUSD": {
+          "date": "2023-06-30",
+          "close": 0.606678,
+          "prevClose": 0.60743,
+          "returnPct": -0.123756,
+          "usdReturnPct": 0.123756,
+          "pips": -7.5
+        },
+        "USDJPY": {
+          "date": "2023-06-30",
+          "close": 144.779999,
+          "prevClose": 144.389008,
+          "returnPct": 0.27079,
+          "usdReturnPct": 0.27079,
+          "pips": 39.1
+        },
+        "USDCAD": {
+          "date": "2023-06-30",
+          "close": 1.325,
+          "prevClose": 1.32518,
+          "returnPct": -0.013584,
+          "usdReturnPct": -0.013584,
+          "pips": -1.8
+        },
+        "USDCHF": {
+          "date": "2023-06-30",
+          "close": 0.89914,
+          "prevClose": 0.89666,
+          "returnPct": 0.276585,
+          "usdReturnPct": 0.276585,
+          "pips": 24.8
+        }
+      }
+    },
+    {
+      "month": "2023-07",
+      "monthEnd": "2023-07-31",
+      "spxClose": 4588.96,
+      "spxMonthlyReturnPct": 3.113893,
+      "spxLastDayReturnPct": 0.146871,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-07-31",
+          "close": 1.102426,
+          "prevClose": 1.097876,
+          "returnPct": 0.414511,
+          "usdReturnPct": -0.414511,
+          "pips": 45.5
+        },
+        "GBPUSD": {
+          "date": "2023-07-31",
+          "close": 1.285397,
+          "prevClose": 1.279378,
+          "returnPct": 0.470453,
+          "usdReturnPct": -0.470453,
+          "pips": 60.2
+        },
+        "AUDUSD": {
+          "date": "2023-07-31",
+          "close": 0.666081,
+          "prevClose": 0.671186,
+          "returnPct": -0.760659,
+          "usdReturnPct": 0.760659,
+          "pips": -51.1
+        },
+        "NZDUSD": {
+          "date": "2023-07-31",
+          "close": 0.61601,
+          "prevClose": 0.618747,
+          "returnPct": -0.442295,
+          "usdReturnPct": 0.442295,
+          "pips": -27.4
+        },
+        "USDJPY": {
+          "date": "2023-07-31",
+          "close": 140.757996,
+          "prevClose": 138.863998,
+          "returnPct": 1.363922,
+          "usdReturnPct": 1.363922,
+          "pips": 189.4
+        },
+        "USDCAD": {
+          "date": "2023-07-31",
+          "close": 1.3251,
+          "prevClose": 1.3227,
+          "returnPct": 0.181441,
+          "usdReturnPct": 0.181441,
+          "pips": 24.0
+        },
+        "USDCHF": {
+          "date": "2023-07-31",
+          "close": 0.86982,
+          "prevClose": 0.86885,
+          "returnPct": 0.111643,
+          "usdReturnPct": 0.111643,
+          "pips": 9.7
+        }
+      }
+    },
+    {
+      "month": "2023-08",
+      "monthEnd": "2023-08-31",
+      "spxClose": 4507.6602,
+      "spxMonthlyReturnPct": -1.771639,
+      "spxLastDayReturnPct": -0.159694,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-08-31",
+          "close": 1.093255,
+          "prevClose": 1.086921,
+          "returnPct": 0.582709,
+          "usdReturnPct": -0.582709,
+          "pips": 63.3
+        },
+        "GBPUSD": {
+          "date": "2023-08-31",
+          "close": 1.271179,
+          "prevClose": 1.263679,
+          "returnPct": 0.593509,
+          "usdReturnPct": -0.593509,
+          "pips": 75.0
+        },
+        "AUDUSD": {
+          "date": "2023-08-31",
+          "close": 0.647878,
+          "prevClose": 0.64766,
+          "returnPct": 0.033702,
+          "usdReturnPct": -0.033702,
+          "pips": 2.2
+        },
+        "NZDUSD": {
+          "date": "2023-08-31",
+          "close": 0.595298,
+          "prevClose": 0.596748,
+          "returnPct": -0.242874,
+          "usdReturnPct": 0.242874,
+          "pips": -14.5
+        },
+        "USDJPY": {
+          "date": "2023-08-31",
+          "close": 146.098999,
+          "prevClose": 145.988007,
+          "returnPct": 0.076028,
+          "usdReturnPct": 0.076028,
+          "pips": 11.1
+        },
+        "USDCAD": {
+          "date": "2023-08-31",
+          "close": 1.35353,
+          "prevClose": 1.35589,
+          "returnPct": -0.174054,
+          "usdReturnPct": -0.174054,
+          "pips": -23.6
+        },
+        "USDCHF": {
+          "date": "2023-08-31",
+          "close": 0.87811,
+          "prevClose": 0.87896,
+          "returnPct": -0.096708,
+          "usdReturnPct": -0.096708,
+          "pips": -8.5
+        }
+      }
+    },
+    {
+      "month": "2023-09",
+      "monthEnd": "2023-09-29",
+      "spxClose": 4288.0498,
+      "spxMonthlyReturnPct": -4.871937,
+      "spxLastDayReturnPct": -0.270958,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-09-29",
+          "close": 1.056245,
+          "prevClose": 1.050531,
+          "returnPct": 0.543967,
+          "usdReturnPct": -0.543967,
+          "pips": 57.1
+        },
+        "GBPUSD": {
+          "date": "2023-09-29",
+          "close": 1.22048,
+          "prevClose": 1.213533,
+          "returnPct": 0.572405,
+          "usdReturnPct": -0.572405,
+          "pips": 69.5
+        },
+        "AUDUSD": {
+          "date": "2023-09-29",
+          "close": 0.642797,
+          "prevClose": 0.63476,
+          "returnPct": 1.266256,
+          "usdReturnPct": -1.266256,
+          "pips": 80.4
+        },
+        "NZDUSD": {
+          "date": "2023-09-29",
+          "close": 0.59644,
+          "prevClose": 0.591621,
+          "returnPct": 0.814436,
+          "usdReturnPct": -0.814436,
+          "pips": 48.2
+        },
+        "USDJPY": {
+          "date": "2023-09-29",
+          "close": 149.337006,
+          "prevClose": 149.498001,
+          "returnPct": -0.107691,
+          "usdReturnPct": -0.107691,
+          "pips": -16.1
+        },
+        "USDCAD": {
+          "date": "2023-09-29",
+          "close": 1.3491,
+          "prevClose": 1.3501,
+          "returnPct": -0.074072,
+          "usdReturnPct": -0.074072,
+          "pips": -10.0
+        },
+        "USDCHF": {
+          "date": "2023-09-29",
+          "close": 0.91476,
+          "prevClose": 0.92082,
+          "returnPct": -0.65811,
+          "usdReturnPct": -0.65811,
+          "pips": -60.6
+        }
+      }
+    },
+    {
+      "month": "2023-10",
+      "monthEnd": "2023-10-31",
+      "spxClose": 4193.7998,
+      "spxMonthlyReturnPct": -2.197969,
+      "spxLastDayReturnPct": 0.647496,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-10-31",
+          "close": 1.061504,
+          "prevClose": 1.056245,
+          "returnPct": 0.497843,
+          "usdReturnPct": -0.497843,
+          "pips": 52.6
+        },
+        "GBPUSD": {
+          "date": "2023-10-31",
+          "close": 1.216575,
+          "prevClose": 1.211372,
+          "returnPct": 0.429455,
+          "usdReturnPct": -0.429455,
+          "pips": 52.0
+        },
+        "AUDUSD": {
+          "date": "2023-10-31",
+          "close": 0.6371,
+          "prevClose": 0.63389,
+          "returnPct": 0.50636,
+          "usdReturnPct": -0.50636,
+          "pips": 32.1
+        },
+        "NZDUSD": {
+          "date": "2023-10-31",
+          "close": 0.58403,
+          "prevClose": 0.580842,
+          "returnPct": 0.548984,
+          "usdReturnPct": -0.548984,
+          "pips": 31.9
+        },
+        "USDJPY": {
+          "date": "2023-10-31",
+          "close": 149.110992,
+          "prevClose": 149.733002,
+          "returnPct": -0.415412,
+          "usdReturnPct": -0.415412,
+          "pips": -62.2
+        },
+        "USDCAD": {
+          "date": "2023-10-31",
+          "close": 1.38286,
+          "prevClose": 1.38634,
+          "returnPct": -0.251026,
+          "usdReturnPct": -0.251026,
+          "pips": -34.8
+        },
+        "USDCHF": {
+          "date": "2023-10-31",
+          "close": 0.90206,
+          "prevClose": 0.9024,
+          "returnPct": -0.037682,
+          "usdReturnPct": -0.037682,
+          "pips": -3.4
+        }
+      }
+    },
+    {
+      "month": "2023-11",
+      "monthEnd": "2023-11-30",
+      "spxClose": 4567.7998,
+      "spxMonthlyReturnPct": 8.917927,
+      "spxLastDayReturnPct": 0.378407,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-11-30",
+          "close": 1.09737,
+          "prevClose": 1.100594,
+          "returnPct": -0.29301,
+          "usdReturnPct": 0.29301,
+          "pips": -32.2
+        },
+        "GBPUSD": {
+          "date": "2023-11-30",
+          "close": 1.26964,
+          "prevClose": 1.27123,
+          "returnPct": -0.125058,
+          "usdReturnPct": 0.125058,
+          "pips": -15.9
+        },
+        "AUDUSD": {
+          "date": "2023-11-30",
+          "close": 0.661901,
+          "prevClose": 0.6659,
+          "returnPct": -0.60054,
+          "usdReturnPct": 0.60054,
+          "pips": -40.0
+        },
+        "NZDUSD": {
+          "date": "2023-11-30",
+          "close": 0.615589,
+          "prevClose": 0.614602,
+          "returnPct": 0.160668,
+          "usdReturnPct": -0.160668,
+          "pips": 9.9
+        },
+        "USDJPY": {
+          "date": "2023-11-30",
+          "close": 147.039001,
+          "prevClose": 147.063004,
+          "returnPct": -0.016321,
+          "usdReturnPct": -0.016321,
+          "pips": -2.4
+        },
+        "USDCAD": {
+          "date": "2023-11-30",
+          "close": 1.35902,
+          "prevClose": 1.3563,
+          "returnPct": 0.200545,
+          "usdReturnPct": 0.200545,
+          "pips": 27.2
+        },
+        "USDCHF": {
+          "date": "2023-11-30",
+          "close": 0.87332,
+          "prevClose": 0.8769,
+          "returnPct": -0.40826,
+          "usdReturnPct": -0.40826,
+          "pips": -35.8
+        }
+      }
+    },
+    {
+      "month": "2023-12",
+      "monthEnd": "2023-12-29",
+      "spxClose": 4769.8301,
+      "spxMonthlyReturnPct": 4.422923,
+      "spxLastDayReturnPct": -0.282648,
+      "fx": {
+        "EURUSD": {
+          "date": "2023-12-29",
+          "close": 1.106819,
+          "prevClose": 1.110864,
+          "returnPct": -0.364142,
+          "usdReturnPct": 0.364142,
+          "pips": -40.5
+        },
+        "GBPUSD": {
+          "date": "2023-12-29",
+          "close": 1.273399,
+          "prevClose": 1.280082,
+          "returnPct": -0.522103,
+          "usdReturnPct": 0.522103,
+          "pips": -66.8
+        },
+        "AUDUSD": {
+          "date": "2023-12-29",
+          "close": 0.68263,
+          "prevClose": 0.68547,
+          "returnPct": -0.414286,
+          "usdReturnPct": 0.414286,
+          "pips": -28.4
+        },
+        "NZDUSD": {
+          "date": "2023-12-29",
+          "close": 0.633489,
+          "prevClose": 0.634949,
+          "returnPct": -0.229952,
+          "usdReturnPct": 0.229952,
+          "pips": -14.6
+        },
+        "USDJPY": {
+          "date": "2023-12-29",
+          "close": 141.429993,
+          "prevClose": 141.399002,
+          "returnPct": 0.021917,
+          "usdReturnPct": 0.021917,
+          "pips": 3.1
+        },
+        "USDCAD": {
+          "date": "2023-12-29",
+          "close": 1.32296,
+          "prevClose": 1.3202,
+          "returnPct": 0.209063,
+          "usdReturnPct": 0.209063,
+          "pips": 27.6
+        },
+        "USDCHF": {
+          "date": "2023-12-29",
+          "close": 0.84336,
+          "prevClose": 0.84233,
+          "returnPct": 0.122283,
+          "usdReturnPct": 0.122283,
+          "pips": 10.3
+        }
+      }
+    },
+    {
+      "month": "2024-01",
+      "monthEnd": "2024-01-31",
+      "spxClose": 4845.6499,
+      "spxMonthlyReturnPct": 1.589571,
+      "spxLastDayReturnPct": -1.610574,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-01-31",
+          "close": 1.08434,
+          "prevClose": 1.083447,
+          "returnPct": 0.082411,
+          "usdReturnPct": -0.082411,
+          "pips": 8.9
+        },
+        "GBPUSD": {
+          "date": "2024-01-31",
+          "close": 1.269551,
+          "prevClose": 1.271326,
+          "returnPct": -0.139639,
+          "usdReturnPct": 0.139639,
+          "pips": -17.8
+        },
+        "AUDUSD": {
+          "date": "2024-01-31",
+          "close": 0.65948,
+          "prevClose": 0.661419,
+          "returnPct": -0.293211,
+          "usdReturnPct": 0.293211,
+          "pips": -19.4
+        },
+        "NZDUSD": {
+          "date": "2024-01-31",
+          "close": 0.613181,
+          "prevClose": 0.613482,
+          "returnPct": -0.049055,
+          "usdReturnPct": 0.049055,
+          "pips": -3.0
+        },
+        "USDJPY": {
+          "date": "2024-01-31",
+          "close": 147.369003,
+          "prevClose": 147.468002,
+          "returnPct": -0.067133,
+          "usdReturnPct": -0.067133,
+          "pips": -9.9
+        },
+        "USDCAD": {
+          "date": "2024-01-31",
+          "close": 1.34017,
+          "prevClose": 1.34114,
+          "returnPct": -0.072327,
+          "usdReturnPct": -0.072327,
+          "pips": -9.7
+        },
+        "USDCHF": {
+          "date": "2024-01-31",
+          "close": 0.86186,
+          "prevClose": 0.86132,
+          "returnPct": 0.06269,
+          "usdReturnPct": 0.06269,
+          "pips": 5.4
+        }
+      }
+    },
+    {
+      "month": "2024-02",
+      "monthEnd": "2024-02-29",
+      "spxClose": 5096.27,
+      "spxMonthlyReturnPct": 5.172064,
+      "spxLastDayReturnPct": 0.522909,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-02-29",
+          "close": 1.083882,
+          "prevClose": 1.084481,
+          "returnPct": -0.05528,
+          "usdReturnPct": 0.05528,
+          "pips": -6.0
+        },
+        "GBPUSD": {
+          "date": "2024-02-29",
+          "close": 1.266304,
+          "prevClose": 1.268166,
+          "returnPct": -0.146886,
+          "usdReturnPct": 0.146886,
+          "pips": -18.6
+        },
+        "AUDUSD": {
+          "date": "2024-02-29",
+          "close": 0.64947,
+          "prevClose": 0.65439,
+          "returnPct": -0.751819,
+          "usdReturnPct": 0.751819,
+          "pips": -49.2
+        },
+        "NZDUSD": {
+          "date": "2024-02-29",
+          "close": 0.60971,
+          "prevClose": 0.617029,
+          "returnPct": -1.186125,
+          "usdReturnPct": 1.186125,
+          "pips": -73.2
+        },
+        "USDJPY": {
+          "date": "2024-02-29",
+          "close": 150.656006,
+          "prevClose": 150.494995,
+          "returnPct": 0.106987,
+          "usdReturnPct": 0.106987,
+          "pips": 16.1
+        },
+        "USDCAD": {
+          "date": "2024-02-29",
+          "close": 1.35775,
+          "prevClose": 1.35317,
+          "returnPct": 0.338466,
+          "usdReturnPct": 0.338466,
+          "pips": 45.8
+        },
+        "USDCHF": {
+          "date": "2024-02-29",
+          "close": 0.87871,
+          "prevClose": 0.8788,
+          "returnPct": -0.010242,
+          "usdReturnPct": -0.010242,
+          "pips": -0.9
+        }
+      }
+    },
+    {
+      "month": "2024-03",
+      "monthEnd": "2024-03-28",
+      "spxClose": 5254.3501,
+      "spxMonthlyReturnPct": 3.101878,
+      "spxLastDayReturnPct": 0.111649,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-03-28",
+          "close": 1.081338,
+          "prevClose": 1.083236,
+          "returnPct": -0.175176,
+          "usdReturnPct": 0.175176,
+          "pips": -19.0
+        },
+        "GBPUSD": {
+          "date": "2024-03-28",
+          "close": 1.26167,
+          "prevClose": 1.26285,
+          "returnPct": -0.093368,
+          "usdReturnPct": 0.093368,
+          "pips": -11.8
+        },
+        "AUDUSD": {
+          "date": "2024-03-28",
+          "close": 0.6522,
+          "prevClose": 0.653898,
+          "returnPct": -0.259713,
+          "usdReturnPct": 0.259713,
+          "pips": -17.0
+        },
+        "NZDUSD": {
+          "date": "2024-03-28",
+          "close": 0.599251,
+          "prevClose": 0.600759,
+          "returnPct": -0.251095,
+          "usdReturnPct": 0.251095,
+          "pips": -15.1
+        },
+        "USDJPY": {
+          "date": "2024-03-28",
+          "close": 151.287003,
+          "prevClose": 151.529999,
+          "returnPct": -0.160362,
+          "usdReturnPct": -0.160362,
+          "pips": -24.3
+        },
+        "USDCAD": {
+          "date": "2024-03-28",
+          "close": 1.3586,
+          "prevClose": 1.3581,
+          "returnPct": 0.036813,
+          "usdReturnPct": 0.036813,
+          "pips": 5.0
+        },
+        "USDCHF": {
+          "date": "2024-03-28",
+          "close": 0.9055,
+          "prevClose": 0.90365,
+          "returnPct": 0.204726,
+          "usdReturnPct": 0.204726,
+          "pips": 18.5
+        }
+      }
+    },
+    {
+      "month": "2024-04",
+      "monthEnd": "2024-04-30",
+      "spxClose": 5035.6899,
+      "spxMonthlyReturnPct": -4.161507,
+      "spxLastDayReturnPct": -1.573051,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-04-30",
+          "close": 1.07157,
+          "prevClose": 1.070687,
+          "returnPct": 0.082513,
+          "usdReturnPct": -0.082513,
+          "pips": 8.8
+        },
+        "GBPUSD": {
+          "date": "2024-04-30",
+          "close": 1.255982,
+          "prevClose": 1.251048,
+          "returnPct": 0.394376,
+          "usdReturnPct": -0.394376,
+          "pips": 49.3
+        },
+        "AUDUSD": {
+          "date": "2024-04-30",
+          "close": 0.65619,
+          "prevClose": 0.65414,
+          "returnPct": 0.313395,
+          "usdReturnPct": -0.313395,
+          "pips": 20.5
+        },
+        "NZDUSD": {
+          "date": "2024-04-30",
+          "close": 0.597161,
+          "prevClose": 0.594771,
+          "returnPct": 0.40189,
+          "usdReturnPct": -0.40189,
+          "pips": 23.9
+        },
+        "USDJPY": {
+          "date": "2024-04-30",
+          "close": 156.313995,
+          "prevClose": 158.223999,
+          "returnPct": -1.207152,
+          "usdReturnPct": -1.207152,
+          "pips": -191.0
+        },
+        "USDCAD": {
+          "date": "2024-04-30",
+          "close": 1.36667,
+          "prevClose": 1.36559,
+          "returnPct": 0.079089,
+          "usdReturnPct": 0.079089,
+          "pips": 10.8
+        },
+        "USDCHF": {
+          "date": "2024-04-30",
+          "close": 0.91072,
+          "prevClose": 0.913688,
+          "returnPct": -0.324839,
+          "usdReturnPct": -0.324839,
+          "pips": -29.7
+        }
+      }
+    },
+    {
+      "month": "2024-05",
+      "monthEnd": "2024-05-31",
+      "spxClose": 5277.5098,
+      "spxMonthlyReturnPct": 4.802119,
+      "spxLastDayReturnPct": 0.802788,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-05-31",
+          "close": 1.083541,
+          "prevClose": 1.080182,
+          "returnPct": 0.310973,
+          "usdReturnPct": -0.310973,
+          "pips": 33.6
+        },
+        "GBPUSD": {
+          "date": "2024-05-31",
+          "close": 1.273042,
+          "prevClose": 1.269799,
+          "returnPct": 0.255374,
+          "usdReturnPct": -0.255374,
+          "pips": 32.4
+        },
+        "AUDUSD": {
+          "date": "2024-05-31",
+          "close": 0.66303,
+          "prevClose": 0.66137,
+          "returnPct": 0.25102,
+          "usdReturnPct": -0.25102,
+          "pips": 16.6
+        },
+        "NZDUSD": {
+          "date": "2024-05-31",
+          "close": 0.611651,
+          "prevClose": 0.611359,
+          "returnPct": 0.047704,
+          "usdReturnPct": -0.047704,
+          "pips": 2.9
+        },
+        "USDJPY": {
+          "date": "2024-05-31",
+          "close": 156.953003,
+          "prevClose": 157.608002,
+          "returnPct": -0.415587,
+          "usdReturnPct": -0.415587,
+          "pips": -65.5
+        },
+        "USDCAD": {
+          "date": "2024-05-31",
+          "close": 1.36833,
+          "prevClose": 1.3717,
+          "returnPct": -0.245684,
+          "usdReturnPct": -0.245684,
+          "pips": -33.7
+        },
+        "USDCHF": {
+          "date": "2024-05-31",
+          "close": 0.90331,
+          "prevClose": 0.9128,
+          "returnPct": -1.03966,
+          "usdReturnPct": -1.03966,
+          "pips": -94.9
+        }
+      }
+    },
+    {
+      "month": "2024-06",
+      "monthEnd": "2024-06-28",
+      "spxClose": 5460.48,
+      "spxMonthlyReturnPct": 3.46698,
+      "spxLastDayReturnPct": -0.408365,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-06-28",
+          "close": 1.070847,
+          "prevClose": 1.068011,
+          "returnPct": 0.265573,
+          "usdReturnPct": -0.265573,
+          "pips": 28.4
+        },
+        "GBPUSD": {
+          "date": "2024-06-28",
+          "close": 1.264574,
+          "prevClose": 1.26218,
+          "returnPct": 0.189688,
+          "usdReturnPct": -0.189688,
+          "pips": 23.9
+        },
+        "AUDUSD": {
+          "date": "2024-06-28",
+          "close": 0.66506,
+          "prevClose": 0.664478,
+          "returnPct": 0.087531,
+          "usdReturnPct": -0.087531,
+          "pips": 5.8
+        },
+        "NZDUSD": {
+          "date": "2024-06-28",
+          "close": 0.608469,
+          "prevClose": 0.608028,
+          "returnPct": 0.072404,
+          "usdReturnPct": -0.072404,
+          "pips": 4.4
+        },
+        "USDJPY": {
+          "date": "2024-06-28",
+          "close": 160.686996,
+          "prevClose": 160.621002,
+          "returnPct": 0.041087,
+          "usdReturnPct": 0.041087,
+          "pips": 6.6
+        },
+        "USDCAD": {
+          "date": "2024-06-28",
+          "close": 1.36993,
+          "prevClose": 1.37045,
+          "returnPct": -0.037943,
+          "usdReturnPct": -0.037943,
+          "pips": -5.2
+        },
+        "USDCHF": {
+          "date": "2024-06-28",
+          "close": 0.89852,
+          "prevClose": 0.8967,
+          "returnPct": 0.202963,
+          "usdReturnPct": 0.202963,
+          "pips": 18.2
+        }
+      }
+    },
+    {
+      "month": "2024-07",
+      "monthEnd": "2024-07-31",
+      "spxClose": 5522.2998,
+      "spxMonthlyReturnPct": 1.132132,
+      "spxLastDayReturnPct": 1.57934,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-07-31",
+          "close": 1.081607,
+          "prevClose": 1.081947,
+          "returnPct": -0.031368,
+          "usdReturnPct": 0.031368,
+          "pips": -3.4
+        },
+        "GBPUSD": {
+          "date": "2024-07-31",
+          "close": 1.283697,
+          "prevClose": 1.286041,
+          "returnPct": -0.182275,
+          "usdReturnPct": 0.182275,
+          "pips": -23.4
+        },
+        "AUDUSD": {
+          "date": "2024-07-31",
+          "close": 0.65415,
+          "prevClose": 0.655141,
+          "returnPct": -0.151172,
+          "usdReturnPct": 0.151172,
+          "pips": -9.9
+        },
+        "NZDUSD": {
+          "date": "2024-07-31",
+          "close": 0.5902,
+          "prevClose": 0.587731,
+          "returnPct": 0.420223,
+          "usdReturnPct": -0.420223,
+          "pips": 24.7
+        },
+        "USDJPY": {
+          "date": "2024-07-31",
+          "close": 152.669998,
+          "prevClose": 153.832993,
+          "returnPct": -0.756011,
+          "usdReturnPct": -0.756011,
+          "pips": -116.3
+        },
+        "USDCAD": {
+          "date": "2024-07-31",
+          "close": 1.38496,
+          "prevClose": 1.38558,
+          "returnPct": -0.044739,
+          "usdReturnPct": -0.044739,
+          "pips": -6.2
+        },
+        "USDCHF": {
+          "date": "2024-07-31",
+          "close": 0.88203,
+          "prevClose": 0.8861,
+          "returnPct": -0.459314,
+          "usdReturnPct": -0.459314,
+          "pips": -40.7
+        }
+      }
+    },
+    {
+      "month": "2024-08",
+      "monthEnd": "2024-08-30",
+      "spxClose": 5648.3999,
+      "spxMonthlyReturnPct": 2.283471,
+      "spxLastDayReturnPct": 1.009305,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-08-30",
+          "close": 1.108045,
+          "prevClose": 1.112496,
+          "returnPct": -0.400009,
+          "usdReturnPct": 0.400009,
+          "pips": -44.5
+        },
+        "GBPUSD": {
+          "date": "2024-08-30",
+          "close": 1.316621,
+          "prevClose": 1.319366,
+          "returnPct": -0.208021,
+          "usdReturnPct": 0.208021,
+          "pips": -27.4
+        },
+        "AUDUSD": {
+          "date": "2024-08-30",
+          "close": 0.67958,
+          "prevClose": 0.67831,
+          "returnPct": 0.187221,
+          "usdReturnPct": -0.187221,
+          "pips": 12.7
+        },
+        "NZDUSD": {
+          "date": "2024-08-30",
+          "close": 0.626331,
+          "prevClose": 0.62475,
+          "returnPct": 0.253035,
+          "usdReturnPct": -0.253035,
+          "pips": 15.8
+        },
+        "USDJPY": {
+          "date": "2024-08-30",
+          "close": 144.889999,
+          "prevClose": 144.432999,
+          "returnPct": 0.31641,
+          "usdReturnPct": 0.31641,
+          "pips": 45.7
+        },
+        "USDCAD": {
+          "date": "2024-08-30",
+          "close": 1.34891,
+          "prevClose": 1.3477,
+          "returnPct": 0.089781,
+          "usdReturnPct": 0.089781,
+          "pips": 12.1
+        },
+        "USDCHF": {
+          "date": "2024-08-30",
+          "close": 0.84694,
+          "prevClose": 0.84182,
+          "returnPct": 0.608204,
+          "usdReturnPct": 0.608204,
+          "pips": 51.2
+        }
+      }
+    },
+    {
+      "month": "2024-09",
+      "monthEnd": "2024-09-30",
+      "spxClose": 5762.48,
+      "spxMonthlyReturnPct": 2.019688,
+      "spxLastDayReturnPct": 0.423655,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-09-30",
+          "close": 1.116982,
+          "prevClose": 1.117718,
+          "returnPct": -0.065891,
+          "usdReturnPct": 0.065891,
+          "pips": -7.4
+        },
+        "GBPUSD": {
+          "date": "2024-09-30",
+          "close": 1.33833,
+          "prevClose": 1.341382,
+          "returnPct": -0.227509,
+          "usdReturnPct": 0.227509,
+          "pips": -30.5
+        },
+        "AUDUSD": {
+          "date": "2024-09-30",
+          "close": 0.691879,
+          "prevClose": 0.68928,
+          "returnPct": 0.377008,
+          "usdReturnPct": -0.377008,
+          "pips": 26.0
+        },
+        "NZDUSD": {
+          "date": "2024-09-30",
+          "close": 0.634981,
+          "prevClose": 0.63312,
+          "returnPct": 0.293994,
+          "usdReturnPct": -0.293994,
+          "pips": 18.6
+        },
+        "USDJPY": {
+          "date": "2024-09-30",
+          "close": 142.783005,
+          "prevClose": 145.076004,
+          "returnPct": -1.58055,
+          "usdReturnPct": -1.58055,
+          "pips": -229.3
+        },
+        "USDCAD": {
+          "date": "2024-09-30",
+          "close": 1.35088,
+          "prevClose": 1.34757,
+          "returnPct": 0.245634,
+          "usdReturnPct": 0.245634,
+          "pips": 33.1
+        },
+        "USDCHF": {
+          "date": "2024-09-30",
+          "close": 0.8405,
+          "prevClose": 0.84624,
+          "returnPct": -0.678293,
+          "usdReturnPct": -0.678293,
+          "pips": -57.4
+        }
+      }
+    },
+    {
+      "month": "2024-10",
+      "monthEnd": "2024-10-31",
+      "spxClose": 5705.4502,
+      "spxMonthlyReturnPct": -0.989674,
+      "spxLastDayReturnPct": -1.86147,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-10-31",
+          "close": 1.085918,
+          "prevClose": 1.082064,
+          "returnPct": 0.356186,
+          "usdReturnPct": -0.356186,
+          "pips": 38.5
+        },
+        "GBPUSD": {
+          "date": "2024-10-31",
+          "close": 1.295958,
+          "prevClose": 1.301406,
+          "returnPct": -0.418596,
+          "usdReturnPct": 0.418596,
+          "pips": -54.5
+        },
+        "AUDUSD": {
+          "date": "2024-10-31",
+          "close": 0.65728,
+          "prevClose": 0.6563,
+          "returnPct": 0.14927,
+          "usdReturnPct": -0.14927,
+          "pips": 9.8
+        },
+        "NZDUSD": {
+          "date": "2024-10-31",
+          "close": 0.597111,
+          "prevClose": 0.597118,
+          "returnPct": -0.001188,
+          "usdReturnPct": 0.001188,
+          "pips": -0.1
+        },
+        "USDJPY": {
+          "date": "2024-10-31",
+          "close": 153.203995,
+          "prevClose": 153.274002,
+          "returnPct": -0.045675,
+          "usdReturnPct": -0.045675,
+          "pips": -7.0
+        },
+        "USDCAD": {
+          "date": "2024-10-31",
+          "close": 1.3908,
+          "prevClose": 1.39128,
+          "returnPct": -0.034505,
+          "usdReturnPct": -0.034505,
+          "pips": -4.8
+        },
+        "USDCHF": {
+          "date": "2024-10-31",
+          "close": 0.8663,
+          "prevClose": 0.86722,
+          "returnPct": -0.106086,
+          "usdReturnPct": -0.106086,
+          "pips": -9.2
+        }
+      }
+    },
+    {
+      "month": "2024-11",
+      "monthEnd": "2024-11-29",
+      "spxClose": 6032.3799,
+      "spxMonthlyReturnPct": 5.73013,
+      "spxLastDayReturnPct": 0.560779,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-11-29",
+          "close": 1.056301,
+          "prevClose": 1.056245,
+          "returnPct": 0.005282,
+          "usdReturnPct": -0.005282,
+          "pips": 0.6
+        },
+        "GBPUSD": {
+          "date": "2024-11-29",
+          "close": 1.26968,
+          "prevClose": 1.267765,
+          "returnPct": 0.151089,
+          "usdReturnPct": -0.151089,
+          "pips": 19.2
+        },
+        "AUDUSD": {
+          "date": "2024-11-29",
+          "close": 0.65074,
+          "prevClose": 0.649722,
+          "returnPct": 0.156699,
+          "usdReturnPct": -0.156699,
+          "pips": 10.2
+        },
+        "NZDUSD": {
+          "date": "2024-11-29",
+          "close": 0.58964,
+          "prevClose": 0.589341,
+          "returnPct": 0.05071,
+          "usdReturnPct": -0.05071,
+          "pips": 3.0
+        },
+        "USDJPY": {
+          "date": "2024-11-29",
+          "close": 151.173996,
+          "prevClose": 151.335999,
+          "returnPct": -0.107048,
+          "usdReturnPct": -0.107048,
+          "pips": -16.2
+        },
+        "USDCAD": {
+          "date": "2024-11-29",
+          "close": 1.40072,
+          "prevClose": 1.40263,
+          "returnPct": -0.136171,
+          "usdReturnPct": -0.136171,
+          "pips": -19.1
+        },
+        "USDCHF": {
+          "date": "2024-11-29",
+          "close": 0.88234,
+          "prevClose": 0.882,
+          "returnPct": 0.038547,
+          "usdReturnPct": 0.038547,
+          "pips": 3.4
+        }
+      }
+    },
+    {
+      "month": "2024-12",
+      "monthEnd": "2024-12-31",
+      "spxClose": 5881.6299,
+      "spxMonthlyReturnPct": -2.499014,
+      "spxLastDayReturnPct": -0.42848,
+      "fx": {
+        "EURUSD": {
+          "date": "2024-12-31",
+          "close": 1.040615,
+          "prevClose": 1.042938,
+          "returnPct": -0.222693,
+          "usdReturnPct": 0.222693,
+          "pips": -23.2
+        },
+        "GBPUSD": {
+          "date": "2024-12-31",
+          "close": 1.25491,
+          "prevClose": 1.257881,
+          "returnPct": -0.236176,
+          "usdReturnPct": 0.236176,
+          "pips": -29.7
+        },
+        "AUDUSD": {
+          "date": "2024-12-31",
+          "close": 0.622,
+          "prevClose": 0.62251,
+          "returnPct": -0.081923,
+          "usdReturnPct": 0.081923,
+          "pips": -5.1
+        },
+        "NZDUSD": {
+          "date": "2024-12-31",
+          "close": 0.563971,
+          "prevClose": 0.563939,
+          "returnPct": 0.005644,
+          "usdReturnPct": -0.005644,
+          "pips": 0.3
+        },
+        "USDJPY": {
+          "date": "2024-12-31",
+          "close": 156.994995,
+          "prevClose": 157.873001,
+          "returnPct": -0.556147,
+          "usdReturnPct": -0.556147,
+          "pips": -87.8
+        },
+        "USDCAD": {
+          "date": "2024-12-31",
+          "close": 1.43498,
+          "prevClose": 1.44034,
+          "returnPct": -0.372135,
+          "usdReturnPct": -0.372135,
+          "pips": -53.6
+        },
+        "USDCHF": {
+          "date": "2024-12-31",
+          "close": 0.90324,
+          "prevClose": 0.90184,
+          "returnPct": 0.155244,
+          "usdReturnPct": 0.155244,
+          "pips": 14.0
+        }
+      }
+    },
+    {
+      "month": "2025-01",
+      "monthEnd": "2025-01-31",
+      "spxClose": 6040.5298,
+      "spxMonthlyReturnPct": 2.70163,
+      "spxLastDayReturnPct": -0.504683,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-01-31",
+          "close": 1.039728,
+          "prevClose": 1.042525,
+          "returnPct": -0.268257,
+          "usdReturnPct": 0.268257,
+          "pips": -28.0
+        },
+        "GBPUSD": {
+          "date": "2025-01-31",
+          "close": 1.24239,
+          "prevClose": 1.24553,
+          "returnPct": -0.25208,
+          "usdReturnPct": 0.25208,
+          "pips": -31.4
+        },
+        "AUDUSD": {
+          "date": "2025-01-31",
+          "close": 0.6215,
+          "prevClose": 0.623978,
+          "returnPct": -0.397139,
+          "usdReturnPct": 0.397139,
+          "pips": -24.8
+        },
+        "NZDUSD": {
+          "date": "2025-01-31",
+          "close": 0.563641,
+          "prevClose": 0.566521,
+          "returnPct": -0.508404,
+          "usdReturnPct": 0.508404,
+          "pips": -28.8
+        },
+        "USDJPY": {
+          "date": "2025-01-31",
+          "close": 154.097,
+          "prevClose": 155.169998,
+          "returnPct": -0.691498,
+          "usdReturnPct": -0.691498,
+          "pips": -107.3
+        },
+        "USDCAD": {
+          "date": "2025-01-31",
+          "close": 1.4493,
+          "prevClose": 1.4399,
+          "returnPct": 0.652824,
+          "usdReturnPct": 0.652824,
+          "pips": 94.0
+        },
+        "USDCHF": {
+          "date": "2025-01-31",
+          "close": 0.909369,
+          "prevClose": 0.90627,
+          "returnPct": 0.341947,
+          "usdReturnPct": 0.341947,
+          "pips": 31.0
+        }
+      }
+    },
+    {
+      "month": "2025-02",
+      "monthEnd": "2025-02-28",
+      "spxClose": 5954.5,
+      "spxMonthlyReturnPct": -1.424209,
+      "spxLastDayReturnPct": 1.585414,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-02-28",
+          "close": 1.039512,
+          "prevClose": 1.048878,
+          "returnPct": -0.892946,
+          "usdReturnPct": 0.892946,
+          "pips": -93.7
+        },
+        "GBPUSD": {
+          "date": "2025-02-28",
+          "close": 1.25989,
+          "prevClose": 1.268231,
+          "returnPct": -0.657665,
+          "usdReturnPct": 0.657665,
+          "pips": -83.4
+        },
+        "AUDUSD": {
+          "date": "2025-02-28",
+          "close": 0.62322,
+          "prevClose": 0.631078,
+          "returnPct": -1.245196,
+          "usdReturnPct": 1.245196,
+          "pips": -78.6
+        },
+        "NZDUSD": {
+          "date": "2025-02-28",
+          "close": 0.562721,
+          "prevClose": 0.569989,
+          "returnPct": -1.275125,
+          "usdReturnPct": 1.275125,
+          "pips": -72.7
+        },
+        "USDJPY": {
+          "date": "2025-02-28",
+          "close": 150.011993,
+          "prevClose": 148.837997,
+          "returnPct": 0.788774,
+          "usdReturnPct": 0.788774,
+          "pips": 117.4
+        },
+        "USDCAD": {
+          "date": "2025-02-28",
+          "close": 1.44435,
+          "prevClose": 1.4336,
+          "returnPct": 0.749864,
+          "usdReturnPct": 0.749864,
+          "pips": 107.5
+        },
+        "USDCHF": {
+          "date": "2025-02-28",
+          "close": 0.89992,
+          "prevClose": 0.8943,
+          "returnPct": 0.628425,
+          "usdReturnPct": 0.628425,
+          "pips": 56.2
+        }
+      }
+    },
+    {
+      "month": "2025-03",
+      "monthEnd": "2025-03-31",
+      "spxClose": 5611.8501,
+      "spxMonthlyReturnPct": -5.75447,
+      "spxLastDayReturnPct": 0.553852,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-03-31",
+          "close": 1.082392,
+          "prevClose": 1.0801,
+          "returnPct": 0.212151,
+          "usdReturnPct": -0.212151,
+          "pips": 22.9
+        },
+        "GBPUSD": {
+          "date": "2025-03-31",
+          "close": 1.293828,
+          "prevClose": 1.295203,
+          "returnPct": -0.106093,
+          "usdReturnPct": 0.106093,
+          "pips": -13.7
+        },
+        "AUDUSD": {
+          "date": "2025-03-31",
+          "close": 0.628291,
+          "prevClose": 0.630159,
+          "returnPct": -0.296548,
+          "usdReturnPct": 0.296548,
+          "pips": -18.7
+        },
+        "NZDUSD": {
+          "date": "2025-03-31",
+          "close": 0.570711,
+          "prevClose": 0.573641,
+          "returnPct": -0.510791,
+          "usdReturnPct": 0.510791,
+          "pips": -29.3
+        },
+        "USDJPY": {
+          "date": "2025-03-31",
+          "close": 149.617004,
+          "prevClose": 150.847,
+          "returnPct": -0.815393,
+          "usdReturnPct": -0.815393,
+          "pips": -123.0
+        },
+        "USDCAD": {
+          "date": "2025-03-31",
+          "close": 1.43091,
+          "prevClose": 1.43075,
+          "returnPct": 0.011181,
+          "usdReturnPct": 0.011181,
+          "pips": 1.6
+        },
+        "USDCHF": {
+          "date": "2025-03-31",
+          "close": 0.88085,
+          "prevClose": 0.8814,
+          "returnPct": -0.062398,
+          "usdReturnPct": -0.062398,
+          "pips": -5.5
+        }
+      }
+    },
+    {
+      "month": "2025-04",
+      "monthEnd": "2025-04-30",
+      "spxClose": 5569.0601,
+      "spxMonthlyReturnPct": -0.762494,
+      "spxLastDayReturnPct": 0.147999,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-04-30",
+          "close": 1.138926,
+          "prevClose": 1.140914,
+          "returnPct": -0.174251,
+          "usdReturnPct": 0.174251,
+          "pips": -19.9
+        },
+        "GBPUSD": {
+          "date": "2025-04-30",
+          "close": 1.341079,
+          "prevClose": 1.343616,
+          "returnPct": -0.18882,
+          "usdReturnPct": 0.18882,
+          "pips": -25.4
+        },
+        "AUDUSD": {
+          "date": "2025-04-30",
+          "close": 0.638692,
+          "prevClose": 0.64288,
+          "returnPct": -0.651462,
+          "usdReturnPct": 0.651462,
+          "pips": -41.9
+        },
+        "NZDUSD": {
+          "date": "2025-04-30",
+          "close": 0.593669,
+          "prevClose": 0.5972,
+          "returnPct": -0.591295,
+          "usdReturnPct": 0.591295,
+          "pips": -35.3
+        },
+        "USDJPY": {
+          "date": "2025-04-30",
+          "close": 142.298996,
+          "prevClose": 142.177994,
+          "returnPct": 0.085106,
+          "usdReturnPct": 0.085106,
+          "pips": 12.1
+        },
+        "USDCAD": {
+          "date": "2025-04-30",
+          "close": 1.38268,
+          "prevClose": 1.38301,
+          "returnPct": -0.023859,
+          "usdReturnPct": -0.023859,
+          "pips": -3.3
+        },
+        "USDCHF": {
+          "date": "2025-04-30",
+          "close": 0.82342,
+          "prevClose": 0.82119,
+          "returnPct": 0.271556,
+          "usdReturnPct": 0.271556,
+          "pips": 22.3
+        }
+      }
+    },
+    {
+      "month": "2025-05",
+      "monthEnd": "2025-05-30",
+      "spxClose": 5911.6899,
+      "spxMonthlyReturnPct": 6.152383,
+      "spxLastDayReturnPct": -0.008119,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-05-30",
+          "close": 1.137838,
+          "prevClose": 1.123368,
+          "returnPct": 1.288036,
+          "usdReturnPct": -1.288036,
+          "pips": 144.7
+        },
+        "GBPUSD": {
+          "date": "2025-05-30",
+          "close": 1.349899,
+          "prevClose": 1.343147,
+          "returnPct": 0.502701,
+          "usdReturnPct": -0.502701,
+          "pips": 67.5
+        },
+        "AUDUSD": {
+          "date": "2025-05-30",
+          "close": 0.6446,
+          "prevClose": 0.642521,
+          "returnPct": 0.323589,
+          "usdReturnPct": -0.323589,
+          "pips": 20.8
+        },
+        "NZDUSD": {
+          "date": "2025-05-30",
+          "close": 0.597861,
+          "prevClose": 0.595908,
+          "returnPct": 0.327636,
+          "usdReturnPct": -0.327636,
+          "pips": 19.5
+        },
+        "USDJPY": {
+          "date": "2025-05-30",
+          "close": 143.779007,
+          "prevClose": 145.697006,
+          "returnPct": -1.31643,
+          "usdReturnPct": -1.31643,
+          "pips": -191.8
+        },
+        "USDCAD": {
+          "date": "2025-05-30",
+          "close": 1.38057,
+          "prevClose": 1.38511,
+          "returnPct": -0.327769,
+          "usdReturnPct": -0.327769,
+          "pips": -45.4
+        },
+        "USDCHF": {
+          "date": "2025-05-30",
+          "close": 0.82197,
+          "prevClose": 0.83255,
+          "returnPct": -1.270795,
+          "usdReturnPct": -1.270795,
+          "pips": -105.8
+        }
+      }
+    },
+    {
+      "month": "2025-06",
+      "monthEnd": "2025-06-30",
+      "spxClose": 6204.9502,
+      "spxMonthlyReturnPct": 4.960684,
+      "spxLastDayReturnPct": 0.516443,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-06-30",
+          "close": 1.172745,
+          "prevClose": 1.169221,
+          "returnPct": 0.301393,
+          "usdReturnPct": -0.301393,
+          "pips": 35.2
+        },
+        "GBPUSD": {
+          "date": "2025-06-30",
+          "close": 1.371968,
+          "prevClose": 1.372476,
+          "returnPct": -0.037036,
+          "usdReturnPct": 0.037036,
+          "pips": -5.1
+        },
+        "AUDUSD": {
+          "date": "2025-06-30",
+          "close": 0.653322,
+          "prevClose": 0.65463,
+          "returnPct": -0.199911,
+          "usdReturnPct": 0.199911,
+          "pips": -13.1
+        },
+        "NZDUSD": {
+          "date": "2025-06-30",
+          "close": 0.606399,
+          "prevClose": 0.605899,
+          "returnPct": 0.082467,
+          "usdReturnPct": -0.082467,
+          "pips": 5.0
+        },
+        "USDJPY": {
+          "date": "2025-06-30",
+          "close": 144.516998,
+          "prevClose": 144.694,
+          "returnPct": -0.122328,
+          "usdReturnPct": -0.122328,
+          "pips": -17.7
+        },
+        "USDCAD": {
+          "date": "2025-06-30",
+          "close": 1.36814,
+          "prevClose": 1.36431,
+          "returnPct": 0.280725,
+          "usdReturnPct": 0.280725,
+          "pips": 38.3
+        },
+        "USDCHF": {
+          "date": "2025-06-30",
+          "close": 0.79825,
+          "prevClose": 0.80089,
+          "returnPct": -0.329634,
+          "usdReturnPct": -0.329634,
+          "pips": -26.4
+        }
+      }
+    },
+    {
+      "month": "2025-07",
+      "monthEnd": "2025-07-31",
+      "spxClose": 6339.3901,
+      "spxMonthlyReturnPct": 2.166656,
+      "spxLastDayReturnPct": -0.369482,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-07-31",
+          "close": 1.142936,
+          "prevClose": 1.155095,
+          "returnPct": -1.05264,
+          "usdReturnPct": 1.05264,
+          "pips": -121.6
+        },
+        "GBPUSD": {
+          "date": "2025-07-31",
+          "close": 1.325768,
+          "prevClose": 1.335363,
+          "returnPct": -0.718561,
+          "usdReturnPct": 0.718561,
+          "pips": -96.0
+        },
+        "AUDUSD": {
+          "date": "2025-07-31",
+          "close": 0.644712,
+          "prevClose": 0.651322,
+          "returnPct": -1.014774,
+          "usdReturnPct": 1.014774,
+          "pips": -66.1
+        },
+        "NZDUSD": {
+          "date": "2025-07-31",
+          "close": 0.590769,
+          "prevClose": 0.595461,
+          "returnPct": -0.788084,
+          "usdReturnPct": 0.788084,
+          "pips": -46.9
+        },
+        "USDJPY": {
+          "date": "2025-07-31",
+          "close": 149.225998,
+          "prevClose": 148.442001,
+          "returnPct": 0.52815,
+          "usdReturnPct": 0.52815,
+          "pips": 78.4
+        },
+        "USDCAD": {
+          "date": "2025-07-31",
+          "close": 1.38252,
+          "prevClose": 1.37739,
+          "returnPct": 0.372439,
+          "usdReturnPct": 0.372439,
+          "pips": 51.3
+        },
+        "USDCHF": {
+          "date": "2025-07-31",
+          "close": 0.81321,
+          "prevClose": 0.80547,
+          "returnPct": 0.960932,
+          "usdReturnPct": 0.960932,
+          "pips": 77.4
+        }
+      }
+    },
+    {
+      "month": "2025-08",
+      "monthEnd": "2025-08-29",
+      "spxClose": 6460.2598,
+      "spxMonthlyReturnPct": 1.906644,
+      "spxLastDayReturnPct": -0.639818,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-08-29",
+          "close": 1.168156,
+          "prevClose": 1.164795,
+          "returnPct": 0.288527,
+          "usdReturnPct": -0.288527,
+          "pips": 33.6
+        },
+        "GBPUSD": {
+          "date": "2025-08-29",
+          "close": 1.351114,
+          "prevClose": 1.350384,
+          "returnPct": 0.054053,
+          "usdReturnPct": -0.054053,
+          "pips": 7.3
+        },
+        "AUDUSD": {
+          "date": "2025-08-29",
+          "close": 0.65324,
+          "prevClose": 0.65114,
+          "returnPct": 0.32251,
+          "usdReturnPct": -0.32251,
+          "pips": 21.0
+        },
+        "NZDUSD": {
+          "date": "2025-08-29",
+          "close": 0.588509,
+          "prevClose": 0.586118,
+          "returnPct": 0.407843,
+          "usdReturnPct": -0.407843,
+          "pips": 23.9
+        },
+        "USDJPY": {
+          "date": "2025-08-29",
+          "close": 146.789993,
+          "prevClose": 147.315994,
+          "returnPct": -0.357056,
+          "usdReturnPct": -0.357056,
+          "pips": -52.6
+        },
+        "USDCAD": {
+          "date": "2025-08-29",
+          "close": 1.37498,
+          "prevClose": 1.37814,
+          "returnPct": -0.229295,
+          "usdReturnPct": -0.229295,
+          "pips": -31.6
+        },
+        "USDCHF": {
+          "date": "2025-08-29",
+          "close": 0.80159,
+          "prevClose": 0.8015,
+          "returnPct": 0.011229,
+          "usdReturnPct": 0.011229,
+          "pips": 0.9
+        }
+      }
+    },
+    {
+      "month": "2025-09",
+      "monthEnd": "2025-09-30",
+      "spxClose": 6688.46,
+      "spxMonthlyReturnPct": 3.532369,
+      "spxLastDayReturnPct": 0.409085,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-09-30",
+          "close": 1.173144,
+          "prevClose": 1.170823,
+          "returnPct": 0.198257,
+          "usdReturnPct": -0.198257,
+          "pips": 23.2
+        },
+        "GBPUSD": {
+          "date": "2025-09-30",
+          "close": 1.343725,
+          "prevClose": 1.340824,
+          "returnPct": 0.216339,
+          "usdReturnPct": -0.216339,
+          "pips": 29.0
+        },
+        "AUDUSD": {
+          "date": "2025-09-30",
+          "close": 0.658198,
+          "prevClose": 0.6554,
+          "returnPct": 0.426918,
+          "usdReturnPct": -0.426918,
+          "pips": 28.0
+        },
+        "NZDUSD": {
+          "date": "2025-09-30",
+          "close": 0.578152,
+          "prevClose": 0.577821,
+          "returnPct": 0.05724,
+          "usdReturnPct": -0.05724,
+          "pips": 3.3
+        },
+        "USDJPY": {
+          "date": "2025-09-30",
+          "close": 148.595001,
+          "prevClose": 149.404999,
+          "returnPct": -0.542149,
+          "usdReturnPct": -0.542149,
+          "pips": -81.0
+        },
+        "USDCAD": {
+          "date": "2025-09-30",
+          "close": 1.39162,
+          "prevClose": 1.39382,
+          "returnPct": -0.15784,
+          "usdReturnPct": -0.15784,
+          "pips": -22.0
+        },
+        "USDCHF": {
+          "date": "2025-09-30",
+          "close": 0.7972,
+          "prevClose": 0.79748,
+          "returnPct": -0.035106,
+          "usdReturnPct": -0.035106,
+          "pips": -2.8
+        }
+      }
+    },
+    {
+      "month": "2025-10",
+      "monthEnd": "2025-10-31",
+      "spxClose": 6840.2002,
+      "spxMonthlyReturnPct": 2.268687,
+      "spxLastDayReturnPct": 0.261792,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-10-31",
+          "close": 1.157247,
+          "prevClose": 1.160335,
+          "returnPct": -0.266171,
+          "usdReturnPct": 0.266171,
+          "pips": -30.9
+        },
+        "GBPUSD": {
+          "date": "2025-10-31",
+          "close": 1.315911,
+          "prevClose": 1.31954,
+          "returnPct": -0.275027,
+          "usdReturnPct": 0.275027,
+          "pips": -36.3
+        },
+        "AUDUSD": {
+          "date": "2025-10-31",
+          "close": 0.65593,
+          "prevClose": 0.65768,
+          "returnPct": -0.266104,
+          "usdReturnPct": 0.266104,
+          "pips": -17.5
+        },
+        "NZDUSD": {
+          "date": "2025-10-31",
+          "close": 0.574531,
+          "prevClose": 0.576429,
+          "returnPct": -0.329205,
+          "usdReturnPct": 0.329205,
+          "pips": -19.0
+        },
+        "USDJPY": {
+          "date": "2025-10-31",
+          "close": 153.899994,
+          "prevClose": 152.722,
+          "returnPct": 0.771332,
+          "usdReturnPct": 0.771332,
+          "pips": 117.8
+        },
+        "USDCAD": {
+          "date": "2025-10-31",
+          "close": 1.39811,
+          "prevClose": 1.39413,
+          "returnPct": 0.285486,
+          "usdReturnPct": 0.285486,
+          "pips": 39.8
+        },
+        "USDCHF": {
+          "date": "2025-10-31",
+          "close": 0.80159,
+          "prevClose": 0.7998,
+          "returnPct": 0.223812,
+          "usdReturnPct": 0.223812,
+          "pips": 17.9
+        }
+      }
+    },
+    {
+      "month": "2025-11",
+      "monthEnd": "2025-11-28",
+      "spxClose": 6849.0898,
+      "spxMonthlyReturnPct": 0.129962,
+      "spxLastDayReturnPct": 0.535477,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-11-28",
+          "close": 1.159985,
+          "prevClose": 1.160214,
+          "returnPct": -0.019717,
+          "usdReturnPct": 0.019717,
+          "pips": -2.3
+        },
+        "GBPUSD": {
+          "date": "2025-11-28",
+          "close": 1.324118,
+          "prevClose": 1.3245,
+          "returnPct": -0.028855,
+          "usdReturnPct": 0.028855,
+          "pips": -3.8
+        },
+        "AUDUSD": {
+          "date": "2025-11-28",
+          "close": 0.65358,
+          "prevClose": 0.652486,
+          "returnPct": 0.167646,
+          "usdReturnPct": -0.167646,
+          "pips": 10.9
+        },
+        "NZDUSD": {
+          "date": "2025-11-28",
+          "close": 0.5731,
+          "prevClose": 0.5707,
+          "returnPct": 0.420533,
+          "usdReturnPct": -0.420533,
+          "pips": 24.0
+        },
+        "USDJPY": {
+          "date": "2025-11-28",
+          "close": 156.283997,
+          "prevClose": 156.238998,
+          "returnPct": 0.028801,
+          "usdReturnPct": 0.028801,
+          "pips": 4.5
+        },
+        "USDCAD": {
+          "date": "2025-11-28",
+          "close": 1.4026,
+          "prevClose": 1.40395,
+          "returnPct": -0.096152,
+          "usdReturnPct": -0.096152,
+          "pips": -13.5
+        },
+        "USDCHF": {
+          "date": "2025-11-28",
+          "close": 0.8046,
+          "prevClose": 0.80349,
+          "returnPct": 0.138149,
+          "usdReturnPct": 0.138149,
+          "pips": 11.1
+        }
+      }
+    },
+    {
+      "month": "2025-12",
+      "monthEnd": "2025-12-31",
+      "spxClose": 6845.5,
+      "spxMonthlyReturnPct": -0.052413,
+      "spxLastDayReturnPct": -0.735767,
+      "fx": {
+        "EURUSD": {
+          "date": "2025-12-31",
+          "close": 1.174729,
+          "prevClose": 1.177288,
+          "returnPct": -0.217329,
+          "usdReturnPct": 0.217329,
+          "pips": -25.6
+        },
+        "GBPUSD": {
+          "date": "2025-12-31",
+          "close": 1.34672,
+          "prevClose": 1.351099,
+          "returnPct": -0.324153,
+          "usdReturnPct": 0.324153,
+          "pips": -43.8
+        },
+        "AUDUSD": {
+          "date": "2025-12-31",
+          "close": 0.6698,
+          "prevClose": 0.66955,
+          "returnPct": 0.037309,
+          "usdReturnPct": -0.037309,
+          "pips": 2.5
+        },
+        "NZDUSD": {
+          "date": "2025-12-31",
+          "close": 0.579149,
+          "prevClose": 0.58087,
+          "returnPct": -0.296181,
+          "usdReturnPct": 0.296181,
+          "pips": -17.2
+        },
+        "USDJPY": {
+          "date": "2025-12-31",
+          "close": 156.412994,
+          "prevClose": 156.013,
+          "returnPct": 0.256385,
+          "usdReturnPct": 0.256385,
+          "pips": 40.0
+        },
+        "USDCAD": {
+          "date": "2025-12-31",
+          "close": 1.36947,
+          "prevClose": 1.36872,
+          "returnPct": 0.054792,
+          "usdReturnPct": 0.054792,
+          "pips": 7.5
+        },
+        "USDCHF": {
+          "date": "2025-12-31",
+          "close": 0.7917,
+          "prevClose": 0.7887,
+          "returnPct": 0.380375,
+          "usdReturnPct": 0.380375,
+          "pips": 30.0
+        }
+      }
+    },
+    {
+      "month": "2026-01",
+      "monthEnd": "2026-01-30",
+      "spxClose": 6939.0298,
+      "spxMonthlyReturnPct": 1.366296,
+      "spxLastDayReturnPct": -0.43019,
+      "fx": {
+        "EURUSD": {
+          "date": "2026-01-30",
+          "close": 1.196573,
+          "prevClose": 1.197777,
+          "returnPct": -0.100511,
+          "usdReturnPct": 0.100511,
+          "pips": -12.0
+        },
+        "GBPUSD": {
+          "date": "2026-01-30",
+          "close": 1.380643,
+          "prevClose": 1.382533,
+          "returnPct": -0.136684,
+          "usdReturnPct": 0.136684,
+          "pips": -18.9
+        },
+        "AUDUSD": {
+          "date": "2026-01-30",
+          "close": 0.70473,
+          "prevClose": 0.70398,
+          "returnPct": 0.106563,
+          "usdReturnPct": -0.106563,
+          "pips": 7.5
+        },
+        "NZDUSD": {
+          "date": "2026-01-30",
+          "close": 0.60757,
+          "prevClose": 0.606531,
+          "returnPct": 0.171336,
+          "usdReturnPct": -0.171336,
+          "pips": 10.4
+        },
+        "USDJPY": {
+          "date": "2026-01-30",
+          "close": 153.162003,
+          "prevClose": 153.095993,
+          "returnPct": 0.043116,
+          "usdReturnPct": 0.043116,
+          "pips": 6.6
+        },
+        "USDCAD": {
+          "date": "2026-01-30",
+          "close": 1.3492,
+          "prevClose": 1.35379,
+          "returnPct": -0.339051,
+          "usdReturnPct": -0.339051,
+          "pips": -45.9
+        },
+        "USDCHF": {
+          "date": "2026-01-30",
+          "close": 0.76441,
+          "prevClose": 0.76574,
+          "returnPct": -0.173683,
+          "usdReturnPct": -0.173683,
+          "pips": -13.3
+        }
+      }
+    },
+    {
+      "month": "2026-02",
+      "monthEnd": "2026-02-27",
+      "spxClose": 6878.8799,
+      "spxMonthlyReturnPct": -0.866834,
+      "spxLastDayReturnPct": -0.433935,
+      "fx": {
+        "EURUSD": {
+          "date": "2026-02-27",
+          "close": 1.180303,
+          "prevClose": 1.181516,
+          "returnPct": -0.102691,
+          "usdReturnPct": 0.102691,
+          "pips": -12.1
+        },
+        "GBPUSD": {
+          "date": "2026-02-27",
+          "close": 1.349145,
+          "prevClose": 1.355803,
+          "returnPct": -0.491089,
+          "usdReturnPct": 0.491089,
+          "pips": -66.6
+        },
+        "AUDUSD": {
+          "date": "2026-02-27",
+          "close": 0.71018,
+          "prevClose": 0.71205,
+          "returnPct": -0.262619,
+          "usdReturnPct": 0.262619,
+          "pips": -18.7
+        },
+        "NZDUSD": {
+          "date": "2026-02-27",
+          "close": 0.598022,
+          "prevClose": 0.600089,
+          "returnPct": -0.344464,
+          "usdReturnPct": 0.344464,
+          "pips": -20.7
+        },
+        "USDJPY": {
+          "date": "2026-02-27",
+          "close": 155.858994,
+          "prevClose": 156.199997,
+          "returnPct": -0.218312,
+          "usdReturnPct": -0.218312,
+          "pips": -34.1
+        },
+        "USDCAD": {
+          "date": "2026-02-27",
+          "close": 1.36758,
+          "prevClose": 1.36758,
+          "returnPct": 0.0,
+          "usdReturnPct": 0.0,
+          "pips": 0.0
+        },
+        "USDCHF": {
+          "date": "2026-02-27",
+          "close": 0.77323,
+          "prevClose": 0.77214,
+          "returnPct": 0.141165,
+          "usdReturnPct": 0.141165,
+          "pips": 10.9
+        }
+      }
+    },
+    {
+      "month": "2026-03",
+      "monthEnd": "2026-03-31",
+      "spxClose": 6528.52,
+      "spxMonthlyReturnPct": -5.093269,
+      "spxLastDayReturnPct": 2.913114,
+      "fx": {
+        "EURUSD": {
+          "date": "2026-03-31",
+          "close": 1.146,
+          "prevClose": 1.149201,
+          "returnPct": -0.27848,
+          "usdReturnPct": 0.27848,
+          "pips": -32.0
+        },
+        "GBPUSD": {
+          "date": "2026-03-31",
+          "close": 1.31728,
+          "prevClose": 1.323837,
+          "returnPct": -0.495302,
+          "usdReturnPct": 0.495302,
+          "pips": -65.6
+        },
+        "AUDUSD": {
+          "date": "2026-03-31",
+          "close": 0.68459,
+          "prevClose": 0.68509,
+          "returnPct": -0.072987,
+          "usdReturnPct": 0.072987,
+          "pips": -5.0
+        },
+        "NZDUSD": {
+          "date": "2026-03-31",
+          "close": 0.571739,
+          "prevClose": 0.57279,
+          "returnPct": -0.183531,
+          "usdReturnPct": 0.183531,
+          "pips": -10.5
+        },
+        "USDJPY": {
+          "date": "2026-03-31",
+          "close": 159.841003,
+          "prevClose": 160.233994,
+          "returnPct": -0.24526,
+          "usdReturnPct": -0.24526,
+          "pips": -39.3
+        },
+        "USDCAD": {
+          "date": "2026-03-31",
+          "close": 1.39283,
+          "prevClose": 1.38995,
+          "returnPct": 0.2072,
+          "usdReturnPct": 0.2072,
+          "pips": 28.8
+        },
+        "USDCHF": {
+          "date": "2026-03-31",
+          "close": 0.79988,
+          "prevClose": 0.7998,
+          "returnPct": 0.010009,
+          "usdReturnPct": 0.010009,
+          "pips": 0.8
+        }
+      }
+    },
+    {
+      "month": "2026-04",
+      "monthEnd": "2026-04-30",
+      "spxClose": 7209.0098,
+      "spxMonthlyReturnPct": 10.423339,
+      "spxLastDayReturnPct": 1.023824,
+      "fx": {
+        "EURUSD": {
+          "date": "2026-04-30",
+          "close": 1.16847,
+          "prevClose": 1.171783,
+          "returnPct": -0.282767,
+          "usdReturnPct": 0.282767,
+          "pips": -33.1
+        },
+        "GBPUSD": {
+          "date": "2026-04-30",
+          "close": 1.34886,
+          "prevClose": 1.352448,
+          "returnPct": -0.265311,
+          "usdReturnPct": 0.265311,
+          "pips": -35.9
+        },
+        "AUDUSD": {
+          "date": "2026-04-30",
+          "close": 0.713114,
+          "prevClose": 0.718721,
+          "returnPct": -0.780145,
+          "usdReturnPct": 0.780145,
+          "pips": -56.1
+        },
+        "NZDUSD": {
+          "date": "2026-04-30",
+          "close": 0.584051,
+          "prevClose": 0.588841,
+          "returnPct": -0.813585,
+          "usdReturnPct": 0.813585,
+          "pips": -47.9
+        },
+        "USDJPY": {
+          "date": "2026-04-30",
+          "close": 160.184006,
+          "prevClose": 159.552002,
+          "returnPct": 0.396111,
+          "usdReturnPct": 0.396111,
+          "pips": 63.2
+        },
+        "USDCAD": {
+          "date": "2026-04-30",
+          "close": 1.36713,
+          "prevClose": 1.3679,
+          "returnPct": -0.056289,
+          "usdReturnPct": -0.056289,
+          "pips": -7.7
+        },
+        "USDCHF": {
+          "date": "2026-04-30",
+          "close": 0.79056,
+          "prevClose": 0.78899,
+          "returnPct": 0.198987,
+          "usdReturnPct": 0.198987,
+          "pips": 15.7
+        }
+      }
+    }
+  ],
+  "preview": {
+    "month": "2026-05",
+    "monthEnd": "2026-05-27",
+    "spxClose": 7520.3599,
+    "spxMonthlyReturnPct": 4.318902,
+    "spxLastDayReturnPct": 0.016488,
+    "fx": {
+      "EURUSD": {
+        "date": "2026-05-27",
+        "close": 1.163684,
+        "prevClose": 1.163738,
+        "returnPct": -0.004651,
+        "usdReturnPct": 0.004651,
+        "pips": -0.5
+      },
+      "GBPUSD": {
+        "date": "2026-05-27",
+        "close": 1.345533,
+        "prevClose": 1.349637,
+        "returnPct": -0.304101,
+        "usdReturnPct": 0.304101,
+        "pips": -41.0
+      },
+      "AUDUSD": {
+        "date": "2026-05-27",
+        "close": 0.71708,
+        "prevClose": 0.71703,
+        "returnPct": 0.006958,
+        "usdReturnPct": -0.006958,
+        "pips": 0.5
+      },
+      "NZDUSD": {
+        "date": "2026-05-27",
+        "close": 0.584249,
+        "prevClose": 0.586211,
+        "returnPct": -0.334774,
+        "usdReturnPct": 0.334774,
+        "pips": -19.6
+      },
+      "USDJPY": {
+        "date": "2026-05-27",
+        "close": 159.242996,
+        "prevClose": 158.953995,
+        "returnPct": 0.181815,
+        "usdReturnPct": 0.181815,
+        "pips": 28.9
+      },
+      "USDCAD": {
+        "date": "2026-05-27",
+        "close": 1.38078,
+        "prevClose": 1.38041,
+        "returnPct": 0.026805,
+        "usdReturnPct": 0.026805,
+        "pips": 3.7
+      },
+      "USDCHF": {
+        "date": "2026-05-27",
+        "close": 0.78511,
+        "prevClose": 0.78302,
+        "returnPct": 0.266912,
+        "usdReturnPct": 0.266912,
+        "pips": 20.9
+      }
+    }
+  },
+  "summary": {
+    "full": {
+      "EURUSD": {
+        "raw": -0.034576,
+        "usd": 0.034576
+      },
+      "GBPUSD": {
+        "raw": -0.115812,
+        "usd": 0.115812
+      },
+      "AUDUSD": {
+        "raw": -0.084685,
+        "usd": 0.084685
+      },
+      "NZDUSD": {
+        "raw": 0.070851,
+        "usd": -0.070851
+      },
+      "USDJPY": {
+        "raw": -0.061409,
+        "usd": -0.061409
+      },
+      "USDCAD": {
+        "raw": 0.008308,
+        "usd": 0.008308
+      },
+      "USDCHF": {
+        "raw": -0.042544,
+        "usd": -0.042544
+      }
+    },
+    "byYear": {
+      "2021": {
+        "EURUSD": {
+          "n": 8,
+          "raw": 0.715939,
+          "usd": -0.715939
+        },
+        "GBPUSD": {
+          "n": 8,
+          "raw": 0.67143,
+          "usd": -0.67143
+        },
+        "AUDUSD": {
+          "n": 8,
+          "raw": 0.605205,
+          "usd": -0.605205
+        },
+        "NZDUSD": {
+          "n": 8,
+          "raw": 0.602362,
+          "usd": -0.602362
+        },
+        "USDJPY": {
+          "n": 8,
+          "raw": -0.511877,
+          "usd": -0.511877
+        },
+        "USDCAD": {
+          "n": 8,
+          "raw": -0.517991,
+          "usd": -0.517991
+        },
+        "USDCHF": {
+          "n": 8,
+          "raw": -0.54473,
+          "usd": -0.54473
+        }
+      },
+      "2022": {
+        "EURUSD": {
+          "n": 12,
+          "raw": -0.088651,
+          "usd": 0.088651
+        },
+        "GBPUSD": {
+          "n": 12,
+          "raw": -0.16445,
+          "usd": 0.16445
+        },
+        "AUDUSD": {
+          "n": 12,
+          "raw": 0.062887,
+          "usd": -0.062887
+        },
+        "NZDUSD": {
+          "n": 12,
+          "raw": 0.362886,
+          "usd": -0.362886
+        },
+        "USDJPY": {
+          "n": 12,
+          "raw": -0.323657,
+          "usd": -0.323657
+        },
+        "USDCAD": {
+          "n": 12,
+          "raw": 0.098226,
+          "usd": 0.098226
+        },
+        "USDCHF": {
+          "n": 12,
+          "raw": 0.082762,
+          "usd": 0.082762
+        }
+      },
+      "2023": {
+        "EURUSD": {
+          "n": 12,
+          "raw": -0.78084,
+          "usd": 0.78084
+        },
+        "GBPUSD": {
+          "n": 12,
+          "raw": -0.759834,
+          "usd": 0.759834
+        },
+        "AUDUSD": {
+          "n": 12,
+          "raw": -0.649712,
+          "usd": 0.649712
+        },
+        "NZDUSD": {
+          "n": 12,
+          "raw": -0.387508,
+          "usd": 0.387508
+        },
+        "USDJPY": {
+          "n": 12,
+          "raw": 0.385937,
+          "usd": 0.385937
+        },
+        "USDCAD": {
+          "n": 12,
+          "raw": 0.585805,
+          "usd": 0.585805
+        },
+        "USDCHF": {
+          "n": 12,
+          "raw": 0.38871,
+          "usd": 0.38871
+        }
+      },
+      "2024": {
+        "EURUSD": {
+          "n": 12,
+          "raw": 0.033038,
+          "usd": -0.033038
+        },
+        "GBPUSD": {
+          "n": 12,
+          "raw": 0.109272,
+          "usd": -0.109272
+        },
+        "AUDUSD": {
+          "n": 12,
+          "raw": -0.272674,
+          "usd": 0.272674
+        },
+        "NZDUSD": {
+          "n": 12,
+          "raw": -0.446931,
+          "usd": 0.446931
+        },
+        "USDJPY": {
+          "n": 12,
+          "raw": 0.451794,
+          "usd": 0.451794
+        },
+        "USDCAD": {
+          "n": 12,
+          "raw": 0.186664,
+          "usd": 0.186664
+        },
+        "USDCHF": {
+          "n": 12,
+          "raw": -0.025942,
+          "usd": -0.025942
+        }
+      },
+      "2025": {
+        "EURUSD": {
+          "n": 12,
+          "raw": 0.382043,
+          "usd": -0.382043
+        },
+        "GBPUSD": {
+          "n": 12,
+          "raw": 0.422967,
+          "usd": -0.422967
+        },
+        "AUDUSD": {
+          "n": 12,
+          "raw": 0.372231,
+          "usd": -0.372231
+        },
+        "NZDUSD": {
+          "n": 12,
+          "raw": 0.482216,
+          "usd": -0.482216
+        },
+        "USDJPY": {
+          "n": 12,
+          "raw": -0.216762,
+          "usd": -0.216762
+        },
+        "USDCAD": {
+          "n": 12,
+          "raw": -0.134814,
+          "usd": -0.134814
+        },
+        "USDCHF": {
+          "n": 12,
+          "raw": -0.440879,
+          "usd": -0.440879
+        }
+      },
+      "2026": {
+        "EURUSD": {
+          "n": 4,
+          "raw": -0.228032,
+          "usd": 0.228032
+        },
+        "GBPUSD": {
+          "n": 4,
+          "raw": 0.581684,
+          "usd": -0.581684
+        },
+        "AUDUSD": {
+          "n": 4,
+          "raw": -0.786429,
+          "usd": 0.786429
+        },
+        "NZDUSD": {
+          "n": 4,
+          "raw": -0.660759,
+          "usd": 0.660759
+        },
+        "USDJPY": {
+          "n": 4,
+          "raw": 0.966817,
+          "usd": 0.966817
+        },
+        "USDCAD": {
+          "n": 4,
+          "raw": -0.413703,
+          "usd": -0.413703
+        },
+        "USDCHF": {
+          "n": 4,
+          "raw": 0.432859,
+          "usd": 0.432859
+        }
+      }
+    }
+  }
+}
