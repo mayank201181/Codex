@@ -420,7 +420,7 @@ function clearBoard(options = {}) {
   [...scene.children].filter((child) => child.userData.drawable).forEach((child) => scene.remove(child));
   studio.strokes = 0;
   studio.collabSeen = 0;
-  if (!options.localOnly && studio.mode === "collab" && studio.collabRoom) {
+  if (!options.localOnly && canUseServerCollab() && studio.mode === "collab" && studio.collabRoom) {
     fetch("/api/collab/clear", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -430,6 +430,7 @@ function clearBoard(options = {}) {
 }
 
 function startCollabSync() {
+  if (!canUseServerCollab()) return;
   stopCollabSync();
   fetchCollabStrokes();
   studio.collabTimer = window.setInterval(fetchCollabStrokes, 900);
@@ -441,6 +442,7 @@ function stopCollabSync() {
 }
 
 async function broadcastSegment(a, b, color, radius) {
+  if (!canUseServerCollab()) return;
   try {
     const response = await fetch("/api/collab/stroke", {
       method: "POST",
@@ -504,6 +506,10 @@ function vectorData(vector) {
 
 function vectorFromData(data) {
   return new THREE.Vector3(Number(data.x), Number(data.y), Number(data.z));
+}
+
+function canUseServerCollab() {
+  return !location.hostname.endsWith("github.io");
 }
 
 function loadState() {
