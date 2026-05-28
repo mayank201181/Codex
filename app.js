@@ -1,466 +1,525 @@
-const WORDS = [
-  { word: "astute", category: "Analysis", level: "Core", definition: "able to notice and understand things quickly and accurately", example: "Her astute reading of the narrator reveals how little he understands himself.", synonyms: "perceptive, shrewd, discerning", nuance: "Often positive, especially for judgement or insight." },
-  { word: "ambivalent", category: "Character", level: "Core", definition: "having mixed or conflicting feelings about something", example: "The speaker remains ambivalent about ambition, admiring its force while fearing its cost.", synonyms: "conflicted, uncertain, torn", nuance: "More precise than simply unsure." },
-  { word: "anomaly", category: "SAT", level: "Core", definition: "something that does not fit the expected pattern", example: "The character's kindness is an anomaly in a society shaped by suspicion.", synonyms: "exception, irregularity, outlier", nuance: "Useful in argument when one example disrupts a trend." },
-  { word: "articulate", category: "Argument", level: "Core", definition: "to express an idea clearly and effectively", example: "The essay articulates a clear objection to casual prejudice.", synonyms: "express, formulate, voice", nuance: "As a verb, it suggests controlled clarity." },
-  { word: "candid", category: "Tone", level: "Core", definition: "honest and direct, especially about something difficult", example: "The candid tone makes the memoir feel intimate rather than performative.", synonyms: "frank, open, sincere", nuance: "Direct without necessarily being rude." },
-  { word: "coherent", category: "Argument", level: "Core", definition: "logical, consistent, and easy to follow", example: "Her argument is coherent because each paragraph develops the same central claim.", synonyms: "logical, orderly, consistent", nuance: "A key word for evaluating essays." },
-  { word: "compelling", category: "Argument", level: "Core", definition: "strong enough to persuade or hold attention", example: "The final image is compelling because it turns private grief into public accusation.", synonyms: "persuasive, convincing, powerful", nuance: "Can describe evidence, stories, or interpretations." },
-  { word: "concede", category: "Argument", level: "Core", definition: "to admit that something is true, often before making a stronger point", example: "Although the writer concedes that tradition can comfort people, she questions its authority.", synonyms: "admit, acknowledge, grant", nuance: "Very useful for balanced essays." },
-  { word: "connotation", category: "Analysis", level: "Core", definition: "the associations or feelings a word suggests beyond its literal meaning", example: "The word 'confined' has connotations of imprisonment and lost freedom.", synonyms: "association, implication, overtone", nuance: "Central for close language analysis." },
-  { word: "contradictory", category: "Argument", level: "Core", definition: "containing ideas that cannot both be true in the same way", example: "The protagonist's contradictory behaviour makes him more convincing as a flawed human being.", synonyms: "inconsistent, conflicting, incompatible", nuance: "Stronger than different." },
-  { word: "conviction", category: "Character", level: "Core", definition: "a firmly held belief or a confident sense of certainty", example: "Her moral conviction gives the speech its urgency.", synonyms: "belief, certainty, principle", nuance: "Can imply strength but also inflexibility." },
-  { word: "cultivate", category: "SAT", level: "Core", definition: "to develop something carefully over time", example: "The writer cultivates sympathy for a character who first appears selfish.", synonyms: "develop, nurture, foster", nuance: "Suggests deliberate, gradual effort." },
-  { word: "detrimental", category: "SAT", level: "Core", definition: "harmful or damaging", example: "The policy is detrimental because it rewards obedience instead of curiosity.", synonyms: "harmful, damaging, adverse", nuance: "Formal alternative to bad for." },
-  { word: "discern", category: "Analysis", level: "Core", definition: "to notice or understand something that is not immediately obvious", example: "Readers can discern a quiet resentment beneath the polite dialogue.", synonyms: "detect, perceive, distinguish", nuance: "Excellent for subtle interpretation." },
-  { word: "emulate", category: "SAT", level: "Core", definition: "to try to equal or imitate someone admired", example: "The younger poet emulates the confidence of earlier political writers.", synonyms: "imitate, mirror, follow", nuance: "Usually implies admiration." },
-  { word: "evoke", category: "Analysis", level: "Core", definition: "to bring a feeling, memory, or image into the reader's mind", example: "The description of fog evokes uncertainty and moral confusion.", synonyms: "suggest, summon, conjure", nuance: "Useful for effects in literature." },
-  { word: "formidable", category: "SAT", level: "Core", definition: "impressive, powerful, or difficult to deal with", example: "Her silence becomes a formidable form of resistance.", synonyms: "impressive, daunting, powerful", nuance: "Can be admiring or intimidating." },
-  { word: "impartial", category: "Argument", level: "Core", definition: "fair and not favouring one side", example: "The article adopts an impartial tone before revealing its criticism.", synonyms: "neutral, unbiased, objective", nuance: "More formal than fair." },
-  { word: "implicit", category: "Analysis", level: "Core", definition: "suggested without being directly stated", example: "The implicit criticism of class is sharper because it is never announced.", synonyms: "implied, indirect, unstated", nuance: "Opposite of explicit." },
-  { word: "inadvertent", category: "SAT", level: "Core", definition: "not intentional", example: "His inadvertent insult exposes the assumptions he normally hides.", synonyms: "accidental, unplanned, unintended", nuance: "Formal word for by mistake." },
-  { word: "inevitable", category: "Argument", level: "Core", definition: "certain to happen and impossible to avoid", example: "The ending feels inevitable because each choice narrows the character's freedom.", synonyms: "unavoidable, certain, inescapable", nuance: "Can describe plot, consequences, or social change." },
-  { word: "integral", category: "Argument", level: "Core", definition: "essential to the whole", example: "The setting is integral to the story's critique of isolation.", synonyms: "essential, central, necessary", nuance: "Stronger than important." },
-  { word: "juxtapose", category: "Analysis", level: "Core", definition: "to place two things side by side to highlight contrast", example: "The poem juxtaposes wealth and hunger to expose social hypocrisy.", synonyms: "contrast, compare, place beside", nuance: "A high-value literary analysis verb." },
-  { word: "lucid", category: "Tone", level: "Core", definition: "clear and easy to understand", example: "The writer's lucid prose makes a complex moral issue accessible.", synonyms: "clear, intelligible, plain", nuance: "Positive word for clarity." },
-  { word: "meticulous", category: "Character", level: "Core", definition: "showing great care and attention to detail", example: "The detective's meticulous habits contrast with the chaos around her.", synonyms: "careful, precise, thorough", nuance: "Usually positive, but can imply obsessiveness." },
-  { word: "nuance", category: "Analysis", level: "Core", definition: "a subtle difference in meaning, feeling, or expression", example: "The essay gains nuance when it recognises both courage and vanity in the hero.", synonyms: "subtlety, distinction, shade", nuance: "Essential for mature analysis." },
-  { word: "ominous", category: "Tone", level: "Core", definition: "suggesting that something bad may happen", example: "The ominous silence before the announcement creates suspense.", synonyms: "threatening, foreboding, sinister", nuance: "Often used for atmosphere." },
-  { word: "plausible", category: "Argument", level: "Core", definition: "reasonable or believable", example: "This interpretation is plausible because it accounts for the final image.", synonyms: "credible, believable, reasonable", nuance: "Does not mean definitely true." },
-  { word: "poignant", category: "Tone", level: "Core", definition: "deeply moving, often because of sadness or tenderness", example: "The final letter is poignant because it arrives too late.", synonyms: "moving, affecting, touching", nuance: "More restrained than heartbreaking." },
-  { word: "pragmatic", category: "Argument", level: "Core", definition: "focused on what is practical and realistic", example: "The speaker's pragmatic solution lacks beauty but solves the immediate problem.", synonyms: "practical, realistic, sensible", nuance: "Can be positive or slightly cold." },
-  { word: "precarious", category: "SAT", level: "Core", definition: "dangerously unstable or uncertain", example: "The family's precarious finances intensify every small conflict.", synonyms: "unstable, insecure, risky", nuance: "Useful for social or emotional situations." },
-  { word: "profound", category: "Analysis", level: "Core", definition: "deep, serious, or far-reaching", example: "The play presents a profound conflict between loyalty and conscience.", synonyms: "deep, significant, far-reaching", nuance: "Avoid overusing it for merely good ideas." },
-  { word: "resilient", category: "Character", level: "Core", definition: "able to recover after difficulty", example: "Her resilient humour prevents the novel from becoming bleak.", synonyms: "tough, adaptable, enduring", nuance: "Often describes people, communities, or voices." },
-  { word: "scrutinise", category: "Analysis", level: "Core", definition: "to examine very carefully", example: "The narrator invites us to scrutinise the gap between appearance and truth.", synonyms: "inspect, examine, analyse", nuance: "British spelling; US spelling is scrutinize." },
-  { word: "subtle", category: "Analysis", level: "Core", definition: "delicate, indirect, or not immediately obvious", example: "The writer's subtle irony makes the praise sound suspicious.", synonyms: "delicate, understated, indirect", nuance: "Not the same as weak." },
-  { word: "tenacious", category: "Character", level: "Core", definition: "determined and unwilling to give up", example: "His tenacious search for justice gives the novel its momentum.", synonyms: "persistent, determined, resolute", nuance: "Can admire persistence or suggest stubbornness." },
-  { word: "undermine", category: "Analysis", level: "Core", definition: "to weaken something gradually or indirectly", example: "The comic ending undermines the seriousness of the speech.", synonyms: "weaken, erode, subvert", nuance: "Excellent for analysing shifts in tone or authority." },
-  { word: "viable", category: "Argument", level: "Core", definition: "capable of working successfully", example: "The proposal is only viable if the school protects time for reading.", synonyms: "workable, feasible, practical", nuance: "Often used for plans or solutions." },
-  { word: "acerbic", category: "Tone", level: "Stretch", definition: "sharp, biting, or severe in tone", example: "The critic's acerbic humour turns politeness into attack.", synonyms: "biting, caustic, cutting", nuance: "More precise than mean or sarcastic." },
-  { word: "assiduous", category: "SAT", level: "Stretch", definition: "showing steady care and effort", example: "Her assiduous preparation makes the final debate feel earned.", synonyms: "diligent, persistent, attentive", nuance: "Formal word for hardworking in a careful way." },
-  { word: "capricious", category: "Character", level: "Stretch", definition: "changing suddenly and unpredictably", example: "The ruler's capricious decisions make everyone fearful.", synonyms: "fickle, unpredictable, erratic", nuance: "Often describes people with power." },
-  { word: "didactic", category: "Analysis", level: "Stretch", definition: "intended to teach, sometimes too obviously", example: "The ending becomes didactic when the narrator explains the moral directly.", synonyms: "instructive, moralising, educational", nuance: "Can be neutral or critical." },
-  { word: "equivocal", category: "Argument", level: "Stretch", definition: "ambiguous or open to more than one interpretation", example: "The character's equivocal apology leaves readers unsure of his sincerity.", synonyms: "ambiguous, unclear, uncertain", nuance: "Useful when evidence points in two directions." },
-  { word: "fastidious", category: "Character", level: "Stretch", definition: "very attentive to detail, especially cleanliness or standards", example: "His fastidious manners disguise a deep insecurity.", synonyms: "meticulous, exacting, fussy", nuance: "Can sound admiring or critical." },
-  { word: "incongruous", category: "Analysis", level: "Stretch", definition: "strangely out of place or not fitting the context", example: "The cheerful music feels incongruous after the scene of loss.", synonyms: "out of place, jarring, unsuitable", nuance: "Great for tonal mismatch." },
-  { word: "laconic", category: "Tone", level: "Stretch", definition: "using very few words", example: "The father's laconic replies suggest emotional distance.", synonyms: "brief, terse, concise", nuance: "Not necessarily rude; can be controlled." },
-  { word: "mellifluous", category: "Tone", level: "Stretch", definition: "smooth and pleasant to hear", example: "The mellifluous rhythm softens the poem's darker ideas.", synonyms: "smooth, musical, flowing", nuance: "Usually describes sound or style." },
-  { word: "perfunctory", category: "Character", level: "Stretch", definition: "done with little care because it is only a duty", example: "His perfunctory apology reveals that he has learned nothing.", synonyms: "half-hearted, cursory, mechanical", nuance: "A precise word for empty politeness." },
-  { word: "sardonic", category: "Tone", level: "Stretch", definition: "mocking in a dark, bitter, or cynical way", example: "The narrator's sardonic comments make heroism seem ridiculous.", synonyms: "mocking, cynical, scornful", nuance: "Sharper and darker than sarcastic." },
-  { word: "trenchant", category: "Argument", level: "Stretch", definition: "sharp, clear, and forceful", example: "The essay offers a trenchant critique of performative kindness.", synonyms: "incisive, sharp, forceful", nuance: "Often positive for criticism." },
-  { word: "vacillate", category: "Character", level: "Stretch", definition: "to keep changing between choices or opinions", example: "He vacillates between loyalty to his family and loyalty to the truth.", synonyms: "waver, hesitate, fluctuate", nuance: "More active than being unsure." },
-  { word: "zeitgeist", category: "SAT", level: "Stretch", definition: "the defining mood or spirit of a particular time", example: "The novel captures the zeitgeist of a generation anxious about status.", synonyms: "spirit of the age, cultural mood", nuance: "Useful for context, but use sparingly." },
+import * as THREE from "three";
+
+const COLORS = [
+  ["Red", "#ff3b30"], ["Orange", "#ff9500"], ["Yellow", "#ffd60a"], ["Green", "#34c759"],
+  ["Blue", "#0a84ff"], ["Indigo", "#5856d6"], ["Violet", "#af52de"], ["Pink", "#ff4fb3"]
 ];
 
-const PROMPTS = [
-  "Argue whether ambition is more often a strength or a weakness. Use two words from today's set.",
-  "Describe a character entering a room where they do not feel welcome. Focus on tone and implication.",
-  "Write a short paragraph analysing how silence can reveal power in a scene.",
-  "Explain whether social media makes people more articulate or more performative.",
-  "Rewrite a simple idea into a more precise academic paragraph: 'The writer makes the character seem sad.'",
-  "Compare courage and recklessness in a single paragraph.",
-  "Describe a place that seems safe at first but becomes unsettling by the end.",
-  "Make a balanced argument about whether exams reward real intelligence."
-];
-
-const els = {
-  studiedCount: document.querySelector("#studiedCount"),
-  dueCount: document.querySelector("#dueCount"),
-  accuracy: document.querySelector("#accuracy"),
-  streak: document.querySelector("#streak"),
-  dailyDate: document.querySelector("#dailyDate"),
-  dailyWords: document.querySelector("#dailyWords"),
-  newDailyBtn: document.querySelector("#newDailyBtn"),
-  writingPrompt: document.querySelector("#writingPrompt"),
-  promptBtn: document.querySelector("#promptBtn"),
-  responseInput: document.querySelector("#responseInput"),
-  saveResponseBtn: document.querySelector("#saveResponseBtn"),
-  clearResponseBtn: document.querySelector("#clearResponseBtn"),
-  wordMeta: document.querySelector("#wordMeta"),
-  wordTitle: document.querySelector("#wordTitle"),
-  wordDefinition: document.querySelector("#wordDefinition"),
-  wordDetails: document.querySelector("#wordDetails"),
-  markKnownBtn: document.querySelector("#markKnownBtn"),
-  againBtn: document.querySelector("#againBtn"),
-  goodBtn: document.querySelector("#goodBtn"),
-  quizProgress: document.querySelector("#quizProgress"),
-  quizQuestion: document.querySelector("#quizQuestion"),
-  quizOptions: document.querySelector("#quizOptions"),
-  startQuizBtn: document.querySelector("#startQuizBtn"),
-  nextQuizBtn: document.querySelector("#nextQuizBtn"),
-  quizFeedback: document.querySelector("#quizFeedback"),
-  wordGrid: document.querySelector("#wordGrid"),
-  searchInput: document.querySelector("#searchInput"),
-  writingCount: document.querySelector("#writingCount"),
-  writingList: document.querySelector("#writingList"),
-  exportBtn: document.querySelector("#exportBtn"),
-  importInput: document.querySelector("#importInput"),
+const storeKey = "pastel-3d-pen-studio";
+const defaultState = { username: "", friends: [], backpack: [], trades: [] };
+const appState = loadState();
+const studio = {
+  mode: "solo",
+  collabFriends: [],
+  colorName: COLORS[0][0],
+  color: COLORS[0][1],
+  speed: "slow",
+  power: true,
+  drawing: false,
+  strokes: 0,
+  selectedTradeFriend: "",
+  selectedTradeItem: "",
+  collabRoom: "",
+  collabSeen: 0,
+  collabIds: new Set(),
+  collabTimer: null
 };
 
-const today = isoDate(new Date());
-const storageKey = "vocab-dashboard-state-v1";
-let state = loadState();
-let activeCategory = "All";
-let selectedWord = WORDS[0];
-let quiz = { queue: [], index: 0, current: null, answered: false };
+let scene;
+let camera;
+let renderer;
+let board;
+let penMesh;
+let raycaster;
+let pointer;
+let lastPoint = null;
+let animationStarted = false;
+let boardReady = false;
+
+const els = {
+  screens: {
+    home: document.querySelector("#homeScreen"),
+    color: document.querySelector("#colorScreen"),
+    collab: document.querySelector("#collabScreen"),
+    trade: document.querySelector("#tradeScreen"),
+    studio: document.querySelector("#studioScreen")
+  },
+  usernameInput: document.querySelector("#usernameInput"),
+  friendInput: document.querySelector("#friendInput"),
+  welcomeText: document.querySelector("#welcomeText"),
+  friendsList: document.querySelector("#friendsList"),
+  friendCount: document.querySelector("#friendCount"),
+  backpackList: document.querySelector("#backpackList"),
+  backpackCount: document.querySelector("#backpackCount"),
+  colorChoices: document.querySelector("#colorChoices"),
+  collabFriendList: document.querySelector("#collabFriendList"),
+  tradeFriendList: document.querySelector("#tradeFriendList"),
+  tradeItemList: document.querySelector("#tradeItemList"),
+  tradeStatus: document.querySelector("#tradeStatus"),
+  canvas: document.querySelector("#sceneCanvas"),
+  activeColorName: document.querySelector("#activeColorName"),
+  penNib: document.querySelector("#penNib"),
+  miniColors: document.querySelector("#miniColors"),
+  powerBtn: document.querySelector("#powerBtn"),
+  slowBtn: document.querySelector("#slowBtn"),
+  fastBtn: document.querySelector("#fastBtn"),
+  studioMode: document.querySelector("#studioMode"),
+  studioTitle: document.querySelector("#studioTitle"),
+  collabPanel: document.querySelector("#collabPanel"),
+  activeCollabList: document.querySelector("#activeCollabList")
+};
 
 boot();
 
 function boot() {
-  ensureDailySet();
-  bindEvents();
-  selectWord(selectedWord.word);
-  renderPrompt();
-  renderAll();
+  els.usernameInput.value = appState.username;
+  renderHome();
+  renderColors();
+  bindControls();
+  updatePenUi();
 }
 
-function bindEvents() {
-  els.newDailyBtn.addEventListener("click", () => {
-    state.dailyDate = "";
-    ensureDailySet(true);
-    saveState();
-    renderAll();
+function bindControls() {
+  document.querySelector("#saveUserBtn").addEventListener("click", saveUsername);
+  document.querySelector("#addFriendBtn").addEventListener("click", addFriend);
+  document.querySelector("#startBtn").addEventListener("click", () => {
+    studio.mode = "solo";
+    studio.collabFriends = [];
+    showScreen("color");
   });
+  document.querySelector("#collabBtn").addEventListener("click", openCollab);
+  document.querySelector("#tradeBtn").addEventListener("click", openTrade);
+  document.querySelector("#startCollabBtn").addEventListener("click", startCollab);
+  document.querySelector("#confirmTradeBtn").addEventListener("click", confirmTrade);
+  document.querySelector("#saveBuildBtn").addEventListener("click", saveBuild);
+  document.querySelector("#clearBoardBtn").addEventListener("click", clearBoard);
+  document.querySelectorAll("[data-go-home]").forEach((button) => button.addEventListener("click", () => showScreen("home")));
+  els.powerBtn.addEventListener("click", togglePower);
+  els.slowBtn.addEventListener("click", () => setSpeed("slow"));
+  els.fastBtn.addEventListener("click", () => setSpeed("fast"));
+  document.querySelectorAll("[data-shape]").forEach((button) => {
+    button.addEventListener("click", () => addHelperShape(button.dataset.shape));
+  });
+  window.addEventListener("resize", resizeRenderer);
+  els.canvas.addEventListener("pointerdown", startDrawing);
+  els.canvas.addEventListener("pointermove", draw);
+  els.canvas.addEventListener("pointerup", stopDrawing);
+  els.canvas.addEventListener("pointerleave", stopDrawing);
+}
 
-  document.querySelectorAll("[data-category]").forEach((button) => {
+function showScreen(name) {
+  if (name !== "studio") stopCollabSync();
+  Object.values(els.screens).forEach((screen) => screen.classList.add("hidden"));
+  els.screens[name].classList.remove("hidden");
+  if (name === "home") renderHome();
+  if (name === "studio") {
+    setupScene();
+    resizeRenderer();
+  }
+}
+
+function renderHome() {
+  els.welcomeText.textContent = appState.username ? `Welcome back, ${appState.username}. Your builds are saved in this browser.` : "Choose a username to start saving your creations.";
+  els.friendCount.textContent = `${appState.friends.length} friend${appState.friends.length === 1 ? "" : "s"}`;
+  els.friendsList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `<span class="chip">${friend}</span>`).join("") : `<span class="muted">No friends yet.</span>`;
+  els.backpackCount.textContent = `${appState.backpack.length} saved`;
+  els.backpackList.innerHTML = appState.backpack.length ? appState.backpack.map((item) => `
+    <article class="backpack-item">
+      <span class="mini-thumb" style="--thumb:${item.color}"></span>
+      <div><strong>${item.name}</strong><span>${item.parts} pieces · ${item.mode}</span></div>
+    </article>
+  `).join("") : `<p class="muted">Saved 3D pen builds will appear here.</p>`;
+}
+
+function renderColors() {
+  const buttons = COLORS.map(([name, color]) => `
+    <button class="color-card" style="--card-color:${color}" type="button" data-color="${color}" data-name="${name}">
+      <strong>${name}</strong>
+      <span>3D pen plastic</span>
+    </button>
+  `).join("");
+  els.colorChoices.innerHTML = buttons;
+  els.miniColors.innerHTML = COLORS.map(([name, color]) => `
+    <button class="mini-color" style="--mini-color:${color}" type="button" aria-label="${name}" data-color="${color}" data-name="${name}"></button>
+  `).join("");
+  document.querySelectorAll("[data-color]").forEach((button) => {
     button.addEventListener("click", () => {
-      activeCategory = button.dataset.category;
-      document.querySelectorAll("[data-category]").forEach((item) => item.classList.toggle("active", item === button));
-      renderWordGrid();
+      studio.color = button.dataset.color;
+      studio.colorName = button.dataset.name;
+      updatePenUi();
+      if (button.classList.contains("color-card")) startStudio();
     });
   });
-
-  els.searchInput.addEventListener("input", renderWordGrid);
-  els.promptBtn.addEventListener("click", () => {
-    state.promptIndex = (state.promptIndex + 1) % PROMPTS.length;
-    saveState();
-    renderPrompt();
-  });
-  els.saveResponseBtn.addEventListener("click", saveWriting);
-  els.clearResponseBtn.addEventListener("click", () => { els.responseInput.value = ""; });
-  els.markKnownBtn.addEventListener("click", () => completeWord(selectedWord.word, true));
-  els.againBtn.addEventListener("click", () => completeWord(selectedWord.word, false));
-  els.goodBtn.addEventListener("click", () => completeWord(selectedWord.word, true));
-  els.startQuizBtn.addEventListener("click", startQuiz);
-  els.nextQuizBtn.addEventListener("click", nextQuiz);
-  els.exportBtn.addEventListener("click", exportProgress);
-  els.importInput.addEventListener("change", importProgress);
 }
 
-function renderAll() {
-  renderSummary();
-  renderDailyWords();
-  renderWordGrid();
-  renderWriting();
-}
-
-function renderSummary() {
-  const studied = Object.values(state.progress).filter((item) => item.seen > 0).length;
-  const due = dueWords().length;
-  const attempts = state.quiz.correct + state.quiz.incorrect;
-  els.studiedCount.textContent = studied;
-  els.dueCount.textContent = due;
-  els.accuracy.textContent = attempts ? `${Math.round((state.quiz.correct / attempts) * 100)}%` : "-";
-  els.streak.textContent = `${state.streak.count} ${state.streak.count === 1 ? "day" : "days"}`;
-  els.dailyDate.textContent = readableDate(new Date(`${state.dailyDate}T00:00:00`));
-}
-
-function renderDailyWords() {
-  els.dailyWords.innerHTML = state.dailyWords.map((word) => {
-    const item = getWord(word);
-    const progress = state.progress[word];
-    return `
-      <button class="daily-item" type="button" data-word="${item.word}">
-        <span>${item.word}</span>
-        <small>${item.category} / ${progress?.level || 0}/5</small>
-      </button>
-    `;
-  }).join("");
-  els.dailyWords.querySelectorAll("[data-word]").forEach((button) => {
-    button.addEventListener("click", () => selectWord(button.dataset.word));
-  });
-}
-
-function renderWordGrid() {
-  const query = els.searchInput.value.trim().toLowerCase();
-  const words = WORDS.filter((item) => {
-    const inCategory = activeCategory === "All" || item.category === activeCategory;
-    const haystack = `${item.word} ${item.definition} ${item.example} ${item.synonyms}`.toLowerCase();
-    return inCategory && (!query || haystack.includes(query));
-  });
-
-  els.wordGrid.innerHTML = words.map((item) => {
-    const progress = state.progress[item.word] || blankProgress();
-    const due = progress.nextReview <= today;
-    return `
-      <button class="word-tile ${selectedWord.word === item.word ? "selected" : ""}" type="button" data-word="${item.word}">
-        <span>${item.word}</span>
-        <small>${item.category} / ${item.level}${due && progress.seen ? " / due" : ""}</small>
-      </button>
-    `;
-  }).join("");
-
-  els.wordGrid.querySelectorAll("[data-word]").forEach((button) => {
-    button.addEventListener("click", () => selectWord(button.dataset.word));
-  });
-}
-
-function selectWord(word) {
-  selectedWord = getWord(word);
-  const progress = state.progress[word] || blankProgress();
-  els.wordMeta.textContent = `${selectedWord.category} / ${selectedWord.level} / level ${progress.level}/5`;
-  els.wordTitle.textContent = selectedWord.word;
-  els.wordDefinition.textContent = selectedWord.definition;
-  els.wordDetails.innerHTML = `
-    <div>
-      <span>Example</span>
-      <p>${selectedWord.example}</p>
-    </div>
-    <div>
-      <span>Synonyms</span>
-      <p>${selectedWord.synonyms}</p>
-    </div>
-    <div>
-      <span>Nuance</span>
-      <p>${selectedWord.nuance}</p>
-    </div>
-    <div>
-      <span>Next review</span>
-      <p>${progress.seen ? readableDate(new Date(`${progress.nextReview}T00:00:00`)) : "Not studied yet"}</p>
-    </div>
-  `;
-  renderWordGrid();
-}
-
-function renderPrompt() {
-  els.writingPrompt.textContent = PROMPTS[state.promptIndex % PROMPTS.length];
-}
-
-function renderWriting() {
-  els.writingCount.textContent = `${state.writing.length} ${state.writing.length === 1 ? "entry" : "entries"}`;
-  if (!state.writing.length) {
-    els.writingList.innerHTML = `<p class="empty">Saved paragraphs will appear here.</p>`;
-    return;
-  }
-  els.writingList.innerHTML = state.writing.slice(0, 8).map((entry) => `
-    <article class="writing-entry">
-      <div>
-        <strong>${readableDate(new Date(`${entry.date}T00:00:00`))}</strong>
-        <span>${entry.prompt}</span>
-      </div>
-      <p>${escapeHtml(entry.text)}</p>
-    </article>
-  `).join("");
-}
-
-function saveWriting() {
-  const text = els.responseInput.value.trim();
-  if (!text) return;
-  state.writing.unshift({
-    date: today,
-    prompt: els.writingPrompt.textContent,
-    text,
-  });
-  markActivity();
+function saveUsername() {
+  const username = cleanName(els.usernameInput.value);
+  if (!username) return;
+  appState.username = username;
   saveState();
-  els.responseInput.value = "";
-  renderAll();
+  renderHome();
 }
 
-function completeWord(word, success) {
-  const progress = state.progress[word] || blankProgress();
-  progress.seen += 1;
-  progress.correct += success ? 1 : 0;
-  progress.incorrect += success ? 0 : 1;
-  progress.level = success ? Math.min(5, progress.level + 1) : Math.max(0, progress.level - 1);
-  progress.nextReview = addDays(today, success ? reviewInterval(progress.level) : 1);
-  state.progress[word] = progress;
-  markActivity();
+function addFriend() {
+  const friend = cleanName(els.friendInput.value);
+  if (!friend || appState.friends.includes(friend) || friend === appState.username) return;
+  appState.friends.push(friend);
+  els.friendInput.value = "";
   saveState();
-  renderAll();
-  selectWord(word);
+  renderHome();
 }
 
-function startQuiz() {
-  const source = unique([...dueWords(), ...state.dailyWords]);
-  quiz.queue = shuffle(source).slice(0, 10);
-  quiz.index = 0;
-  quiz.answered = false;
-  if (!quiz.queue.length) {
-    els.quizQuestion.textContent = "No quiz words yet. Refresh the daily set or choose a word to study.";
+function openCollab() {
+  els.collabFriendList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `
+    <label class="choice"><span>${friend}</span><input type="checkbox" value="${friend}" /></label>
+  `).join("") : `<p class="muted">Add friends first, then invite them to a collab board.</p>`;
+  showScreen("collab");
+}
+
+function startCollab() {
+  studio.collabFriends = Array.from(els.collabFriendList.querySelectorAll("input:checked")).map((input) => input.value);
+  if (!studio.collabFriends.length) return;
+  studio.mode = "collab";
+  studio.collabRoom = makeCollabRoom();
+  showScreen("color");
+}
+
+function openTrade() {
+  studio.selectedTradeFriend = "";
+  studio.selectedTradeItem = "";
+  els.tradeStatus.textContent = "";
+  els.tradeFriendList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `<button class="choice" data-trade-friend="${friend}" type="button">${friend}</button>`).join("") : `<p class="muted">Add a friend before trading.</p>`;
+  els.tradeItemList.innerHTML = appState.backpack.length ? appState.backpack.map((item) => `<button class="choice" data-trade-item="${item.id}" type="button">${item.name}<span>${item.parts} pieces</span></button>`).join("") : `<p class="muted">Save a build to your backpack before trading.</p>`;
+  els.tradeFriendList.querySelectorAll("[data-trade-friend]").forEach((button) => button.addEventListener("click", () => selectTradeFriend(button)));
+  els.tradeItemList.querySelectorAll("[data-trade-item]").forEach((button) => button.addEventListener("click", () => selectTradeItem(button)));
+  showScreen("trade");
+}
+
+function selectTradeFriend(button) {
+  studio.selectedTradeFriend = button.dataset.tradeFriend;
+  els.tradeFriendList.querySelectorAll(".choice").forEach((choice) => choice.classList.toggle("active", choice === button));
+}
+
+function selectTradeItem(button) {
+  studio.selectedTradeItem = button.dataset.tradeItem;
+  els.tradeItemList.querySelectorAll(".choice").forEach((choice) => choice.classList.toggle("active", choice === button));
+}
+
+function confirmTrade() {
+  if (!studio.selectedTradeFriend || !studio.selectedTradeItem) {
+    els.tradeStatus.textContent = "Choose a friend and a backpack build first.";
     return;
   }
-  showQuizQuestion();
+  const item = appState.backpack.find((build) => build.id === studio.selectedTradeItem);
+  appState.trades.push({ friend: studio.selectedTradeFriend, item: item.name, at: new Date().toISOString() });
+  saveState();
+  els.tradeStatus.textContent = `Trade confirmed: ${item.name} sent to ${studio.selectedTradeFriend}.`;
 }
 
-function showQuizQuestion() {
-  quiz.current = getWord(quiz.queue[quiz.index]);
-  quiz.answered = false;
-  const distractors = shuffle(WORDS.filter((item) => item.word !== quiz.current.word)).slice(0, 3);
-  const options = shuffle([quiz.current, ...distractors]);
-  els.quizProgress.textContent = `${quiz.index + 1} / ${quiz.queue.length}`;
-  els.quizQuestion.textContent = `Which word means: ${quiz.current.definition}?`;
-  els.quizOptions.innerHTML = options.map((item) => `
-    <button type="button" data-answer="${item.word}">${item.word}</button>
-  `).join("");
-  els.quizFeedback.textContent = "";
-  els.nextQuizBtn.disabled = true;
-  els.quizOptions.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => answerQuiz(button.dataset.answer));
+function startStudio() {
+  showScreen("studio");
+  newBoard();
+  if (studio.mode === "collab") startCollabSync();
+}
+
+function setupScene() {
+  if (scene) return;
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color("#ffe2f0");
+  camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(0, 6.7, 8.4);
+  camera.lookAt(0, 0, 0);
+  renderer = new THREE.WebGLRenderer({ canvas: els.canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  raycaster = new THREE.Raycaster();
+  pointer = new THREE.Vector2();
+
+  const hemi = new THREE.HemisphereLight("#ffffff", "#f5b6d3", 2.4);
+  const key = new THREE.DirectionalLight("#ffffff", 2.5);
+  key.position.set(4, 8, 5);
+  scene.add(hemi, key);
+
+  const table = new THREE.Mesh(new THREE.BoxGeometry(10, .35, 7.2), new THREE.MeshStandardMaterial({ color: "#f2c6d9", roughness: .65 }));
+  table.position.y = -.35;
+  scene.add(table);
+
+  board = new THREE.Mesh(new THREE.BoxGeometry(8.4, .16, 5.3), new THREE.MeshPhysicalMaterial({ color: "#f7fbff", transparent: true, opacity: .76, roughness: .18, transmission: .25 }));
+  board.name = "plastic-board";
+  board.position.y = -.08;
+  scene.add(board);
+
+  const grid = new THREE.GridHelper(8, 16, "#e6a7ca", "#f0c7dd");
+  grid.position.y = .02;
+  grid.scale.z = .64;
+  scene.add(grid);
+
+  penMesh = makePen();
+  scene.add(penMesh);
+  boardReady = true;
+  animate();
+}
+
+function newBoard() {
+  if (!boardReady) return;
+  clearBoard({ localOnly: true });
+  studio.strokes = 0;
+  studio.collabSeen = 0;
+  studio.collabIds = new Set();
+  els.studioMode.textContent = studio.mode === "collab" ? "Collab Build" : "Solo Build";
+  els.studioTitle.textContent = studio.mode === "collab" ? "Shared Plastic Board" : "Plastic Board";
+  els.collabPanel.classList.toggle("hidden", studio.mode !== "collab");
+  els.activeCollabList.innerHTML = studio.collabFriends.map((friend) => `<span class="chip">${friend}</span>`).join("");
+  if (studio.mode === "collab") addCollabFriends();
+}
+
+function makePen() {
+  const group = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(.16, 1.55, 8, 18), new THREE.MeshStandardMaterial({ color: studio.color, roughness: .28 }));
+  body.rotation.z = Math.PI / 2;
+  const tip = new THREE.Mesh(new THREE.ConeGeometry(.17, .45, 24), new THREE.MeshStandardMaterial({ color: "#3e3440", metalness: .1, roughness: .3 }));
+  tip.rotation.z = -Math.PI / 2;
+  tip.position.x = .95;
+  group.add(body, tip);
+  group.position.set(-3.4, 1, 2.1);
+  group.rotation.set(-.4, 0, -.25);
+  return group;
+}
+
+function updatePenUi() {
+  document.documentElement.style.setProperty("--pen-color", studio.color);
+  els.activeColorName.textContent = studio.colorName;
+  els.penNib.style.background = studio.color;
+  if (penMesh?.children?.[0]) penMesh.children[0].material.color.set(studio.color);
+  els.miniColors.querySelectorAll(".mini-color").forEach((button) => button.classList.toggle("active", button.dataset.color === studio.color));
+}
+
+function startDrawing(event) {
+  if (!studio.power) return;
+  studio.drawing = true;
+  els.canvas.setPointerCapture(event.pointerId);
+  lastPoint = getBoardPoint(event);
+  movePen(lastPoint);
+}
+
+function draw(event) {
+  const point = getBoardPoint(event);
+  movePen(point);
+  if (!studio.drawing || !studio.power || !point || !lastPoint) return;
+  const distance = point.distanceTo(lastPoint);
+  const step = studio.speed === "fast" ? .18 : .34;
+  if (distance < step) return;
+  addPlasticSegment(lastPoint, point, studio.color, .105, { broadcast: true });
+  lastPoint = point;
+}
+
+function stopDrawing() {
+  studio.drawing = false;
+  lastPoint = null;
+}
+
+function getBoardPoint(event) {
+  const rect = els.canvas.getBoundingClientRect();
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hit = raycaster.intersectObject(board)[0];
+  return hit ? hit.point.clone().setY(.18 + studio.strokes * .0008) : null;
+}
+
+function movePen(point) {
+  if (!point || !penMesh) return;
+  penMesh.position.lerp(new THREE.Vector3(point.x - .45, .72, point.z + .34), .55);
+}
+
+function addPlasticSegment(a, b, color, radius, options = {}) {
+  const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(.5);
+  const direction = new THREE.Vector3().subVectors(b, a);
+  const length = Math.max(direction.length(), .05);
+  const segment = new THREE.Mesh(
+    new THREE.CylinderGeometry(radius, radius, length, 16),
+    new THREE.MeshStandardMaterial({ color, roughness: .35, metalness: .03 })
+  );
+  segment.position.copy(mid);
+  segment.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+  segment.userData.drawable = true;
+  scene.add(segment);
+  studio.strokes += 1;
+  if (options.broadcast && studio.mode === "collab") {
+    broadcastSegment(a, b, color, radius);
+  }
+}
+
+function addHelperShape(shape) {
+  if (!boardReady) return;
+  const baseX = -2 + Math.random() * 4;
+  const baseZ = -1.4 + Math.random() * 2.8;
+  if (shape === "tower") {
+    for (let i = 0; i < 8; i += 1) {
+      const angleA = (i / 8) * Math.PI * 2;
+      const angleB = ((i + 1) / 8) * Math.PI * 2;
+      addPlasticSegment(new THREE.Vector3(baseX + Math.cos(angleA) * .42, .22 + i * .06, baseZ + Math.sin(angleA) * .42), new THREE.Vector3(baseX + Math.cos(angleB) * .42, .28 + i * .06, baseZ + Math.sin(angleB) * .42), studio.color, .09, { broadcast: true });
+    }
+  }
+  if (shape === "wall") {
+    for (let i = 0; i < 6; i += 1) addPlasticSegment(new THREE.Vector3(baseX - 1.1, .24 + i * .12, baseZ), new THREE.Vector3(baseX + 1.1, .24 + i * .12, baseZ), studio.color, .08, { broadcast: true });
+  }
+  if (shape === "roof") {
+    addPlasticSegment(new THREE.Vector3(baseX - .7, .25, baseZ - .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX + .7, .25, baseZ - .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX - .7, .25, baseZ + .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX + .7, .25, baseZ + .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+  }
+}
+
+function addCollabFriends() {
+  studio.collabFriends.forEach((friend, index) => {
+    const color = COLORS[(index + 2) % COLORS.length][1];
+    const avatar = new THREE.Mesh(new THREE.SphereGeometry(.18, 18, 18), new THREE.MeshStandardMaterial({ color }));
+    avatar.position.set(-3.2 + index * .55, .5, -2.3);
+    avatar.userData.drawable = true;
+    scene.add(avatar);
+    addPlasticSegment(new THREE.Vector3(-3 + index * .6, .22, -1.8), new THREE.Vector3(-2.4 + index * .6, .24, -1.2), color, .08);
   });
 }
 
-function answerQuiz(answer) {
-  if (quiz.answered) return;
-  quiz.answered = true;
-  const correct = answer === quiz.current.word;
-  state.quiz.correct += correct ? 1 : 0;
-  state.quiz.incorrect += correct ? 0 : 1;
-  completeWord(quiz.current.word, correct);
-  els.quizOptions.querySelectorAll("button").forEach((button) => {
-    button.disabled = true;
-    button.classList.toggle("correct", button.dataset.answer === quiz.current.word);
-    button.classList.toggle("wrong", button.dataset.answer === answer && !correct);
-  });
-  els.quizFeedback.textContent = correct
-    ? `Correct. Try using "${quiz.current.word}" in today's paragraph.`
-    : `Not quite. "${quiz.current.word}" means ${quiz.current.definition}.`;
-  els.nextQuizBtn.disabled = false;
+function togglePower() {
+  studio.power = !studio.power;
+  els.powerBtn.classList.toggle("on", studio.power);
+  els.powerBtn.textContent = studio.power ? "On" : "Off";
+  els.powerBtn.setAttribute("aria-pressed", String(studio.power));
 }
 
-function nextQuiz() {
-  if (quiz.index >= quiz.queue.length - 1) {
-    els.quizQuestion.textContent = "Quiz complete. Your review schedule has been updated.";
-    els.quizOptions.innerHTML = "";
-    els.quizProgress.textContent = `${quiz.queue.length} / ${quiz.queue.length}`;
-    els.nextQuizBtn.disabled = true;
-    els.quizFeedback.textContent = "";
-    renderAll();
-    return;
+function setSpeed(speed) {
+  studio.speed = speed;
+  els.slowBtn.classList.toggle("active", speed === "slow");
+  els.fastBtn.classList.toggle("active", speed === "fast");
+}
+
+function saveBuild() {
+  if (!studio.strokes) return;
+  const build = {
+    id: crypto.randomUUID(),
+    name: `${studio.colorName} build ${appState.backpack.length + 1}`,
+    color: studio.color,
+    parts: studio.strokes,
+    mode: studio.mode === "collab" ? `with ${studio.collabFriends.join(", ")}` : "solo",
+    at: new Date().toISOString()
+  };
+  appState.backpack.unshift(build);
+  saveState();
+  renderHome();
+  if (studio.mode === "collab") {
+    els.studioTitle.textContent = "Saved to everyone's backpack";
+  } else {
+    els.studioTitle.textContent = "Saved to Backpack";
   }
-  quiz.index += 1;
-  showQuizQuestion();
 }
 
-function ensureDailySet(force = false) {
-  if (!force && state.dailyDate === today && state.dailyWords.length) return;
-  const due = dueWords();
-  const fresh = WORDS
-    .filter((item) => !due.includes(item.word))
-    .sort((a, b) => (state.progress[a.word]?.seen || 0) - (state.progress[b.word]?.seen || 0))
-    .map((item) => item.word);
-  state.dailyDate = today;
-  state.dailyWords = unique([...due.slice(0, 4), ...shuffle(fresh).slice(0, 6)]).slice(0, 8);
+function clearBoard(options = {}) {
+  if (!scene) return;
+  [...scene.children].filter((child) => child.userData.drawable).forEach((child) => scene.remove(child));
+  studio.strokes = 0;
+  studio.collabSeen = 0;
+  if (!options.localOnly && canUseServerCollab() && studio.mode === "collab" && studio.collabRoom) {
+    fetch("/api/collab/clear", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ room: studio.collabRoom })
+    }).catch(() => {});
+  }
 }
 
-function dueWords() {
-  return Object.entries(state.progress)
-    .filter(([, progress]) => progress.seen > 0 && progress.nextReview <= today)
-    .map(([word]) => word);
+function startCollabSync() {
+  if (!canUseServerCollab()) return;
+  stopCollabSync();
+  fetchCollabStrokes();
+  studio.collabTimer = window.setInterval(fetchCollabStrokes, 900);
 }
 
-function markActivity() {
-  if (state.streak.lastDate === today) return;
-  const yesterday = addDays(today, -1);
-  state.streak.count = state.streak.lastDate === yesterday ? state.streak.count + 1 : 1;
-  state.streak.lastDate = today;
+function stopCollabSync() {
+  if (studio.collabTimer) window.clearInterval(studio.collabTimer);
+  studio.collabTimer = null;
+}
+
+async function broadcastSegment(a, b, color, radius) {
+  if (!canUseServerCollab()) return;
+  try {
+    const response = await fetch("/api/collab/stroke", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        room: studio.collabRoom,
+        segment: { user: appState.username || "guest", color, radius, a: vectorData(a), b: vectorData(b) }
+      })
+    });
+    const saved = await response.json();
+    if (saved.id) studio.collabIds.add(saved.id);
+  } catch {
+    // Drawing should keep working even if the collab server is unavailable.
+  }
+}
+
+async function fetchCollabStrokes() {
+  if (!studio.collabRoom || studio.mode !== "collab" || !scene) return;
+  try {
+    const response = await fetch(`/api/collab?room=${encodeURIComponent(studio.collabRoom)}&since=${studio.collabSeen}`);
+    const data = await response.json();
+    data.strokes.forEach((stroke) => {
+      if (studio.collabIds.has(stroke.id)) return;
+      studio.collabIds.add(stroke.id);
+      addPlasticSegment(vectorFromData(stroke.a), vectorFromData(stroke.b), stroke.color, stroke.radius || .105);
+    });
+    studio.collabSeen = data.total;
+  } catch {
+    stopCollabSync();
+  }
+}
+
+function resizeRenderer() {
+  if (!renderer) return;
+  const rect = els.canvas.parentElement.getBoundingClientRect();
+  renderer.setSize(rect.width, rect.height, false);
+  camera.aspect = rect.width / rect.height;
+  camera.updateProjectionMatrix();
+}
+
+function animate() {
+  if (animationStarted) return;
+  animationStarted = true;
+  renderer.setAnimationLoop(() => {
+    if (penMesh) penMesh.rotation.y += .005;
+    renderer.render(scene, camera);
+  });
+}
+
+function cleanName(value) {
+  return value.trim().replace(/\s+/g, "_").slice(0, 18);
+}
+
+function makeCollabRoom() {
+  return [appState.username || "guest", ...studio.collabFriends].map(cleanName).sort().join("__").slice(0, 80);
+}
+
+function vectorData(vector) {
+  return { x: vector.x, y: vector.y, z: vector.z };
+}
+
+function vectorFromData(data) {
+  return new THREE.Vector3(Number(data.x), Number(data.y), Number(data.z));
+}
+
+function canUseServerCollab() {
+  return !location.hostname.endsWith("github.io");
 }
 
 function loadState() {
-  const fallback = {
-    dailyDate: "",
-    dailyWords: [],
-    promptIndex: 0,
-    progress: {},
-    writing: [],
-    quiz: { correct: 0, incorrect: 0 },
-    streak: { count: 0, lastDate: "" },
-  };
   try {
-    return { ...fallback, ...JSON.parse(localStorage.getItem(storageKey) || "{}") };
+    return { ...defaultState, ...JSON.parse(localStorage.getItem(storeKey)) };
   } catch {
-    return fallback;
+    return { ...defaultState };
   }
 }
 
 function saveState() {
-  localStorage.setItem(storageKey, JSON.stringify(state));
-}
-
-function exportProgress() {
-  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = `vocab-progress-${today}.json`;
-  link.click();
-  URL.revokeObjectURL(link.href);
-}
-
-async function importProgress(event) {
-  const file = event.target.files?.[0];
-  if (!file) return;
-  try {
-    state = { ...state, ...JSON.parse(await file.text()) };
-    ensureDailySet();
-    saveState();
-    renderAll();
-    selectWord(selectedWord.word);
-  } catch {
-    alert("That progress file could not be imported.");
-  } finally {
-    event.target.value = "";
-  }
-}
-
-function getWord(word) {
-  return WORDS.find((item) => item.word === word) || WORDS[0];
-}
-
-function blankProgress() {
-  return { seen: 0, correct: 0, incorrect: 0, level: 0, nextReview: today };
-}
-
-function reviewInterval(level) {
-  return [1, 1, 3, 7, 14, 30][level] || 30;
-}
-
-function addDays(dateString, days) {
-  const date = new Date(`${dateString}T00:00:00`);
-  date.setDate(date.getDate() + days);
-  return isoDate(date);
-}
-
-function isoDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function readableDate(date) {
-  return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
-}
-
-function shuffle(items) {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-function unique(items) {
-  return [...new Set(items)];
-}
-
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (char) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#039;",
-  }[char]));
+  localStorage.setItem(storeKey, JSON.stringify(appState));
 }
