@@ -1,352 +1,519 @@
-const TOPICS = [
-  topic("Introduction to Science", "IS", "#176b55",
-    "How scientists ask questions, plan fair tests, measure accurately, record evidence, and write conclusions.",
-    ["variables", "risk", "accuracy", "graph skills", "conclusions"],
-    ["Independent variable: the thing you change.", "Dependent variable: the thing you measure.", "Control variables: things kept the same.", "A fair test changes only one independent variable.", "Use SI units, repeat readings, and calculate a mean when readings vary.", "A conclusion should use data and answer the investigation question."],
-    "CORMM helps experiments: Change one thing, Observe/measure one thing, Repeat, Measure carefully, keep other things the same.",
-    ["Forgetting units in tables or graphs.", "Saying 'it went up' without quoting data.", "Confusing accuracy with precision.", "Changing more than one variable in a fair test."],
-    ["Name the independent, dependent, and control variables in an investigation.", "Explain why repeated readings make results more reliable.", "Describe how to draw a line graph from results.", "Write a conclusion using data.", "Explain one safety risk and one control measure."],
-    scienceDiagram("fairtest")),
-  topic("Electricity and Energy", "EE", "#255f9f",
-    "Simple circuits, energy stores and transfers, current, voltage, resistance, and how energy is conserved.",
-    ["series circuits", "parallel circuits", "current", "voltage", "energy stores"],
-    ["Current is the flow of charge and is measured in amperes.", "Voltage is the energy transferred per unit charge and is measured in volts.", "Resistance makes it harder for current to flow.", "In a series circuit, current is the same everywhere.", "In a parallel circuit, current splits between branches.", "Energy is transferred between stores but is not created or destroyed."],
-    "VIP: Voltage pushes, current Is flow, resistance Prevents flow.",
-    ["Drawing a voltmeter in series instead of parallel.", "Writing that energy is 'used up' instead of transferred.", "Forgetting that current is the same in all parts of a series circuit.", "Mixing up cells and batteries."],
-    ["Compare current in series and parallel circuits.", "Explain what a battery does in a circuit.", "Describe how adding bulbs in series affects brightness.", "Explain energy conservation.", "State the units for current and voltage."],
-    scienceDiagram("circuit")),
-  topic("Reproduction and Variation", "RV", "#b04747",
-    "Human reproduction, fertilisation, puberty, inheritance, environmental variation, and why offspring differ.",
-    ["puberty", "fertilisation", "gametes", "inheritance", "variation"],
-    ["Gametes are sex cells: sperm and egg cells.", "Fertilisation happens when the nuclei of sperm and egg join.", "The fertilised egg develops into an embryo.", "Inherited variation comes from genes passed from parents.", "Environmental variation is caused by surroundings and experiences.", "Puberty is when the body changes so it can reproduce."],
-    "GO FRED: Gametes, Ovary/testes, Fertilisation, Reproduction, Embryo, Development.",
-    ["Saying fertilisation happens in the uterus rather than the oviduct.", "Confusing inherited and environmental variation.", "Using vague words like 'baby seed' instead of sperm, egg, embryo.", "Forgetting that variation exists within a species."],
-    ["Describe fertilisation.", "Compare inherited and environmental variation.", "Name the male and female gametes.", "Explain why siblings are similar but not identical.", "Describe the role of puberty in reproduction."],
-    scienceDiagram("reproduction")),
-  topic("Cells to Systems", "CS", "#7157a6",
-    "Plant and animal cells, specialised cells, tissues, organs, organ systems, and how structure links to function.",
-    ["cells", "tissues", "organs", "systems", "microscopes"],
-    ["Cells are the basic units of living things.", "Animal cells have a nucleus, cytoplasm, cell membrane, and mitochondria.", "Plant cells also have a cell wall, chloroplasts, and a permanent vacuole.", "Specialised cells have adaptations for their job.", "Tissues are groups of similar cells.", "Organs are made of tissues and organ systems are made of organs."],
-    "Cells -> Tissues -> Organs -> Organ systems -> Organism: C T O O O.",
-    ["Drawing plant cells without a cell wall.", "Saying the nucleus is the 'brain' without explaining that it controls activities.", "Mixing up tissue and organ.", "Forgetting magnification units or scale."],
-    ["Compare plant and animal cells.", "Explain how a sperm or root hair cell is adapted.", "Put cell, tissue, organ, system, organism in order.", "Describe the job of mitochondria.", "Explain why microscopes are useful."],
-    scienceDiagram("cell")),
-  topic("Ecological Interactions", "EI", "#3f7f3d",
-    "Habitats, adaptations, food chains, food webs, competition, predators, prey, and how ecosystems change.",
-    ["habitats", "adaptation", "food chains", "competition", "predators"],
-    ["A habitat is where an organism lives.", "A population is all organisms of one species in an area.", "A community is all the populations in a habitat.", "Food chains show feeding relationships and energy transfer.", "Arrows show the direction of energy transfer.", "Organisms compete for resources such as food, space, light, water, and mates."],
-    "HPC: Habitat has Populations; populations make Communities.",
-    ["Drawing food-chain arrows the wrong way.", "Saying predators are always stronger rather than better adapted for catching prey.", "Forgetting plants compete for light and minerals.", "Confusing habitat with ecosystem."],
-    ["Explain what arrows mean in a food chain.", "Describe one adaptation of a predator or prey.", "Define habitat, population, and community.", "Explain competition between plants.", "Predict what happens if one organism is removed from a food web."],
-    scienceDiagram("foodweb")),
-  topic("Waves and Sound", "WS", "#8a6b16",
-    "Sound as vibrations, wave features, pitch, loudness, echoes, speed of sound, and how waves transfer energy.",
-    ["vibration", "frequency", "amplitude", "pitch", "loudness"],
-    ["Sound is made by vibrations.", "Sound travels through a medium such as air, water, or solids.", "Frequency is the number of vibrations per second and affects pitch.", "Amplitude is the size of vibration and affects loudness.", "Sound cannot travel through a vacuum.", "Echoes happen when sound reflects from a surface."],
-    "FLAP: Frequency = pitch, Large Amplitude = louder.",
-    ["Saying sound travels fastest in air.", "Confusing pitch and loudness.", "Forgetting that sound needs particles to travel.", "Writing that waves carry matter instead of energy."],
-    ["Explain how sound is produced.", "Compare frequency and amplitude.", "Explain why sound cannot travel in space.", "Describe an echo.", "Describe how the ear detects sound."],
-    scienceDiagram("wave")),
-  topic("Matter and Separation", "MS", "#2b7a78",
-    "Mixtures, solutions, dissolving, filtration, evaporation, chromatography, distillation, and choosing separation methods.",
-    ["mixtures", "solutions", "filtration", "evaporation", "chromatography"],
-    ["A mixture contains substances that are not chemically joined.", "A solute dissolves in a solvent to form a solution.", "Filtration separates an insoluble solid from a liquid.", "Evaporation separates a soluble solid from a solution.", "Chromatography separates dissolved substances such as inks.", "Distillation collects a solvent from a solution by evaporation then condensation."],
-    "FEC-D: Filter insoluble, Evaporate solute, Chromatography colours, Distil solvent.",
-    ["Using filtration for dissolved salt.", "Forgetting that clear solutions can still contain dissolved substances.", "Saying melting is the same as dissolving.", "Not naming the solute and solvent."],
-    ["Choose a method to separate sand and water.", "Explain how to get salt from salt water.", "Define solute, solvent, and solution.", "Describe chromatography.", "Explain why filtration cannot remove dissolved sugar."],
-    scienceDiagram("separation")),
-  topic("Particle Model", "PM", "#784f33",
-    "Solids, liquids, gases, particle arrangement and movement, changes of state, diffusion, density, and pressure.",
-    ["solids", "liquids", "gases", "diffusion", "density"],
-    ["Particles in solids are close together and vibrate in fixed positions.", "Particles in liquids are close together but can move past each other.", "Particles in gases are far apart and move quickly in all directions.", "Heating gives particles more energy.", "Diffusion is the spreading of particles from high to low concentration.", "Density depends on mass in a given volume."],
-    "SoLiG: Solid locked, Liquid glides, Gas goes everywhere.",
-    ["Drawing liquid particles far apart like gas particles.", "Saying particles expand when heated rather than move further apart.", "Forgetting that melting and freezing happen at the same temperature for a pure substance.", "Confusing boiling with evaporation."],
-    ["Compare particle arrangements in solids, liquids, and gases.", "Explain diffusion.", "Describe what happens during melting.", "Explain gas pressure.", "Explain density using particles."],
-    scienceDiagram("particles")),
-  topic("Atoms and Elements", "AE", "#4e6f8f",
-    "Atoms, elements, compounds, molecules, symbols, the periodic table, and chemical formulae.",
-    ["atoms", "elements", "compounds", "molecules", "symbols"],
-    ["An atom is the smallest part of an element that still has that element's properties.", "An element contains only one type of atom.", "A compound contains atoms of different elements chemically joined.", "A molecule is two or more atoms joined together.", "Chemical symbols have one capital letter and sometimes one lowercase letter.", "A formula shows the elements and numbers of atoms in a substance."],
-    "Capital then small: Co is cobalt, CO is carbon monoxide.",
-    ["Writing chemical symbols with the wrong capital letters.", "Calling mixtures compounds.", "Forgetting that compounds have a fixed ratio of atoms.", "Confusing atoms and cells."],
-    ["Define atom, element, compound, and molecule.", "Explain the difference between a mixture and compound.", "Interpret H2O and CO2.", "Explain why NaCl is a compound.", "Describe how the periodic table is organised."],
-    scienceDiagram("atoms"))
+import * as THREE from "three";
+
+const COLORS = [
+  ["Red", "#ff3b30"], ["Orange", "#ff9500"], ["Yellow", "#ffd60a"], ["Green", "#34c759"],
+  ["Blue", "#0a84ff"], ["Indigo", "#5856d6"], ["Violet", "#af52de"], ["Pink", "#ff4fb3"]
 ];
 
-const state = loadState();
-let activeTopic = TOPICS[0];
-let activeView = "guide";
-let cardIndex = 0;
-let cardShowingAnswer = false;
-let quizIndex = 0;
+const storeKey = "pastel-3d-pen-studio";
+const defaultState = { username: "", friends: [], backpack: [], trades: [] };
+const appState = loadState();
+const studio = {
+  mode: "solo",
+  collabFriends: [],
+  colorName: COLORS[0][0],
+  color: COLORS[0][1],
+  speed: "slow",
+  power: true,
+  drawing: false,
+  strokes: 0,
+  selectedTradeFriend: "",
+  selectedTradeItem: "",
+  collabRoom: "",
+  collabSeen: 0,
+  collabIds: new Set(),
+  collabTimer: null
+};
+
+let scene;
+let camera;
+let renderer;
+let board;
+let penMesh;
+let raycaster;
+let pointer;
+let lastPoint = null;
+let animationStarted = false;
+let boardReady = false;
 
 const els = {
-  topicList: document.querySelector("#topicList"),
-  activeTopicMeta: document.querySelector("#activeTopicMeta"),
-  topicCount: document.querySelector("#topicCount"),
-  flashcardCount: document.querySelector("#flashcardCount"),
-  questionCount: document.querySelector("#questionCount"),
-  aiStatus: document.querySelector("#aiStatus"),
-  guideView: document.querySelector("#guideView"),
-  flashcardView: document.querySelector("#flashcardView"),
-  quizView: document.querySelector("#quizView"),
-  mistakesView: document.querySelector("#mistakesView")
+  screens: {
+    home: document.querySelector("#homeScreen"),
+    color: document.querySelector("#colorScreen"),
+    collab: document.querySelector("#collabScreen"),
+    trade: document.querySelector("#tradeScreen"),
+    studio: document.querySelector("#studioScreen")
+  },
+  usernameInput: document.querySelector("#usernameInput"),
+  friendInput: document.querySelector("#friendInput"),
+  welcomeText: document.querySelector("#welcomeText"),
+  friendsList: document.querySelector("#friendsList"),
+  friendCount: document.querySelector("#friendCount"),
+  backpackList: document.querySelector("#backpackList"),
+  backpackCount: document.querySelector("#backpackCount"),
+  colorChoices: document.querySelector("#colorChoices"),
+  collabFriendList: document.querySelector("#collabFriendList"),
+  tradeFriendList: document.querySelector("#tradeFriendList"),
+  tradeItemList: document.querySelector("#tradeItemList"),
+  tradeStatus: document.querySelector("#tradeStatus"),
+  canvas: document.querySelector("#sceneCanvas"),
+  activeColorName: document.querySelector("#activeColorName"),
+  penNib: document.querySelector("#penNib"),
+  miniColors: document.querySelector("#miniColors"),
+  powerBtn: document.querySelector("#powerBtn"),
+  slowBtn: document.querySelector("#slowBtn"),
+  fastBtn: document.querySelector("#fastBtn"),
+  studioMode: document.querySelector("#studioMode"),
+  studioTitle: document.querySelector("#studioTitle"),
+  collabPanel: document.querySelector("#collabPanel"),
+  activeCollabList: document.querySelector("#activeCollabList")
 };
 
 boot();
 
 function boot() {
-  document.querySelectorAll("[data-view]").forEach((button) => {
-    button.addEventListener("click", () => setView(button.dataset.view));
+  els.usernameInput.value = appState.username;
+  renderHome();
+  renderColors();
+  bindControls();
+  updatePenUi();
+}
+
+function bindControls() {
+  document.querySelector("#saveUserBtn").addEventListener("click", saveUsername);
+  document.querySelector("#addFriendBtn").addEventListener("click", addFriend);
+  document.querySelector("#startBtn").addEventListener("click", () => {
+    studio.mode = "solo";
+    studio.collabFriends = [];
+    showScreen("color");
   });
-  renderShell();
-  renderAll();
+  document.querySelector("#collabBtn").addEventListener("click", openCollab);
+  document.querySelector("#tradeBtn").addEventListener("click", openTrade);
+  document.querySelector("#startCollabBtn").addEventListener("click", startCollab);
+  document.querySelector("#confirmTradeBtn").addEventListener("click", confirmTrade);
+  document.querySelector("#saveBuildBtn").addEventListener("click", saveBuild);
+  document.querySelector("#clearBoardBtn").addEventListener("click", clearBoard);
+  document.querySelectorAll("[data-go-home]").forEach((button) => button.addEventListener("click", () => showScreen("home")));
+  els.powerBtn.addEventListener("click", togglePower);
+  els.slowBtn.addEventListener("click", () => setSpeed("slow"));
+  els.fastBtn.addEventListener("click", () => setSpeed("fast"));
+  document.querySelectorAll("[data-shape]").forEach((button) => {
+    button.addEventListener("click", () => addHelperShape(button.dataset.shape));
+  });
+  window.addEventListener("resize", resizeRenderer);
+  els.canvas.addEventListener("pointerdown", startDrawing);
+  els.canvas.addEventListener("pointermove", draw);
+  els.canvas.addEventListener("pointerup", stopDrawing);
+  els.canvas.addEventListener("pointerleave", stopDrawing);
 }
 
-function topic(title, code, color, summary, tags, guide, mnemonic, mistakes, stems, diagram) {
-  const flashcards = makeFlashcards(title, guide, stems);
-  return { title, code, color, summary, tags, guide, mnemonic, mistakes, diagram, flashcards, questions: makeQuestions(title, guide, stems, mistakes) };
-}
-
-function makeFlashcards(title, guide, stems) {
-  const cards = guide.map((answer) => ({ prompt: answer.split(":")[0].replace(/\.$/, ""), answer }));
-  stems.forEach((stem) => cards.push({ prompt: stem, answer: modelAnswer(title, stem) }));
-  return cards.slice(0, 12);
-}
-
-function makeQuestions(title, guide, stems, mistakes) {
-  const verbs = ["Describe", "Explain", "Compare", "State", "Use an example to explain", "Predict", "Define", "Suggest why", "Link structure to function for", "Write a full-mark answer about"];
-  const questions = [];
-  for (let i = 0; i < 50; i += 1) {
-    const stem = stems[i % stems.length];
-    const guidePoint = guide[i % guide.length];
-    const mistake = mistakes[i % mistakes.length];
-    questions.push({
-      id: `${slug(title)}-${i + 1}`,
-      question: `${verbs[i % verbs.length]}: ${stem}`,
-      hint: `Include the key idea: ${guidePoint}`,
-      modelAnswer: modelAnswer(title, stem, guidePoint),
-      markScheme: [
-        `Uses correct science vocabulary for ${title}.`,
-        `Includes this key idea: ${guidePoint}`,
-        "Explains the reason, not just the fact.",
-        `Avoids this common mistake: ${mistake}`
-      ],
-      marks: 4
-    });
+function showScreen(name) {
+  if (name !== "studio") stopCollabSync();
+  Object.values(els.screens).forEach((screen) => screen.classList.add("hidden"));
+  els.screens[name].classList.remove("hidden");
+  if (name === "home") renderHome();
+  if (name === "studio") {
+    setupScene();
+    resizeRenderer();
   }
-  return questions;
 }
 
-function modelAnswer(title, stem, guidePoint = "") {
-  return `${stem.replace(/\.$/, "")}: ${guidePoint || "Use clear scientific vocabulary, give the key fact, and explain why it happens."} A full-mark answer should be specific, use the correct unit or keyword where needed, and link cause to effect.`;
+function renderHome() {
+  els.welcomeText.textContent = appState.username ? `Welcome back, ${appState.username}. Your builds are saved in this browser.` : "Choose a username to start saving your creations.";
+  els.friendCount.textContent = `${appState.friends.length} friend${appState.friends.length === 1 ? "" : "s"}`;
+  els.friendsList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `<span class="chip">${friend}</span>`).join("") : `<span class="muted">No friends yet.</span>`;
+  els.backpackCount.textContent = `${appState.backpack.length} saved`;
+  els.backpackList.innerHTML = appState.backpack.length ? appState.backpack.map((item) => `
+    <article class="backpack-item">
+      <span class="mini-thumb" style="--thumb:${item.color}"></span>
+      <div><strong>${item.name}</strong><span>${item.parts} pieces · ${item.mode}</span></div>
+    </article>
+  `).join("") : `<p class="muted">Saved 3D pen builds will appear here.</p>`;
 }
 
-function renderShell() {
-  els.topicCount.textContent = TOPICS.length;
-  els.flashcardCount.textContent = TOPICS.reduce((sum, topicItem) => sum + topicItem.flashcards.length, 0);
-  els.questionCount.textContent = TOPICS.reduce((sum, topicItem) => sum + topicItem.questions.length, 0);
-  els.topicList.innerHTML = TOPICS.map((topicItem) => `
-    <button class="topic-button ${topicItem === activeTopic ? "active" : ""}" type="button" data-topic="${topicItem.code}">
-      <strong>${topicItem.title}</strong>
-      <span>${topicItem.questions.length} questions / ${topicItem.flashcards.length} cards</span>
+function renderColors() {
+  const buttons = COLORS.map(([name, color]) => `
+    <button class="color-card" style="--card-color:${color}" type="button" data-color="${color}" data-name="${name}">
+      <strong>${name}</strong>
+      <span>3D pen plastic</span>
     </button>
   `).join("");
-  els.topicList.querySelectorAll("[data-topic]").forEach((button) => {
+  els.colorChoices.innerHTML = buttons;
+  els.miniColors.innerHTML = COLORS.map(([name, color]) => `
+    <button class="mini-color" style="--mini-color:${color}" type="button" aria-label="${name}" data-color="${color}" data-name="${name}"></button>
+  `).join("");
+  document.querySelectorAll("[data-color]").forEach((button) => {
     button.addEventListener("click", () => {
-      activeTopic = TOPICS.find((topicItem) => topicItem.code === button.dataset.topic);
-      cardIndex = 0;
-      quizIndex = 0;
-      cardShowingAnswer = false;
-      renderShell();
-      renderAll();
+      studio.color = button.dataset.color;
+      studio.colorName = button.dataset.name;
+      updatePenUi();
+      if (button.classList.contains("color-card")) startStudio();
     });
   });
 }
 
-function renderAll() {
-  els.activeTopicMeta.textContent = activeTopic.code;
-  renderGuide();
-  renderFlashcards();
-  renderQuiz();
-  renderMistakes();
+function saveUsername() {
+  const username = cleanName(els.usernameInput.value);
+  if (!username) return;
+  appState.username = username;
+  saveState();
+  renderHome();
 }
 
-function setView(view) {
-  activeView = view;
-  document.querySelectorAll("[data-view]").forEach((button) => button.classList.toggle("active", button.dataset.view === view));
-  const views = { guide: els.guideView, flashcards: els.flashcardView, quiz: els.quizView, mistakes: els.mistakesView };
-  for (const [key, element] of Object.entries(views)) {
-    element.classList.toggle("hidden", key !== view);
+function addFriend() {
+  const friend = cleanName(els.friendInput.value);
+  if (!friend || appState.friends.includes(friend) || friend === appState.username) return;
+  appState.friends.push(friend);
+  els.friendInput.value = "";
+  saveState();
+  renderHome();
+}
+
+function openCollab() {
+  els.collabFriendList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `
+    <label class="choice"><span>${friend}</span><input type="checkbox" value="${friend}" /></label>
+  `).join("") : `<p class="muted">Add friends first, then invite them to a collab board.</p>`;
+  showScreen("collab");
+}
+
+function startCollab() {
+  studio.collabFriends = Array.from(els.collabFriendList.querySelectorAll("input:checked")).map((input) => input.value);
+  if (!studio.collabFriends.length) return;
+  studio.mode = "collab";
+  studio.collabRoom = makeCollabRoom();
+  showScreen("color");
+}
+
+function openTrade() {
+  studio.selectedTradeFriend = "";
+  studio.selectedTradeItem = "";
+  els.tradeStatus.textContent = "";
+  els.tradeFriendList.innerHTML = appState.friends.length ? appState.friends.map((friend) => `<button class="choice" data-trade-friend="${friend}" type="button">${friend}</button>`).join("") : `<p class="muted">Add a friend before trading.</p>`;
+  els.tradeItemList.innerHTML = appState.backpack.length ? appState.backpack.map((item) => `<button class="choice" data-trade-item="${item.id}" type="button">${item.name}<span>${item.parts} pieces</span></button>`).join("") : `<p class="muted">Save a build to your backpack before trading.</p>`;
+  els.tradeFriendList.querySelectorAll("[data-trade-friend]").forEach((button) => button.addEventListener("click", () => selectTradeFriend(button)));
+  els.tradeItemList.querySelectorAll("[data-trade-item]").forEach((button) => button.addEventListener("click", () => selectTradeItem(button)));
+  showScreen("trade");
+}
+
+function selectTradeFriend(button) {
+  studio.selectedTradeFriend = button.dataset.tradeFriend;
+  els.tradeFriendList.querySelectorAll(".choice").forEach((choice) => choice.classList.toggle("active", choice === button));
+}
+
+function selectTradeItem(button) {
+  studio.selectedTradeItem = button.dataset.tradeItem;
+  els.tradeItemList.querySelectorAll(".choice").forEach((choice) => choice.classList.toggle("active", choice === button));
+}
+
+function confirmTrade() {
+  if (!studio.selectedTradeFriend || !studio.selectedTradeItem) {
+    els.tradeStatus.textContent = "Choose a friend and a backpack build first.";
+    return;
+  }
+  const item = appState.backpack.find((build) => build.id === studio.selectedTradeItem);
+  appState.trades.push({ friend: studio.selectedTradeFriend, item: item.name, at: new Date().toISOString() });
+  saveState();
+  els.tradeStatus.textContent = `Trade confirmed: ${item.name} sent to ${studio.selectedTradeFriend}.`;
+}
+
+function startStudio() {
+  showScreen("studio");
+  newBoard();
+  if (studio.mode === "collab") startCollabSync();
+}
+
+function setupScene() {
+  if (scene) return;
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color("#ffe2f0");
+  camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(0, 6.7, 8.4);
+  camera.lookAt(0, 0, 0);
+  renderer = new THREE.WebGLRenderer({ canvas: els.canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  raycaster = new THREE.Raycaster();
+  pointer = new THREE.Vector2();
+
+  const hemi = new THREE.HemisphereLight("#ffffff", "#f5b6d3", 2.4);
+  const key = new THREE.DirectionalLight("#ffffff", 2.5);
+  key.position.set(4, 8, 5);
+  scene.add(hemi, key);
+
+  const table = new THREE.Mesh(new THREE.BoxGeometry(10, .35, 7.2), new THREE.MeshStandardMaterial({ color: "#f2c6d9", roughness: .65 }));
+  table.position.y = -.35;
+  scene.add(table);
+
+  board = new THREE.Mesh(new THREE.BoxGeometry(8.4, .16, 5.3), new THREE.MeshPhysicalMaterial({ color: "#f7fbff", transparent: true, opacity: .76, roughness: .18, transmission: .25 }));
+  board.name = "plastic-board";
+  board.position.y = -.08;
+  scene.add(board);
+
+  const grid = new THREE.GridHelper(8, 16, "#e6a7ca", "#f0c7dd");
+  grid.position.y = .02;
+  grid.scale.z = .64;
+  scene.add(grid);
+
+  penMesh = makePen();
+  scene.add(penMesh);
+  boardReady = true;
+  animate();
+}
+
+function newBoard() {
+  if (!boardReady) return;
+  clearBoard({ localOnly: true });
+  studio.strokes = 0;
+  studio.collabSeen = 0;
+  studio.collabIds = new Set();
+  els.studioMode.textContent = studio.mode === "collab" ? "Collab Build" : "Solo Build";
+  els.studioTitle.textContent = studio.mode === "collab" ? "Shared Plastic Board" : "Plastic Board";
+  els.collabPanel.classList.toggle("hidden", studio.mode !== "collab");
+  els.activeCollabList.innerHTML = studio.collabFriends.map((friend) => `<span class="chip">${friend}</span>`).join("");
+  if (studio.mode === "collab") addCollabFriends();
+}
+
+function makePen() {
+  const group = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(.16, 1.55, 8, 18), new THREE.MeshStandardMaterial({ color: studio.color, roughness: .28 }));
+  body.rotation.z = Math.PI / 2;
+  const tip = new THREE.Mesh(new THREE.ConeGeometry(.17, .45, 24), new THREE.MeshStandardMaterial({ color: "#3e3440", metalness: .1, roughness: .3 }));
+  tip.rotation.z = -Math.PI / 2;
+  tip.position.x = .95;
+  group.add(body, tip);
+  group.position.set(-3.4, 1, 2.1);
+  group.rotation.set(-.4, 0, -.25);
+  return group;
+}
+
+function updatePenUi() {
+  document.documentElement.style.setProperty("--pen-color", studio.color);
+  els.activeColorName.textContent = studio.colorName;
+  els.penNib.style.background = studio.color;
+  if (penMesh?.children?.[0]) penMesh.children[0].material.color.set(studio.color);
+  els.miniColors.querySelectorAll(".mini-color").forEach((button) => button.classList.toggle("active", button.dataset.color === studio.color));
+}
+
+function startDrawing(event) {
+  if (!studio.power) return;
+  studio.drawing = true;
+  els.canvas.setPointerCapture(event.pointerId);
+  lastPoint = getBoardPoint(event);
+  movePen(lastPoint);
+}
+
+function draw(event) {
+  const point = getBoardPoint(event);
+  movePen(point);
+  if (!studio.drawing || !studio.power || !point || !lastPoint) return;
+  const distance = point.distanceTo(lastPoint);
+  const step = studio.speed === "fast" ? .18 : .34;
+  if (distance < step) return;
+  addPlasticSegment(lastPoint, point, studio.color, .105, { broadcast: true });
+  lastPoint = point;
+}
+
+function stopDrawing() {
+  studio.drawing = false;
+  lastPoint = null;
+}
+
+function getBoardPoint(event) {
+  const rect = els.canvas.getBoundingClientRect();
+  pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hit = raycaster.intersectObject(board)[0];
+  return hit ? hit.point.clone().setY(.18 + studio.strokes * .0008) : null;
+}
+
+function movePen(point) {
+  if (!point || !penMesh) return;
+  penMesh.position.lerp(new THREE.Vector3(point.x - .45, .72, point.z + .34), .55);
+}
+
+function addPlasticSegment(a, b, color, radius, options = {}) {
+  const mid = new THREE.Vector3().addVectors(a, b).multiplyScalar(.5);
+  const direction = new THREE.Vector3().subVectors(b, a);
+  const length = Math.max(direction.length(), .05);
+  const segment = new THREE.Mesh(
+    new THREE.CylinderGeometry(radius, radius, length, 16),
+    new THREE.MeshStandardMaterial({ color, roughness: .35, metalness: .03 })
+  );
+  segment.position.copy(mid);
+  segment.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+  segment.userData.drawable = true;
+  scene.add(segment);
+  studio.strokes += 1;
+  if (options.broadcast && studio.mode === "collab") {
+    broadcastSegment(a, b, color, radius);
   }
 }
 
-function renderGuide() {
-  els.guideView.innerHTML = `
-    <article class="study-hero">
-      <div class="hero-band">
-        <div>
-          <p class="eyebrow">${activeTopic.code}</p>
-          <h1 style="color:${activeTopic.color}">${activeTopic.title}</h1>
-          <p>${activeTopic.summary}</p>
-          <div class="tag-row">${activeTopic.tags.map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
-        </div>
-        <div class="diagram">${activeTopic.diagram}</div>
-      </div>
-    </article>
-    <div class="guide-grid">
-      <section class="guide-section">
-        <h2>Study Guide</h2>
-        <ul>${activeTopic.guide.map((item) => `<li>${item}</li>`).join("")}</ul>
-        <div class="mnemonic"><strong>Mnemonic:</strong> ${activeTopic.mnemonic}</div>
-      </section>
-      <section class="diagram-stack">
-        <article class="diagram-card"><h3>Core Diagram</h3><div class="diagram">${activeTopic.diagram}</div></article>
-        <article class="diagram-card"><h3>Common Exam Mistakes</h3><ul class="mistakes-list">${activeTopic.mistakes.map((item) => `<li><strong>Watch out:</strong> ${item}</li>`).join("")}</ul></article>
-      </section>
-    </div>
-  `;
+function addHelperShape(shape) {
+  if (!boardReady) return;
+  const baseX = -2 + Math.random() * 4;
+  const baseZ = -1.4 + Math.random() * 2.8;
+  if (shape === "tower") {
+    for (let i = 0; i < 8; i += 1) {
+      const angleA = (i / 8) * Math.PI * 2;
+      const angleB = ((i + 1) / 8) * Math.PI * 2;
+      addPlasticSegment(new THREE.Vector3(baseX + Math.cos(angleA) * .42, .22 + i * .06, baseZ + Math.sin(angleA) * .42), new THREE.Vector3(baseX + Math.cos(angleB) * .42, .28 + i * .06, baseZ + Math.sin(angleB) * .42), studio.color, .09, { broadcast: true });
+    }
+  }
+  if (shape === "wall") {
+    for (let i = 0; i < 6; i += 1) addPlasticSegment(new THREE.Vector3(baseX - 1.1, .24 + i * .12, baseZ), new THREE.Vector3(baseX + 1.1, .24 + i * .12, baseZ), studio.color, .08, { broadcast: true });
+  }
+  if (shape === "roof") {
+    addPlasticSegment(new THREE.Vector3(baseX - .7, .25, baseZ - .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX + .7, .25, baseZ - .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX - .7, .25, baseZ + .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+    addPlasticSegment(new THREE.Vector3(baseX + .7, .25, baseZ + .5), new THREE.Vector3(baseX, .9, baseZ), studio.color, .09, { broadcast: true });
+  }
 }
 
-function renderFlashcards() {
-  const card = activeTopic.flashcards[cardIndex];
-  els.flashcardView.innerHTML = `
-    <div class="flash-toolbar">
-      <h2>${activeTopic.title} Flashcards</h2>
-      <span>${cardIndex + 1} / ${activeTopic.flashcards.length}</span>
-    </div>
-    <article class="flashcard">
-      <span class="label">${cardShowingAnswer ? "Answer" : "Question"}</span>
-      <strong>${cardShowingAnswer ? card.answer : card.prompt}</strong>
-      ${cardShowingAnswer ? "<p>Say this aloud, then check whether your wording used the key science vocabulary.</p>" : "<p>Try to answer before flipping the card.</p>"}
-      <div class="card-actions">
-        <button id="flipCard" class="primary-button" type="button">${cardShowingAnswer ? "Show question" : "Show answer"}</button>
-        <button id="prevCard" class="secondary-button" type="button">Previous</button>
-        <button id="nextCard" class="secondary-button" type="button">Next</button>
-      </div>
-    </article>
-  `;
-  document.querySelector("#flipCard").addEventListener("click", () => { cardShowingAnswer = !cardShowingAnswer; renderFlashcards(); });
-  document.querySelector("#prevCard").addEventListener("click", () => { cardIndex = (cardIndex + activeTopic.flashcards.length - 1) % activeTopic.flashcards.length; cardShowingAnswer = false; renderFlashcards(); });
-  document.querySelector("#nextCard").addEventListener("click", () => { cardIndex = (cardIndex + 1) % activeTopic.flashcards.length; cardShowingAnswer = false; renderFlashcards(); });
+function addCollabFriends() {
+  studio.collabFriends.forEach((friend, index) => {
+    const color = COLORS[(index + 2) % COLORS.length][1];
+    const avatar = new THREE.Mesh(new THREE.SphereGeometry(.18, 18, 18), new THREE.MeshStandardMaterial({ color }));
+    avatar.position.set(-3.2 + index * .55, .5, -2.3);
+    avatar.userData.drawable = true;
+    scene.add(avatar);
+    addPlasticSegment(new THREE.Vector3(-3 + index * .6, .22, -1.8), new THREE.Vector3(-2.4 + index * .6, .24, -1.2), color, .08);
+  });
 }
 
-function renderQuiz() {
-  const q = activeTopic.questions[quizIndex];
-  els.quizView.innerHTML = `
-    <div class="quiz-toolbar">
-      <h2>${activeTopic.title} Written Quiz</h2>
-      <span>${quizIndex + 1} / ${activeTopic.questions.length}</span>
-    </div>
-    <article class="quiz-card">
-      <div class="quiz-meta"><span>${q.marks} marks</span><span>AI-marked written answer</span></div>
-      <p class="quiz-question">${q.question}</p>
-      <details class="hint"><summary>Show hint</summary><p>${q.hint}</p></details>
-      <textarea id="studentAnswer" placeholder="Type your answer here. Use full sentences and science keywords."></textarea>
-      <div class="quiz-actions">
-        <button id="markAnswer" class="primary-button" type="button">Mark with AI</button>
-        <button id="showAnswer" class="secondary-button" type="button">Show model answer</button>
-        <button id="nextQuestion" class="secondary-button" type="button">Next question</button>
-      </div>
-      <div id="quizFeedback" class="feedback hidden"></div>
-    </article>
-  `;
-  document.querySelector("#markAnswer").addEventListener("click", markAnswer);
-  document.querySelector("#showAnswer").addEventListener("click", () => showFeedback({ status: "correct", marks_awarded: q.marks, marks_available: q.marks, what_was_good: "Use this to compare your wording.", missing_points: [], model_answer: q.modelAnswer, revision_tip: "Rewrite the answer once without looking." }));
-  document.querySelector("#nextQuestion").addEventListener("click", () => { quizIndex = (quizIndex + 1) % activeTopic.questions.length; renderQuiz(); });
+function togglePower() {
+  studio.power = !studio.power;
+  els.powerBtn.classList.toggle("on", studio.power);
+  els.powerBtn.textContent = studio.power ? "On" : "Off";
+  els.powerBtn.setAttribute("aria-pressed", String(studio.power));
 }
 
-async function markAnswer() {
-  const answer = document.querySelector("#studentAnswer").value.trim();
-  const q = activeTopic.questions[quizIndex];
-  if (!answer) return showFeedback({ status: "incorrect", marks_awarded: 0, marks_available: q.marks, what_was_good: "No answer was entered yet.", missing_points: q.markScheme, model_answer: q.modelAnswer, revision_tip: "Try writing one clear sentence first, then add a because sentence." });
-  els.aiStatus.textContent = "Marking...";
-  try {
-    const res = await fetch("/api/grade", {
+function setSpeed(speed) {
+  studio.speed = speed;
+  els.slowBtn.classList.toggle("active", speed === "slow");
+  els.fastBtn.classList.toggle("active", speed === "fast");
+}
+
+function saveBuild() {
+  if (!studio.strokes) return;
+  const build = {
+    id: crypto.randomUUID(),
+    name: `${studio.colorName} build ${appState.backpack.length + 1}`,
+    color: studio.color,
+    parts: studio.strokes,
+    mode: studio.mode === "collab" ? `with ${studio.collabFriends.join(", ")}` : "solo",
+    at: new Date().toISOString()
+  };
+  appState.backpack.unshift(build);
+  saveState();
+  renderHome();
+  if (studio.mode === "collab") {
+    els.studioTitle.textContent = "Saved to everyone's backpack";
+  } else {
+    els.studioTitle.textContent = "Saved to Backpack";
+  }
+}
+
+function clearBoard(options = {}) {
+  if (!scene) return;
+  [...scene.children].filter((child) => child.userData.drawable).forEach((child) => scene.remove(child));
+  studio.strokes = 0;
+  studio.collabSeen = 0;
+  if (!options.localOnly && studio.mode === "collab" && studio.collabRoom) {
+    fetch("/api/collab/clear", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ topic: activeTopic.title, question: q.question, studentAnswer: answer, modelAnswer: q.modelAnswer, markScheme: q.markScheme, marks: q.marks })
-    });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || "AI marking failed");
-    showFeedback(data);
-    saveMistake(q, answer, data);
-    els.aiStatus.textContent = "Ready";
-  } catch (error) {
-    els.aiStatus.textContent = "Offline";
-    showFeedback({ status: "partially_correct", marks_awarded: 0, marks_available: q.marks, what_was_good: "AI marking is not connected yet.", missing_points: ["Check that OPENAI_API_KEY is set before deployment.", error.message], model_answer: q.modelAnswer, revision_tip: "You can still use the model answer and mark scheme for practice." });
+      body: JSON.stringify({ room: studio.collabRoom })
+    }).catch(() => {});
   }
 }
 
-function showFeedback(data) {
-  const box = document.querySelector("#quizFeedback");
-  box.className = `feedback ${data.status}`;
-  box.innerHTML = `
-    <h3>${labelStatus(data.status)}: ${data.marks_awarded}/${data.marks_available}</h3>
-    <p><strong>Good:</strong> ${data.what_was_good}</p>
-    ${data.missing_points?.length ? `<ul>${data.missing_points.map((point) => `<li>${point}</li>`).join("")}</ul>` : ""}
-    <p><strong>Full-mark answer:</strong> ${data.model_answer}</p>
-    <p><strong>Revision tip:</strong> ${data.revision_tip}</p>
-  `;
+function startCollabSync() {
+  stopCollabSync();
+  fetchCollabStrokes();
+  studio.collabTimer = window.setInterval(fetchCollabStrokes, 900);
 }
 
-function saveMistake(question, answer, feedback) {
-  if (feedback.status === "correct") return;
-  state.mistakes.unshift({ date: new Date().toISOString(), topic: activeTopic.title, question: question.question, answer, feedback });
-  state.mistakes = state.mistakes.slice(0, 40);
-  localStorage.setItem("science-dashboard-state-v1", JSON.stringify(state));
-  renderMistakes();
+function stopCollabSync() {
+  if (studio.collabTimer) window.clearInterval(studio.collabTimer);
+  studio.collabTimer = null;
 }
 
-function renderMistakes() {
-  const mistakes = state.mistakes.filter((item) => item.topic === activeTopic.title);
-  els.mistakesView.innerHTML = `
-    <div class="flash-toolbar"><h2>${activeTopic.title} Mistake Tracker</h2><span>${mistakes.length} saved</span></div>
-    ${mistakes.length ? `<div class="mistake-grid">${mistakes.map((item) => `
-      <article class="mistake-card">
-        <h3>${item.question}</h3>
-        <p><strong>Your answer:</strong> ${escapeHtml(item.answer)}</p>
-        <p><strong>Fix:</strong> ${item.feedback.model_answer}</p>
-      </article>
-    `).join("")}</div>` : `<p class="empty">Partial or incorrect AI-marked answers will appear here.</p>`}
-  `;
+async function broadcastSegment(a, b, color, radius) {
+  try {
+    const response = await fetch("/api/collab/stroke", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        room: studio.collabRoom,
+        segment: { user: appState.username || "guest", color, radius, a: vectorData(a), b: vectorData(b) }
+      })
+    });
+    const saved = await response.json();
+    if (saved.id) studio.collabIds.add(saved.id);
+  } catch {
+    // Drawing should keep working even if the collab server is unavailable.
+  }
 }
 
-function labelStatus(status) {
-  return { correct: "Correct", partially_correct: "Partially correct", incorrect: "Needs work" }[status] || "Marked";
+async function fetchCollabStrokes() {
+  if (!studio.collabRoom || studio.mode !== "collab" || !scene) return;
+  try {
+    const response = await fetch(`/api/collab?room=${encodeURIComponent(studio.collabRoom)}&since=${studio.collabSeen}`);
+    const data = await response.json();
+    data.strokes.forEach((stroke) => {
+      if (studio.collabIds.has(stroke.id)) return;
+      studio.collabIds.add(stroke.id);
+      addPlasticSegment(vectorFromData(stroke.a), vectorFromData(stroke.b), stroke.color, stroke.radius || .105);
+    });
+    studio.collabSeen = data.total;
+  } catch {
+    stopCollabSync();
+  }
+}
+
+function resizeRenderer() {
+  if (!renderer) return;
+  const rect = els.canvas.parentElement.getBoundingClientRect();
+  renderer.setSize(rect.width, rect.height, false);
+  camera.aspect = rect.width / rect.height;
+  camera.updateProjectionMatrix();
+}
+
+function animate() {
+  if (animationStarted) return;
+  animationStarted = true;
+  renderer.setAnimationLoop(() => {
+    if (penMesh) penMesh.rotation.y += .005;
+    renderer.render(scene, camera);
+  });
+}
+
+function cleanName(value) {
+  return value.trim().replace(/\s+/g, "_").slice(0, 18);
+}
+
+function makeCollabRoom() {
+  return [appState.username || "guest", ...studio.collabFriends].map(cleanName).sort().join("__").slice(0, 80);
+}
+
+function vectorData(vector) {
+  return { x: vector.x, y: vector.y, z: vector.z };
+}
+
+function vectorFromData(data) {
+  return new THREE.Vector3(Number(data.x), Number(data.y), Number(data.z));
 }
 
 function loadState() {
-  try { return JSON.parse(localStorage.getItem("science-dashboard-state-v1")) || { mistakes: [] }; }
-  catch { return { mistakes: [] }; }
+  try {
+    return { ...defaultState, ...JSON.parse(localStorage.getItem(storeKey)) };
+  } catch {
+    return { ...defaultState };
+  }
 }
 
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[char]));
-}
-
-function slug(value) {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-}
-
-function scienceDiagram(kind) {
-  const common = `viewBox="0 0 360 210" role="img" aria-label="Science diagram"`;
-  const diagrams = {
-    fairtest: `<svg ${common}><rect x="25" y="50" width="90" height="70" rx="8" fill="#d9efe8" stroke="#176b55"/><rect x="135" y="50" width="90" height="70" rx="8" fill="#fff5cf" stroke="#8a6b16"/><rect x="245" y="50" width="90" height="70" rx="8" fill="#e8eef8" stroke="#255f9f"/><path d="M115 85h20M225 85h20" stroke="#16202a" stroke-width="3"/><text x="70" y="88" text-anchor="middle">Change</text><text x="180" y="88" text-anchor="middle">Measure</text><text x="290" y="88" text-anchor="middle">Keep same</text><path d="M70 145c70 34 145 34 220 0" fill="none" stroke="#176b55" stroke-width="5"/></svg>`,
-    circuit: `<svg ${common}><rect x="70" y="55" width="220" height="100" rx="10" fill="none" stroke="#16202a" stroke-width="4"/><line x1="110" y1="55" x2="110" y2="20" stroke="#16202a" stroke-width="4"/><line x1="125" y1="55" x2="125" y2="30" stroke="#16202a" stroke-width="4"/><circle cx="210" cy="155" r="25" fill="#fff5cf" stroke="#8a6b16" stroke-width="4"/><path d="M195 155h30M210 140v30" stroke="#8a6b16" stroke-width="3"/><text x="118" y="16" text-anchor="middle">cell</text><text x="210" y="198" text-anchor="middle">bulb</text></svg>`,
-    reproduction: `<svg ${common}><circle cx="105" cy="105" r="48" fill="#ffe1e1" stroke="#b04747" stroke-width="4"/><circle cx="235" cy="105" r="18" fill="#dce8ff" stroke="#255f9f" stroke-width="4"/><path d="M185 105h28" stroke="#255f9f" stroke-width="5"/><path d="M153 105h45" stroke="#16202a" stroke-width="3" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#16202a"/></marker></defs><text x="105" y="170" text-anchor="middle">egg cell</text><text x="235" y="170" text-anchor="middle">sperm cell</text><text x="180" y="42" text-anchor="middle">fertilisation</text></svg>`,
-    cell: `<svg ${common}><rect x="35" y="45" width="130" height="105" rx="22" fill="#edf5f7" stroke="#7157a6" stroke-width="4"/><circle cx="100" cy="98" r="22" fill="#d9ccef" stroke="#7157a6"/><rect x="205" y="38" width="120" height="120" rx="4" fill="#e7f4df" stroke="#176b55" stroke-width="6"/><circle cx="266" cy="98" r="18" fill="#d9ccef" stroke="#7157a6"/><circle cx="230" cy="68" r="9" fill="#58a45b"/><circle cx="304" cy="128" r="9" fill="#58a45b"/><text x="100" y="178" text-anchor="middle">animal</text><text x="266" y="178" text-anchor="middle">plant</text></svg>`,
-    foodweb: `<svg ${common}><text x="180" y="34" text-anchor="middle">fox</text><text x="85" y="110" text-anchor="middle">rabbit</text><text x="270" y="110" text-anchor="middle">bird</text><text x="180" y="184" text-anchor="middle">plants</text><path d="M180 166L92 122M180 166l84-44M98 96l70-48M265 96l-70-48" fill="none" stroke="#3f7f3d" stroke-width="4" marker-end="url(#b)"/><defs><marker id="b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="#3f7f3d"/></marker></defs></svg>`,
-    wave: `<svg ${common}><path d="M25 105c30-70 60-70 90 0s60 70 90 0 60-70 90 0 30 70 55 0" fill="none" stroke="#8a6b16" stroke-width="6"/><line x1="35" y1="105" x2="335" y2="105" stroke="#d8ddd6" stroke-width="2"/><path d="M118 105v-62" stroke="#b04747" stroke-width="3"/><text x="145" y="60">amplitude</text><path d="M113 150h92" stroke="#255f9f" stroke-width="3"/><text x="160" y="178" text-anchor="middle">wavelength</text></svg>`,
-    separation: `<svg ${common}><path d="M90 45h95l-34 58v55h-27v-55z" fill="#e8eef8" stroke="#255f9f" stroke-width="4"/><rect x="110" y="158" width="58" height="25" fill="#fff5cf" stroke="#8a6b16"/><path d="M225 55h65v105h-65z" fill="#edf5f7" stroke="#176b55" stroke-width="4"/><path d="M225 88h65" stroke="#176b55" stroke-width="3"/><circle cx="248" cy="78" r="5" fill="#b04747"/><circle cx="270" cy="108" r="5" fill="#7157a6"/><text x="138" y="30" text-anchor="middle">filter</text><text x="258" y="190" text-anchor="middle">chromatography</text></svg>`,
-    particles: `<svg ${common}><rect x="32" y="55" width="86" height="90" fill="#edf5f7" stroke="#16202a"/><rect x="137" y="55" width="86" height="90" fill="#fff5cf" stroke="#16202a"/><rect x="242" y="55" width="86" height="90" fill="#ffe1e1" stroke="#16202a"/>${dots(48, 70, 3, 4, 18)}${dots(153, 78, 3, 4, 20)}${dots(260, 70, 3, 3, 32)}<text x="75" y="176" text-anchor="middle">solid</text><text x="180" y="176" text-anchor="middle">liquid</text><text x="285" y="176" text-anchor="middle">gas</text></svg>`,
-    atoms: `<svg ${common}><circle cx="95" cy="105" r="38" fill="#e8eef8" stroke="#255f9f" stroke-width="4"/><circle cx="95" cy="105" r="8" fill="#255f9f"/><circle cx="220" cy="90" r="24" fill="#fff5cf" stroke="#8a6b16" stroke-width="4"/><circle cx="260" cy="118" r="24" fill="#ffe1e1" stroke="#b04747" stroke-width="4"/><line x1="240" y1="103" x2="242" y2="105" stroke="#16202a" stroke-width="5"/><text x="95" y="170" text-anchor="middle">atom</text><text x="240" y="170" text-anchor="middle">compound</text></svg>`
-  };
-  return diagrams[kind];
-}
-
-function dots(x, y, rows, cols, gap) {
-  let out = "";
-  for (let r = 0; r < rows; r += 1) for (let c = 0; c < cols; c += 1) out += `<circle cx="${x + c * gap}" cy="${y + r * gap}" r="5" fill="#176b55"/>`;
-  return out;
+function saveState() {
+  localStorage.setItem(storeKey, JSON.stringify(appState));
 }

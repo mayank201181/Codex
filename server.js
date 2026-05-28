@@ -1,12 +1,14 @@
 import http from "node:http";
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, "public");
 const PORT = Number(process.env.PORT || 5177);
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = process.env.HOST || "0.0.0.0";
+const collabRooms = new Map();
 
 await loadDotEnv();
 
@@ -37,6 +39,9 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, `http://${req.headers.host}`);
     if (req.method === "POST" && url.pathname === "/api/grade") return gradeAnswer(req, res);
+    if (url.pathname === "/api/collab/stroke" && req.method === "POST") return saveCollabStroke(req, res);
+    if (url.pathname === "/api/collab/clear" && req.method === "POST") return clearCollabRoom(req, res);
+    if (url.pathname === "/api/collab" && req.method === "GET") return getCollabRoom(url, res);
     if (req.method !== "GET") return sendJson(res, 405, { error: "Method not allowed" });
 
     const pathname = url.pathname === "/" ? "/index.html" : decodeURIComponent(url.pathname);
@@ -57,7 +62,8 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`Science revision dashboard: http://${HOST}:${PORT}`);
+  console.log(`Pastel 3D Pen Studio local: http://127.0.0.1:${PORT}`);
+  for (const url of getLanUrls(PORT)) console.log(`Pastel 3D Pen Studio mobile: ${url}`);
 });
 
 async function gradeAnswer(req, res) {
@@ -111,6 +117,41 @@ async function gradeAnswer(req, res) {
   sendJson(res, 200, JSON.parse(text));
 }
 
+async function saveCollabStroke(req, res) {
+  const payload = await readJson(req);
+  const room = String(payload.room || "").slice(0, 80);
+  const segment = payload.segment;
+  if (!room || !segment) return sendJson(res, 400, { error: "Missing collab room or segment." });
+  const strokes = collabRooms.get(room) || [];
+  const saved = {
+    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    user: String(segment.user || "friend").slice(0, 18),
+    color: String(segment.color || "#ff4fb3").slice(0, 18),
+    radius: Number(segment.radius || 0.105),
+    a: segment.a,
+    b: segment.b
+  };
+  strokes.push(saved);
+  collabRooms.set(room, strokes.slice(-1200));
+  sendJson(res, 200, saved);
+}
+
+async function clearCollabRoom(req, res) {
+  const payload = await readJson(req);
+  const room = String(payload.room || "").slice(0, 80);
+  if (!room) return sendJson(res, 400, { error: "Missing collab room." });
+  collabRooms.set(room, []);
+  sendJson(res, 200, { ok: true });
+}
+
+function getCollabRoom(url, res) {
+  const room = String(url.searchParams.get("room") || "").slice(0, 80);
+  const since = Number(url.searchParams.get("since") || 0);
+  if (!room) return sendJson(res, 400, { error: "Missing collab room." });
+  const strokes = collabRooms.get(room) || [];
+  sendJson(res, 200, { strokes: strokes.slice(Math.max(0, since)), total: strokes.length });
+}
+
 async function readJson(req) {
   const chunks = [];
   for await (const chunk of req) chunks.push(chunk);
@@ -142,4 +183,11 @@ function sendJson(res, status, data) {
 function sendText(res, status, text) {
   res.writeHead(status, { "Content-Type": "text/plain; charset=utf-8" });
   res.end(text);
+}
+
+function getLanUrls(port) {
+  return Object.values(os.networkInterfaces())
+    .flat()
+    .filter((info) => info && info.family === "IPv4" && !info.internal)
+    .map((info) => `http://${info.address}:${port}`);
 }

@@ -3,76 +3,174 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Year 7 Science Revision</title>
+    <title>Pastel 3D Pen Studio</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Tanglin Trust School / Year 7 Science</p>
-          <h1>Science Exam Dashboard</h1>
-          <p class="subhead">Study guides, diagrams, flashcards, written-answer quizzes, hints, and AI marking.</p>
+    <main id="app" class="app-shell">
+      <section id="homeScreen" class="home-screen" aria-label="3D pen studio home">
+        <div class="brand-panel">
+          <p class="eyebrow">Pastel 3D Pen Studio</p>
+          <h1>Make tiny 3D treasures with a magic pen.</h1>
+          <p class="subhead">Pick a rainbow colour, draw on the plastic board, save builds to your backpack, trade with friends, or collab on one shared board.</p>
         </div>
-        <div class="exam-box">
-          <span>Paper 1</span>
-          <strong>12 Jun</strong>
-          <span>Paper 2</span>
-          <strong>16 Jun</strong>
-        </div>
-      </header>
 
-      <section class="summary-grid" aria-label="Revision summary">
-        <article><span>Topics</span><strong id="topicCount">9</strong></article>
-        <article><span>Flashcards</span><strong id="flashcardCount">0</strong></article>
-        <article><span>Quiz Questions</span><strong id="questionCount">0</strong></article>
-        <article><span>AI Marking</span><strong id="aiStatus">Ready</strong></article>
+        <div class="home-grid">
+          <section class="panel user-panel">
+            <h2>Your Studio</h2>
+            <label for="usernameInput">Username</label>
+            <div class="inline-form">
+              <input id="usernameInput" type="text" maxlength="18" placeholder="e.g. sparkle_builder" autocomplete="off" />
+              <button id="saveUserBtn" class="primary-button" type="button">Save</button>
+            </div>
+            <p id="welcomeText" class="muted">Choose a username to start saving your creations.</p>
+          </section>
+
+          <section class="panel">
+            <div class="panel-heading">
+              <h2>Friends</h2>
+              <span id="friendCount">0</span>
+            </div>
+            <label for="friendInput">Friend username</label>
+            <div class="inline-form">
+              <input id="friendInput" type="text" maxlength="18" placeholder="friend_name" autocomplete="off" />
+              <button id="addFriendBtn" class="secondary-button" type="button">Add</button>
+            </div>
+            <div id="friendsList" class="chip-list" aria-live="polite"></div>
+          </section>
+
+          <section class="panel action-panel">
+            <button id="startBtn" class="big-button" type="button">Start</button>
+            <button id="collabBtn" class="secondary-button" type="button">Collab</button>
+            <button id="tradeBtn" class="secondary-button" type="button">Trade</button>
+          </section>
+
+          <section class="panel backpack-panel">
+            <div class="panel-heading">
+              <h2>Backpack</h2>
+              <span id="backpackCount">0 saved</span>
+            </div>
+            <div id="backpackList" class="backpack-list"></div>
+          </section>
+        </div>
       </section>
 
-      <section class="workspace">
-        <aside class="sidebar">
-          <section class="panel">
-            <div class="panel-heading">
-              <h2>Topics</h2>
-              <span id="activeTopicMeta"></span>
-            </div>
-            <div id="topicList" class="topic-list"></div>
-          </section>
+      <section id="colorScreen" class="color-screen hidden" aria-label="Choose pen colour">
+        <div class="screen-header">
+          <button class="icon-button" data-go-home type="button" aria-label="Back home">‹</button>
+          <div>
+            <p class="eyebrow">Choose Colour</p>
+            <h1>What colour should your 3D pen be?</h1>
+          </div>
+        </div>
+        <div id="colorChoices" class="color-grid"></div>
+      </section>
 
-          <section class="panel">
-            <div class="panel-heading">
-              <h2>Revision Mode</h2>
+      <section id="collabScreen" class="modal-screen hidden" aria-label="Choose collab friends">
+        <div class="modal-card">
+          <div class="screen-header compact">
+            <button class="icon-button" data-go-home type="button" aria-label="Back home">‹</button>
+            <div>
+              <p class="eyebrow">Collab</p>
+              <h1>Pick friends for the same board.</h1>
             </div>
-            <div class="segmented">
-              <button class="active" type="button" data-view="guide">Guide</button>
-              <button type="button" data-view="flashcards">Cards</button>
-              <button type="button" data-view="quiz">Quiz</button>
-              <button type="button" data-view="mistakes">Mistakes</button>
-            </div>
-          </section>
+          </div>
+          <div id="collabFriendList" class="choice-list"></div>
+          <button id="startCollabBtn" class="primary-button wide" type="button">Start collab</button>
+        </div>
+      </section>
 
-          <section class="panel plan-panel">
-            <div class="panel-heading">
-              <h2>Today</h2>
+      <section id="tradeScreen" class="modal-screen hidden" aria-label="Trade with friends">
+        <div class="modal-card">
+          <div class="screen-header compact">
+            <button class="icon-button" data-go-home type="button" aria-label="Back home">‹</button>
+            <div>
+              <p class="eyebrow">Trade</p>
+              <h1>Choose a friend and a backpack build.</h1>
             </div>
-            <ul>
-              <li>Read one study guide.</li>
-              <li>Do 10 flashcards.</li>
-              <li>Answer 5 written questions.</li>
-              <li>Rewrite one partial answer using the model answer.</li>
-            </ul>
-          </section>
-        </aside>
+          </div>
+          <div class="trade-grid">
+            <div>
+              <h2>Friend</h2>
+              <div id="tradeFriendList" class="choice-list"></div>
+            </div>
+            <div>
+              <h2>Your Backpack</h2>
+              <div id="tradeItemList" class="choice-list"></div>
+            </div>
+          </div>
+          <button id="confirmTradeBtn" class="tick-button" type="button" aria-label="Confirm trade">✓</button>
+          <p id="tradeStatus" class="muted"></p>
+        </div>
+      </section>
 
-        <section class="main-column">
-          <section id="guideView" class="view"></section>
-          <section id="flashcardView" class="view hidden"></section>
-          <section id="quizView" class="view hidden"></section>
-          <section id="mistakesView" class="view hidden"></section>
-        </section>
+      <section id="studioScreen" class="studio-screen hidden" aria-label="3D pen drawing studio">
+        <div class="studio-topbar">
+          <button class="icon-button" data-go-home type="button" aria-label="Back home">‹</button>
+          <div>
+            <p id="studioMode" class="eyebrow">Solo Build</p>
+            <h1 id="studioTitle">Plastic Board</h1>
+          </div>
+          <div class="studio-actions">
+            <button id="saveBuildBtn" class="primary-button" type="button">Save to Backpack</button>
+            <button id="clearBoardBtn" class="secondary-button" type="button">Clear</button>
+          </div>
+        </div>
+
+        <div class="studio-layout">
+          <aside class="tool-panel">
+            <section>
+              <h2>Pen</h2>
+              <button id="powerBtn" class="power-button on" type="button" aria-pressed="true">On</button>
+              <div class="pen-preview">
+                <div id="penNib" class="pen-nib"></div>
+                <span id="activeColorName">Red</span>
+              </div>
+            </section>
+
+            <section>
+              <h2>Colour</h2>
+              <div id="miniColors" class="mini-colors"></div>
+            </section>
+
+            <section>
+              <h2>Speed</h2>
+              <div class="segmented" role="group" aria-label="Pen speed">
+                <button id="slowBtn" class="active" type="button">Slow</button>
+                <button id="fastBtn" type="button">Fast</button>
+              </div>
+            </section>
+
+            <section>
+              <h2>Build Helpers</h2>
+              <div class="helper-grid">
+                <button data-shape="tower" class="secondary-button" type="button">Tower</button>
+                <button data-shape="wall" class="secondary-button" type="button">Wall</button>
+                <button data-shape="roof" class="secondary-button" type="button">Roof</button>
+              </div>
+            </section>
+
+            <section id="collabPanel" class="collab-panel hidden">
+              <h2>Friends Here</h2>
+              <div id="activeCollabList" class="chip-list"></div>
+            </section>
+          </aside>
+
+          <div class="board-wrap">
+            <canvas id="sceneCanvas" aria-label="3D plastic drawing board"></canvas>
+            <div id="drawHint" class="draw-hint">Drag the glowing pen around the plastic board to build.</div>
+          </div>
+        </div>
       </section>
     </main>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three.module.js"
+        }
+      }
+    </script>
     <script src="./app.js" type="module"></script>
   </body>
 </html>
